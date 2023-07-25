@@ -15,17 +15,17 @@
 1. Herkes kendi adina birer branch olusturur.
     * `git branch <isim>`
       
-2. sag alt panelde branc ismimizin yazili oldugu kisimdan
-    * main' e tikliyoruz
-    * update'e tikliyoruz
-    * sonra merge 'main' into 'brancismi' yazan kısma tikliyoruz
-    * bu şekilde pull işlemini gerçekleştirmiş oluyoruz
+2. branch degisikligi yaparken terminalde:
+    * git checkout <isim> 
+    * veya 
+    * git checkout main seklinde gecis yapilir
+   
       
 3. Yaptigi degisiklikleri kucuk commitlerle kendi branchinda saklar. Burada tavsiye edilen sadece sizin yaptiginiz degisikliklerin eklenmesidir.
     * 'git add . kesinlikle kullanilMAMAli'
     * 'git add (degisiklik yapilan yerin  dosya yolu yani "pat from content root" u)
-    * 'git commit -m "İsim/tarih/Yapilan Degisiklikler icin bir mesaj yazilir."'
-      Örn >>> git commit -m "<Kendi isminiz>/02.07/loginClassEklendi"
+    * 'git commit -m "İsim/v(kacinci version)/Tarih"'
+      Örn >>> git commit -m "<ihsan/v1/25.07"
 4. git push
    
 5. gelen linkten ustteki linke tiklanir ve github hesabi sayfasi acilir
@@ -33,6 +33,14 @@
 6. Push ettigimiz kendi kodumuz icin **request** olusturulur ve is biter
   
 7. Merge request islemi team lead tarfindan gerceklestirilir
+
+8. Requestleri kabul edilen projenin kendi projeemize aktarmak icin:
+* Main branchine gecilir
+* git pull edilir
+* kendi branchimize gecilir
+* git checkout <isim> 
+* git merge main yazilir.
+
 
 
 ### Isimlendirmelerde dikaat edilecekler
