@@ -2,9 +2,14 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import utilities.Driver;
 
 public class AccountPage_Property {
 
+    public AccountPage_Property(){
+        PageFactory.initElements(Driver.getDriver(),this);
+    }
 
     // Giris sayfa
     @FindBy(className = "text-success")
@@ -29,24 +34,26 @@ public class AccountPage_Property {
     public WebElement images;
     @FindBy(xpath = "//span[@id='select2-city_id-container']")
     public WebElement city;
+    @FindBy(xpath = "//input[@role='searchbox']")
+    public WebElement cityClicktenSonraYeniKutu;
     @FindBy(xpath = "//input[@placeholder='Property location']")
-    public WebElement PropertyLocation;
+    public WebElement propertyLocation;
     @FindBy(xpath = "//input[@id='latitude']")
-    public WebElement Latitude;
+    public WebElement latitude;
     @FindBy(xpath = "//input[@id='longitude']")
-    public WebElement Longitude;
+    public WebElement longitude;
     @FindBy(xpath = "//input[@id='number_bedroom']")
-    public WebElement NumberBedrooms;
+    public WebElement numberBedrooms;
     @FindBy(xpath = "//input[@id='number_bathroom']")
-    public WebElement NumberBathrooms;
+    public WebElement numberBathrooms;
     @FindBy(xpath = "//input[@id='number_floor']")
-    public WebElement NumberFloors;
+    public WebElement numberFloors;
     @FindBy(xpath = "//input[@id='square']")
-    public WebElement Square;
+    public WebElement square;
     @FindBy(xpath = "//input[@id='price-number']")
-    public WebElement Price;
+    public WebElement price;
     @FindBy(xpath = "//input[@id='label']")
-    public WebElement PropertyLabel;
+    public WebElement propertyLabel;
     @FindBy(xpath = "//select[@class='ui-select']")
     public WebElement cityCenter;
     @FindBy(xpath = "//select[@id='type_id']")
@@ -55,6 +62,8 @@ public class AccountPage_Property {
     public WebElement saveExit;
     @FindBy(xpath = "//button[@value='apply']")
     public WebElement save;
+    @FindBy(xpath = "//span[@id='select2-category_id-container']")
+    public WebElement category;
 
     // Add Property bölümü (Feature kısmı)
     @FindBy(xpath = "(//input[@value='1'])[3]")
@@ -98,11 +107,11 @@ public class AccountPage_Property {
     @FindBy(xpath = "//input[@value='21']")
     public WebElement walkinCloset;
     @FindBy(xpath = "//input[@value='22']")
-    public WebElement Backyard;
+    public WebElement backyard;
     @FindBy(xpath = "//input[@value='23']")
     public WebElement lowMaintenanceLandscaping;
     @FindBy(xpath = "//input[@value='24']")
-    public WebElement SoaringCeilings;
+    public WebElement soaringCeilings;
     @FindBy(xpath = "//input[@value='25']")
     public WebElement wellMaintainedGarden;
     @FindBy(xpath = "//input[@value='26']")
@@ -126,11 +135,11 @@ public class AccountPage_Property {
     @FindBy(xpath = "//input[@value='35']")
     public WebElement wineCellar;
     @FindBy(xpath = "//input[@value='36']")
-    public WebElement InfinityPool;
+    public WebElement infinityPool;
     @FindBy(xpath = "//input[@value='37']")
     public WebElement rooftopDeckWithCityViews ;
     @FindBy(xpath = "//input[@value='38']")
-    public WebElement SecurityAndConciergeServices;
+    public WebElement securityAndConciergeServices;
     @FindBy(xpath = "//input[@value='39']")
     public WebElement privateLanai;
     @FindBy(xpath = "//input[@value='40']")
@@ -202,6 +211,8 @@ public class AccountPage_Property {
     public WebElement cardName;
     @FindBy(xpath = "//button[@class='payment-checkout-btn btn btn-info']")
     public WebElement checkout;
+    @FindBy(xpath = "//button[@data-processing-text='Processing. Please wait...']")
+    public WebElement checkout12;
 
 }
 

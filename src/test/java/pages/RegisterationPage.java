@@ -44,6 +44,7 @@ public class RegisterationPage {
     @FindBy(xpath = "Dasbord yazi locate ==== //*[@title='Profile']")
     public WebElement dashbordYazi;
 
+
     @FindBy(id="email")
     public WebElement email;
     @FindBy(id="password")
@@ -73,5 +74,7 @@ public class RegisterationPage {
     public WebElement dashboardButton;
     @FindBy(xpath = "(//*[@rel='nofollow'])[2]")
     public WebElement logout;
+
+
 
 }

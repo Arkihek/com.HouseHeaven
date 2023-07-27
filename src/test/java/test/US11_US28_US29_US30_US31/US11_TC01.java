@@ -16,14 +16,22 @@ import utilities.TestBaseReport;
 public class US11_TC01 extends TestBaseReport {
 
 
+
     // Sign Up Today butonunun gorunur ve aktif oldugunu dogrulayabilmeli
     //Yeni kullanici kaydi yapılabilmeli
+
+    //Body bolumundeki Sign Up Today butonunun gorunur ve aktif oldugunu dogrulayabilmeli
+
     RegisterationPage registerationPage=new RegisterationPage();
 
     @Test
     public void Test01() {
         extentTest = extentReports.createTest("Sign Up Today button visibility test",
+
                 " Verify that the Sign Up  Today button is visible and active and create a new registration");
+
+                " Be able to verify that the Sign Up Today button in the Body section is visible and active");
+
         registerationPage=new RegisterationPage();
 
         //Kullanici Hause Heaven anasayfaya gider
@@ -52,10 +60,13 @@ public class US11_TC01 extends TestBaseReport {
         registerationPage.registerPassword.sendKeys("asdf456."+Keys.TAB);
         registerationPage.registerPasswordConfirm.sendKeys("asdf456."+Keys.TAB);
         registerationPage.registerButon.click();
+
         registerationPage.logout.click();
+
         extentTest.pass("Correct information is entered");
 
     }
+
 
     @Test
     public void Test02(){
@@ -129,5 +140,6 @@ public class US11_TC01 extends TestBaseReport {
 
 
     }
+
 
 }
