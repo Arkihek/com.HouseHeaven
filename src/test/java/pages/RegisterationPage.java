@@ -44,4 +44,34 @@ public class RegisterationPage {
     @FindBy(xpath = "Dasbord yazi locate ==== //*[@title='Profile']")
     public WebElement dashbordYazi;
 
+    @FindBy(id="email")
+    public WebElement email;
+    @FindBy(id="password")
+    public WebElement password;
+    @FindBy(xpath = "//*[@class='btn btn-md full-width btn-theme-light-2 rounded']")
+    public WebElement loginButton;
+
+    @FindBy(xpath = "(//*[@rel='nofollow'])[1]")
+    public WebElement user;
+    @FindBy(xpath = "//*[@title='Settings']")
+    public WebElement settingsButton;
+    @FindBy(xpath = "//*[@class='js-cookie-consent-agree cookie-consent__agree']")
+    public WebElement cookies;
+    @FindBy(xpath = "//*[@title='credits']")
+    public WebElement buyCredits;
+    @FindBy(xpath ="//*[@title='Properties']")
+    public WebElement properties;
+    @FindBy(xpath = "//*[@class='ti-unlock']")
+    public WebElement security;
+    @FindBy(xpath ="//*[@class='dashboard-stat widget-1']" )
+    public WebElement approvedProperties;
+    @FindBy(xpath = "//*[@class='dashboard-stat widget-2']")
+    public WebElement pendingApproved;
+    @FindBy(xpath = "//*[@class='dashboard-stat widget-3']")
+    public WebElement rejectedProperties;
+    @FindBy(xpath = "//*[@title='Profile']")
+    public WebElement dashboardButton;
+    @FindBy(xpath = "(//*[@rel='nofollow'])[2]")
+    public WebElement logout;
+
 }
