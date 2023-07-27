@@ -20,9 +20,10 @@ public class US11_TC01 extends TestBaseReport {
     RegisterationPage registerationPage=new RegisterationPage();
 
     @Test
-    public void Test01(){
+    public void Test01() {
         extentTest = extentReports.createTest("Sign Up Today button visibility test",
-               " Be able to verify that the Sign Up Today button in the Body section is visible and active");
+                " Be able to verify that the Sign Up Today button in the Body section is visible and active");
+        registerationPage=new RegisterationPage();
 
         //Kullanici Hause Heaven anasayfaya gider
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -34,8 +35,11 @@ public class US11_TC01 extends TestBaseReport {
 
 
 
+
+
         //login girisi altindaki "Register a new account" butonuna basar
         registerationPage.registerNewAccount.click();
+        extentTest.info("user should be able to register new");
 
         //Register altindaki kutucuklari doldurur
 
@@ -47,21 +51,10 @@ public class US11_TC01 extends TestBaseReport {
         registerationPage.registerPassword.sendKeys("asdf456."+Keys.TAB);
         registerationPage.registerPasswordConfirm.sendKeys("asdf456."+Keys.TAB);
         registerationPage.registerButon.click();
-        extentTest.info("Correct information is entered");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        extentTest.pass("Correct information is entered");
 
     }
+
+
+
 }
