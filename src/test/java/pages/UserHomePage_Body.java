@@ -43,6 +43,9 @@ public class UserHomePage_Body {
     @FindBy(xpath = "(//button[@class='slick-prev slick-arrow'])[1]")
     public WebElement GoodPlaceLeftSlickArrow1;
 
+    @FindBy(xpath = "(//*[@class='add-to-wishlist'])[1]")
+    public WebElement addToWishList1;
+
     @FindBy(xpath = "(//*[@class='prt-link-detail'])[2]")
     public WebElement goodPlace2;
 
@@ -51,6 +54,9 @@ public class UserHomePage_Body {
 
     @FindBy(xpath = "(//button[@class='slick-prev slick-arrow'])[2]")
     public WebElement GoodPlaceLeftSlickArrow2;
+
+    @FindBy(xpath = "(//*[@class='add-to-wishlist'])[2]")
+    public WebElement addToWishList2;
 
     @FindBy(xpath = "(//*[@class='prt-link-detail'])[3]")
     public WebElement goodPlace3;
@@ -61,6 +67,9 @@ public class UserHomePage_Body {
     @FindBy(xpath = "(//button[@class='slick-prev slick-arrow'])[3]")
     public WebElement GoodPlaceLeftSlickArrow3;
 
+    @FindBy(xpath = "(//*[@class='add-to-wishlist'])[3]")
+    public WebElement addToWishList3;
+
     @FindBy(xpath = "(//*[@class='prt-link-detail'])[4]")
     public WebElement goodPlace4;
 
@@ -69,6 +78,9 @@ public class UserHomePage_Body {
 
     @FindBy(xpath = "(//button[@class='slick-prev slick-arrow'])[4]")
     public WebElement GoodPlaceLeftSlickArrow4;
+
+    @FindBy(xpath = "(//*[@class='add-to-wishlist'])[4]")
+    public WebElement addToWishList4;
 
     @FindBy(xpath = "(//*[@class='prt-link-detail'])[5]")
     public WebElement goodPlace5;
@@ -79,6 +91,9 @@ public class UserHomePage_Body {
     @FindBy(xpath = "(//button[@class='slick-prev slick-arrow'])[5]")
     public WebElement GoodPlaceLeftSlickArrow5;
 
+    @FindBy(xpath = "(//*[@class='add-to-wishlist'])[5]")
+    public WebElement addToWishList5;
+
     @FindBy(xpath = "(//*[@class='prt-link-detail'])[6]")
     public WebElement goodPlace6;
 
@@ -88,10 +103,70 @@ public class UserHomePage_Body {
     @FindBy(xpath = "(//button[@class='slick-prev slick-arrow'])[6]")
     public WebElement GoodPlaceLeftSlickArrow6;
 
+    @FindBy(xpath = "(//*[@class='add-to-wishlist'])[6]")
+    public WebElement addToWishList6;
+
+    @FindBy(xpath = "(//*[@class='btn btn-theme-light-2 rounded'])[1]")
+    public WebElement browseMoreProperties;
+
+
+    //*--------Find By Locations--------
+    @FindBy(xpath = "(//*[@class='sec-heading center'])[3]")
+    public WebElement findByLocations;
+
+    @FindBy(xpath = "(//*[@class='col-lg-4 col-md-4'])[4]")
+    public WebElement denverElement;
+    @FindBy(xpath = "(//*[@class='lp-property-view'])[1]")
+    public WebElement denverElementClick;
+    @FindBy(xpath = "(//*[@class='lp-content-flex'])[1]")
+    public WebElement denverElementText;
+    @FindBy(xpath = "//*[@class='m-0']")
+    public WebElement findByElementResultProperties;
+
+    @FindBy(xpath = "(//*[@class='col-lg-4 col-md-4'])[5]")
+    public WebElement phoenixElement;
+    @FindBy(xpath = "(//*[@class='lp-property-view'])[2]")
+    public WebElement phoenixElementClick;
+
+    @FindBy(xpath = "(//*[@class='col-lg-4 col-md-4'])[6]")
+    public WebElement miamiElement;
+    @FindBy(xpath = "(//*[@class='lp-property-view'])[3]")
+    public WebElement miamiElementClick;
+
+    @FindBy(xpath = "(//*[@class='col-lg-4 col-md-4'])[7]")
+    public WebElement newYorkElement;
+    @FindBy(xpath = "(//*[@class='lp-property-view'])[4]")
+    public WebElement newYorkElementClick;
+
+
+    @FindBy(xpath = "(//*[@class='col-lg-4 col-md-4'])[8]")
+    public WebElement seattleElement;
+    @FindBy(xpath = "(//*[@class='lp-property-view'])[5]")
+    public WebElement seattleElementClick;
+
+    @FindBy(xpath = "(//*[@class='col-lg-4 col-md-4'])[9]")
+    public WebElement austinElement;
+    @FindBy(xpath = "(//*[@class='lp-property-view'])[6]")
+    public WebElement austinElementClick;
+
+    @FindBy(xpath = "(//*[@class='col-lg-4 col-md-4'])[10]")
+    public WebElement chicagoElement;
+    @FindBy(xpath = "(//*[@class='lp-property-view'])[7]")
+    public WebElement chicagoElementClick;
+
+    @FindBy(xpath = "(//*[@class='col-lg-4 col-md-4'])[11]")
+    public WebElement losAngelesElement;
+    @FindBy(xpath = "(//*[@class='lp-property-view'])[8]")
+    public WebElement losAngelesElementClick;
+
+
+
 
     //*--------search--------
     @FindBy(xpath = "//*[@class='input-with-icon']")
     public WebElement searchForLocationsBox;
+
+
 
 
 }
