@@ -1,5 +1,7 @@
 package test.US12_US14_US15.US_012;
 
+import com.beust.ah.A;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -9,6 +11,7 @@ import pages.AccountPage_Property;
 import pages.UserHomePage_Body;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.JSUtilities;
 import utilities.ReusableMethods;
 
 public class US12_TC01 {
@@ -17,7 +20,7 @@ public class US12_TC01 {
     //yeni mülk ilanı ekleyebilmeli
 
     @Test
-    public void mulkEkle() throws InterruptedException {
+    public void mulkEkle() {
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         AccountPage_Property kullanici = new AccountPage_Property();
@@ -42,9 +45,16 @@ public class US12_TC01 {
         ReusableMethods.waitFor(1);
         WebElement cookies=Driver.getDriver().findElement(By.xpath("//button[@class='js-cookie-consent-agree cookie-consent__agree']"));
         cookies.click();
+        JSUtilities.scrollToElement(Driver.getDriver(),kullanici.cardNumber);
+        ReusableMethods.waitFor(2);
         kullanici.checkout.click();
 
         // kullanıcı kart işlemını tamamladıktan sonra mulk ekleyebılecegı add property sayfasına gider ve gereklı alanları doldurur
+        ReusableMethods.waitFor(2);
+        //Driver.getDriver().switchTo().alert().dismiss();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.contextClick(kullanici.title).perform();
+        ReusableMethods.waitFor(2);
         kullanici.addProperty.click();
         kullanici.title.sendKeys("Satlık 6+2 Villa");
         kullanici.description.sendKeys("2 yıllık yeni yapı sahibinden satlık");
@@ -73,7 +83,7 @@ public class US12_TC01 {
         kullanici.category.click();
         kullanici.category.sendKeys(Keys.ARROW_DOWN);
         kullanici.category.sendKeys(Keys.ENTER);
-        Thread.sleep(4000);
+        ReusableMethods.waitFor(3);
 
         // 2 farklı save ıle kaydetmeyı unutma
         kullanici.save.click();
