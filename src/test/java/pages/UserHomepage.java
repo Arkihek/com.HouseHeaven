@@ -15,6 +15,8 @@ public class UserHomepage {
     // Home Link locate on header -- Header kismindaki home linki
     @FindBy(xpath = "(//*[@href='https://qa.hauseheaven.com/'])[3]")
     public WebElement home;
+    @FindBy(xpath = "//*[@href='https://qa.hauseheaven.com/properties?layout=sidebar']")
+    public WebElement listing;
 
     //Kayıtlı kullanıcı locateleri
     @FindBy(xpath = "//a[normalize-space()='Sign Up']")
