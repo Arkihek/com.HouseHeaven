@@ -7,6 +7,32 @@ import utilities.Driver;
 
 public class AdminDashboard {
 
+
+public AdminDashboard() {
+
+
+    PageFactory.initElements(Driver.getDriver(),this);}
+
+    @FindBy(xpath = "//*[@name='username']")
+    public WebElement adminEMail;
+
+    @FindBy(xpath = "//*[@name='password']")
+    public WebElement adminPassword;
+
+    @FindBy(xpath = "//*[@class='signin']")
+    public WebElement adminSignIn;
+
+    @FindBy(xpath = "//*[@name='remember']")
+    public WebElement adminRemember;
+    @FindBy(xpath = "(//*[@class='dropdown-toggle dropdown-header-name'])[3]")
+    public WebElement adminGirisKontrol;
+
+    @FindBy(xpath = "(//*[@class='nav-link nav-toggle'])[2]")
+    public  WebElement blog;
+
+    @FindBy(xpath = "//*[@id='cms-plugins-blog']")
+    public WebElement blogBasligindakiler;
+
     public AdminDashboard(){
 
         PageFactory.initElements(Driver.getDriver(),this);
