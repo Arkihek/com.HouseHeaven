@@ -33,10 +33,6 @@ public AdminDashboard() {
     @FindBy(xpath = "//*[@id='cms-plugins-blog']")
     public WebElement blogBasligindakiler;
 
-    public AdminDashboard(){
-
-        PageFactory.initElements(Driver.getDriver(),this);
-    }
 
     // Admin DashBoard Giris
 
@@ -45,7 +41,7 @@ public AdminDashboard() {
 
 
     @FindBy(xpath = "//input[@placeholder='Password']")
-    public WebElement  adminPassword;
+    public WebElement  adminPasswordd;
 
 
     @FindBy(xpath = "//span[@class='signin']")

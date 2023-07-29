@@ -21,15 +21,18 @@ public class US12_TC03 extends TestBaseReport {
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         AccountPage_Property kullanici = new AccountPage_Property();
+        extentTest.info("Kullanıcı hauseheaven anasayfasına gıder");
 
         // Kullanici sisteme login için bilgilerini dolduruyor
         kullanici.signIn.click();
         kullanici.mailKutusu.sendKeys(ConfigReader.getProperty("userMail"));
         kullanici.password.sendKeys(ConfigReader.getProperty("userPass"));
         kullanici.login.click();
+        extentTest.info("Kullanıcı dogru kullanıcı adı ve şifreyi girdikten sonra login butonuna tıklar");
 
         // Kullanıcı add property lınkıne tıklar ve ilgili kutucukları doldurablıdıgını test eder
         kullanici.addProperty.click();
+        extentTest.info("Kullanıcı add property lınkıne tıklar");
         kullanici.title.sendKeys("Satlık Ev");
         String actualGirilenVeri = kullanici.title.getAttribute("value");
         Assert.assertEquals(actualGirilenVeri,"Satlık Ev");
@@ -44,7 +47,7 @@ public class US12_TC03 extends TestBaseReport {
         kullanici.content.sendKeys("Büyük bir garaja sahip , bahçesi büyük ve yeni yapı 2 yıllık");
         actualGirilenVeri = kullanici.content.getAttribute("value");
         //String expectedGi
-        Assert.assertEquals(actualGirilenVeri,"Büyük bir garaja sahip , bahçesi büyük ve yeni yapı 2 yıllık");
+        Assert.assertEquals(actualGirilenVeri ,"Büyük bir garaja sahip , bahçesi büyük ve yeni yapı 2 yıllık");
         ReusableMethods.waitFor(2);
         JSUtilities.scrollToElement(Driver.getDriver(),kullanici.content);
 
@@ -254,6 +257,8 @@ public class US12_TC03 extends TestBaseReport {
 
 
         // Kullanıcı 2 farklı yolla save edebilmeli
+        kullanici.save.click();
+        kullanici.saveExit.click();
 
     }
 

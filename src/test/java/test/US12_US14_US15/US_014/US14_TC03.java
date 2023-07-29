@@ -1,31 +1,27 @@
-package test.US12_US14_US15.US_012;
+package test.US12_US14_US15.US_014;
 
-import com.beust.ah.A;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AccountPage_Property;
-import pages.UserHomePage_Body;
+import pages.UserHomepage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.JSUtilities;
 import utilities.ReusableMethods;
 
-import java.sql.ResultSet;
-
-public class US12_TC01 {
+public class US14_TC03 {
 
 
-    @Test //Save&Exit
-    public void mulkEkle() {
+    @Test
+    public void mulkEklemeDuzenleme(){
 
         // Kullanıcı hauseheaven anasayfasına gider
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         AccountPage_Property kullanici = new AccountPage_Property();
+        UserHomepage userHomepage =new UserHomepage();
 
         // Kullanici sisteme login için bilgilerini dolduruyor
         kullanici.signIn.click();
@@ -59,20 +55,6 @@ public class US12_TC01 {
         kullanici.title.sendKeys("Satlık 6+2 Villa");
         kullanici.description.sendKeys("2 yıllık yeni yapı sahibinden satlık");
         kullanici.content.sendKeys("Denize sıfır konumda\n 315 m2 \n büyük bir garaja sahip");
-        ReusableMethods.waitFor(1);
-
-
-        // siteye foto yüklemeli //
-        JSUtilities.scrollToElement(Driver.getDriver(),kullanici.content);
-        ReusableMethods.waitFor(1);
-        WebElement imagesElement = Driver.getDriver().findElement(By.xpath("//div[@id='multiple-upload']"));
-        ReusableMethods.waitFor(2);
-        String dinamikDosyaYolu = "Villa2.webp";
-        ReusableMethods.waitFor(5);
-        imagesElement.sendKeys(dinamikDosyaYolu);
-        ReusableMethods.waitFor(5);
-
-
 
 
         ReusableMethods.waitFor(1);
@@ -102,8 +84,27 @@ public class US12_TC01 {
         ReusableMethods.waitFor(1);
 
 
-        // 2 farklı save ıle kaydetmeyı unutma
-        //kullanici.save.click();
-        //kullanici.saveExit.click();
+        // Kullanıcı gırdıgı bılgılerı kaydeder
+        WebElement saveExitUstuElement = Driver.getDriver().findElement(By.xpath("//span[text()='Publish']"));
+        ReusableMethods.waitFor(2);
+        JSUtilities.scrollToElement(Driver.getDriver(),userHomepage.wishlist);
+        ReusableMethods.waitFor(2);
+        kullanici.saveExit.click();
+        ReusableMethods.waitFor(7);
+
+        // mülkün yüklendıgını test eder
+        WebElement yuklenenMulk = Driver.getDriver().findElement(By.xpath("//div[@class='alert alert-success alert-dismissible']"));
+        Assert.assertTrue(yuklenenMulk.isDisplayed());
+
+        // yüklenen mulku silebilmeyi test eder
+        WebElement yuklenenMulkuSil=Driver.getDriver().findElement(By.xpath("(//a[@class='btn btn-icon btn-sm btn-danger deleteDialog'])[1]"));
+        yuklenenMulkuSil.click();
+        WebElement yuklenenMulkuSilBilgiKutusu = Driver.getDriver().findElement(By.xpath("//button[@class='float-end btn btn-danger delete-crud-entry']"));
+        yuklenenMulkuSilBilgiKutusu.click();
+
     }
 }
+
+
+
+
