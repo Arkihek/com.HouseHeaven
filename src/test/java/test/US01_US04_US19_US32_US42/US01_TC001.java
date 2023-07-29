@@ -19,7 +19,9 @@ public class US01_TC001 extends TestBaseReport {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         String ecpected="https://qa.hauseheaven.com/";
 
-        String actual=Driver.getDriver().getCurrentUrl();
+
+
+       String actual=Driver.getDriver().getCurrentUrl();
 
         Assert.assertEquals(actual,ecpected);
         extentTest.pass("User can access the website");
