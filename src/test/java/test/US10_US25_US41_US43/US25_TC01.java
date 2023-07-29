@@ -42,7 +42,7 @@ public class US25_TC01 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(address1.isDisplayed());
 
-        JSUtilities.scrollToBottom(Driver.getDriver(),Driver.getDriver());
+        JSUtilities.scrollToBottom(Driver.getDriver());
         Thread.sleep(3000);
         JSUtilities.scrollToTop(Driver.getDriver());
 
