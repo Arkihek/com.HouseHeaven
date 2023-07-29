@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AccountPage_Property;
 import pages.UserHomepage;
-import utilities.ReusableMethods;
+import utilities.*;
 
 public class US12_TC06 extends TestBaseReport {
 
