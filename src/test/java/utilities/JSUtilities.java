@@ -41,7 +41,7 @@ public class JSUtilities {
     }
 
     // A function that scrolls to the bottom of the page.
-    public static void scrollToBottom(WebDriver driver) {
+    public static void scrollToBottom(WebDriver driver, Object iFrameElemet) {
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
