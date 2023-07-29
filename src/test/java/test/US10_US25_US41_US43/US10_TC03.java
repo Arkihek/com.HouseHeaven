@@ -22,7 +22,7 @@ public class US10_TC03 extends TestBaseReport {
         contactButonu.click();
         WebElement address1 = Driver.getDriver().findElement(By.xpath("//div[@class='cn-info-content']"));
 
-        JSUtilities.scrollToBottom(Driver.getDriver(),Driver.getDriver());
+        JSUtilities.scrollToBottom(Driver.getDriver());
         Thread.sleep(3000);
         JSUtilities.scrollToTop(Driver.getDriver());
         Thread.sleep(3000);
