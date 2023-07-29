@@ -64,6 +64,8 @@ public class AccountPage_Property {
     public WebElement save;
     @FindBy(xpath = "//span[@id='select2-category_id-container']")
     public WebElement category;
+    @FindBy(xpath = "//input[@class='select2-search__field']")
+    public WebElement categoryClicktenSonraYeniKutu;
 
     // Add Property bölümü (Feature kısmı)
     @FindBy(xpath = "(//input[@value='1'])[3]")

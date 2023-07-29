@@ -87,7 +87,7 @@ public class US14_TC03 {
         // Kullanıcı gırdıgı bılgılerı kaydeder
         WebElement saveExitUstuElement = Driver.getDriver().findElement(By.xpath("//span[text()='Publish']"));
         ReusableMethods.waitFor(2);
-        JSUtilities.scrollToElement(Driver.getDriver(),userHomepage.wishlist);
+    // 5555    //JSUtilities.scrollToElement(Driver.getDriver(),userHomepage.wishlist);
         ReusableMethods.waitFor(2);
         kullanici.saveExit.click();
         ReusableMethods.waitFor(7);
