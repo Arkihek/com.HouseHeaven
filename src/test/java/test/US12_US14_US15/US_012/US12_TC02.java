@@ -1,6 +1,5 @@
 package test.US12_US14_US15.US_012;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.AccountPage_Property;
@@ -11,36 +10,33 @@ import utilities.TestBaseReport;
 public class US12_TC02 extends TestBaseReport {
 
 
-    // Kayıtlı kullanıcı olarak sıte anasayfasının header bolumunden add property lınkının gorunur oldugunu
-    // ve tıklandıgında yenı mulk ılanı acacagım saayfaya yonlendırdıgı dogrulanır
-
     @Test
     public void addPropertyLinki() {
 
-        extentTest = extentReports.createTest("Raporlu add Property tetsi","Kullanici add property linkini görebilmeli ve tıkladıgında ilgili sayfaya gidebilmeli");
+        extentTest = extentReports.createTest("Reported add Property tetsi","The user should be able to see the add property link and go to the relevant page when clicked");
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        extentTest.info("Kullanıcı hauseheaven anasayfaya gider");
+        extentTest.info("User hauseheaven goes to homepage");
         AccountPage_Property kullanici = new AccountPage_Property();
 
-        // Kullanici sisteme login için bilgilerini dolduruyor
+        // User fills in their information to log in to the system
         kullanici.signIn.click();
-        extentTest.info("giriş yapmak için sign ın lınkıne tıklar");
+        extentTest.info("clicks on the sign in link to log in");
         kullanici.mailKutusu.sendKeys(ConfigReader.getProperty("userMail"));
-        extentTest.info("Kullanıcı adını girer");
+        extentTest.info("Enters username");
         kullanici.password.sendKeys(ConfigReader.getProperty("userPass"));
         kullanici.login.click();
-        extentTest.info("password'unu girer ve sayfaya login olur");
+        extentTest.info("enters his password and logs in to the page");
 
-        // add property lınkının gozuktugu dogrulanır
+        // verify that the add property link appears
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(kullanici.addProperty.isDisplayed(),"add Property lınki gözükmelidir");
-        extentTest.pass("add Property lınkının görüntülendiğini test eder");
+        softAssert.assertTrue(kullanici.addProperty.isDisplayed(),"The add Property link should appear");
+        extentTest.pass("tests that the add Property link is displayed");
 
-        // add property lınkıne tıklanır ve ilgili sayfaya yönlendırıldıgı dogrulanır
+        // click on the add property link and confirm that you are directed to the relevant page
         kullanici.addProperty.click();
-        softAssert.assertTrue(kullanici.title.isDisplayed(),"add property'e tıklandıktan sonra tiitle gözükmelıdır");
-        extentTest.pass("add property linkıne tıklar ve ılgılı sayfaya gittiğiniz test eder");
+        softAssert.assertTrue(kullanici.title.isDisplayed(),"tiitle should appear after clicking add property");
+        extentTest.pass("clicks on the add property link and tests that you go to the relevant page");
         softAssert.assertAll();
 
 

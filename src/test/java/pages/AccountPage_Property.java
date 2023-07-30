@@ -64,6 +64,8 @@ public class AccountPage_Property {
     public WebElement save;
     @FindBy(xpath = "//span[@id='select2-category_id-container']")
     public WebElement category;
+    @FindBy(xpath = "//input[@class='select2-search__field']")
+    public WebElement categoryClicktenSonraYeniKutu;
 
     // Add Property bölümü (Feature kısmı)
     @FindBy(xpath = "(//input[@value='1'])[3]")
@@ -228,8 +230,28 @@ public class AccountPage_Property {
     public WebElement sendMessageIletisim;
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     public WebElement sendMessageIletisimOnay;
+
+    // Mulk islemleri yükleme silme düzenleme vb.
     @FindBy(xpath = "(//div [@class='click slick-initialized slick-slider'])[1]")
     public WebElement mulkIlani;
+    @FindBy(xpath = "(//a[@rel='nofollow'])[1]")
+    public WebElement girisYaptiginaDairBilgi;
+    @FindBy(xpath = "//span[@data-action='create']")
+    public WebElement createaccounproperty;
+    @FindBy(xpath = "//span[@class='dt-length-records']")
+    public WebElement ilanSayiBilgi;
+    @FindBy(xpath = "//button[@class='js-cookie-consent-agree cookie-consent__agree']")
+    public WebElement cookies;
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    public WebElement yuklenenMulk;
+    @FindBy(xpath = "//i[@class='fa fa-edit'])[1]")
+    public WebElement mulkDuzenleme;
+    @FindBy(xpath = "//a[@class='btn btn-icon btn-sm btn-danger deleteDialog'])[1]")
+    public WebElement yuklenenMulkuSil;
+    @FindBy(xpath = "//button[@class='float-end btn btn-danger delete-crud-entry']")
+    public WebElement yuklenenMulkuSilBilgiKutusu;
+    @FindBy(xpath = "//span[text()='Publish']")
+    public WebElement saveExitUstuElement;
 
 
 }
