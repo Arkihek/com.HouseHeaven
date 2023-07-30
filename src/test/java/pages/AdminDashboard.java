@@ -7,7 +7,6 @@ import utilities.Driver;
 
 public class AdminDashboard {
 
-
 public AdminDashboard() {
 
 
@@ -33,10 +32,6 @@ public AdminDashboard() {
     @FindBy(xpath = "//*[@id='cms-plugins-blog']")
     public WebElement blogBasligindakiler;
 
-    
-
-        
-    
 
     // Admin DashBoard Giris
 
@@ -51,8 +46,6 @@ public AdminDashboard() {
     @FindBy(xpath = "//span[@class='signin']")
     public WebElement  AdminSigninButon;
 
-
-
-
-
 }
+
+

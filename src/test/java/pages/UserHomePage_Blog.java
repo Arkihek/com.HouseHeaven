@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -39,34 +40,11 @@ public class UserHomePage_Blog {
     public WebElement onbirinciBlogSayfa;
     @FindBy (xpath = "(//a[@class='bl-continue'])[12]")
     public WebElement onikinciBlogSayfa;
-    @FindBy (xpath = "(//a[@href='https://qa.hauseheaven.com/news/pratical-tips-for-home-design'])[2]")
-    public WebElement onucuncuBlogSayfa;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //US09_TC003 locate'leri
-    @FindBy(className = "ipt-title")
+    @FindBy(xpath = "//h1[@class='ipt-title']")
     public WebElement blogBaslik;
-    @FindBy(className = "post-featured-img")
+    @FindBy(xpath = "(//img[@class='img-fluid'])[1]")
     public WebElement blogResim;
     @FindBy(className = "ck-content")
     public WebElement blogIcerik;
@@ -75,12 +53,18 @@ public class UserHomePage_Blog {
     @FindBy(xpath = "//*[text()='Categories']")
     public WebElement categories;
     @FindBy(xpath = "(//a[@class='text-dark'])[1]")
+    public WebElement www;
+    @FindBy(xpath = "(//a[@class='text-dark'])[2]")
+    public WebElement pump;
+    @FindBy(xpath = "(//a[@class='text-dark'])[3]")
+    public WebElement poolDesign;
+    @FindBy(xpath = "(//a[@class='text-dark'])[4]")
     public WebElement gardenDesing;
-    @FindBy(xpath = "(//a[@class='text-dark'])[1]")
+    @FindBy(xpath = "(//a[@class='text-dark'])[5]")
     public WebElement houseDesign;
-    @FindBy(xpath = "(//a[@class='text-dark'])[1]")
+    @FindBy(xpath = "(//a[@class='text-dark'])[6]")
     public WebElement latestNews;
-    @FindBy(xpath = "(//a[@class='text-dark'])[1]")
+    @FindBy(xpath = "(//a[@class='text-dark'])[7]")
     public WebElement buildingMaterials;
     @FindBy(xpath = "//*[text()='Featured properties']")
     public WebElement featuredProperties;
@@ -94,6 +78,12 @@ public class UserHomePage_Blog {
     public WebElement dorduncuFeaturedProperties;
     @FindBy(xpath = "(//div[@class='sides_list_property_detail'])[5]")
     public WebElement besinciFeaturedProperties;
+    @FindBy(xpath = "//*[text()='Related posts:']")
+    public WebElement relatedPosts;
+    @FindBy(xpath = "(//div[@class='blog-wrap-grid'])[1]")
+    public WebElement birincirelatedPosts;
+    @FindBy(xpath = "(//div[@class='blog-wrap-grid'])[1]")
+    public WebElement ikincirelatedPosts;
 
 
     //US09_TC005 locate'leri
@@ -103,6 +93,8 @@ public class UserHomePage_Blog {
     public WebElement linkedinButonu;
     @FindBy(xpath = "//a[@title='Share on Twitter']")
     public WebElement twitterButonu;
+
+
 
 
 }
