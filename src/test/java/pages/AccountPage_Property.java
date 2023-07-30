@@ -12,7 +12,7 @@ public class AccountPage_Property {
     }
 
     // Giris sayfa
-    @FindBy(className = "text-success")
+    @FindBy(xpath = "//img[@class='mr-2']")
     public WebElement addProperty;
     @FindBy(className = "add-listing")
     public WebElement signIn;
@@ -64,6 +64,8 @@ public class AccountPage_Property {
     public WebElement save;
     @FindBy(xpath = "//span[@id='select2-category_id-container']")
     public WebElement category;
+    @FindBy(xpath = "//input[@class='select2-search__field']")
+    public WebElement categoryClicktenSonraYeniKutu;
 
     // Add Property bölümü (Feature kısmı)
     @FindBy(xpath = "(//input[@value='1'])[3]")
@@ -197,7 +199,7 @@ public class AccountPage_Property {
     public WebElement logout;
 
     //buycredits
-    @FindBy(xpath = "(//button[@class='btn btn-primary mt-2'])[3]")
+    @FindBy(xpath = "(//button[@class='btn btn-primary mt-2'])[2]")
     public WebElement credits5puan;
 
     // Kredi Kartı Locet'leri
@@ -213,6 +215,24 @@ public class AccountPage_Property {
     public WebElement checkout;
     @FindBy(xpath = "//button[@data-processing-text='Processing. Please wait...']")
     public WebElement checkout12;
+
+    // ilandaki mülk sahibine mesaj gönderme kısmı
+
+    @FindBy(xpath = "//input[@id='name']")
+    public WebElement nameIletisim;
+    @FindBy(xpath = "(//input[@type='text'])[2]")
+    public WebElement PhoneIletisim;
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement emailIletisim;
+    @FindBy(xpath = "//textarea[@placeholder='Message']")
+    public WebElement messageIletisim;
+    @FindBy(xpath = "//button[@class='btn btn-black btn-md rounded full-width']")
+    public WebElement sendMessageIletisim;
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    public WebElement sendMessageIletisimOnay;
+    @FindBy(xpath = "(//div [@class='click slick-initialized slick-slider'])[1]")
+    public WebElement mulkIlani;
+
 
 }
 

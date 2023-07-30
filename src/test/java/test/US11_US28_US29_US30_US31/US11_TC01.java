@@ -30,7 +30,7 @@ public class US11_TC01 extends TestBaseReport {
 
                 " Verify that the Sign Up  Today button is visible and active and create a new registration");
 
-                " Be able to verify that the Sign Up Today button in the Body section is visible and active");
+
 
         registerationPage=new RegisterationPage();
 
