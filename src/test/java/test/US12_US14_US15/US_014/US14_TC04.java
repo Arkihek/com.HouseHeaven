@@ -9,14 +9,15 @@ import pages.AccountPage_Property;
 import pages.UserHomepage;
 import utilities.*;
 
-public class US14_TC03 extends TestBaseReport {
+public class US14_TC04 extends TestBaseReport {
 
 
     @Test
-    public void mulkEklemeDuzenleme(){
+    public void yuklenenMulkuSilme(){
 
-        extentTest = extentReports.createTest("Reported property adding and editing testing",
-                                             "Registered user should be able to add and edit property");
+
+        extentTest = extentReports.createTest("Delete uploaded property with report",
+                 "Registered user should be able to delete the post they uploaded");
 
 
         //User goes to hauseheaven homepage
@@ -108,20 +109,17 @@ public class US14_TC03 extends TestBaseReport {
         extentTest.pass("Tests that the property is loaded");
 
 
-        //Tests that you can edit the uploaded property
-        kullanici.addProperty.click();
-        JSUtilities.scrollToElement(Driver.getDriver(),kullanici.title);
-        kullanici.properties.click();
-        kullanici.mulkDuzenleme.click();
-        Assert.assertTrue(kullanici.title.isDisplayed());
-        extentTest.pass("Tests that you can edit the loaded property");
+        //User deletes the uploaded property
+        kullanici.yuklenenMulkuSil.click();
+        kullanici.yuklenenMulkuSilBilgiKutusu.click();
+        extentTest.info("User deletes the uploaded property");
+
 
         Driver.getDriver().close();
         extentTest.info("Closes the Browser");
 
+
+
     }
+
 }
-
-
-
-

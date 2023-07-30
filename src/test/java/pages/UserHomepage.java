@@ -31,8 +31,28 @@ public class UserHomepage {
     @FindBy(xpath = "//button[normalize-space()='Login']")
     public WebElement loginGiris;
 
-    @FindBy(xpath = "(//a[@href='https://qa.hauseheaven.com/properties?layout=sidebar'])[1]")
+
+    @FindBy(xpath = "//a[@class='text-white']")
+    public WebElement wishlist;
+  
+     @FindBy(xpath = "(//a[@href='https://qa.hauseheaven.com/properties?layout=sidebar'])[1]")
     public WebElement ListingButton;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 
 
 }

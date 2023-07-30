@@ -1,4 +1,4 @@
-package test.US12_US14_US15.US_014;
+package test.US12_US14_US15.US_015;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -8,14 +8,14 @@ import pages.AccountPage_Property;
 import pages.UserHomepage;
 import utilities.*;
 
-public class US14_TC01 extends TestBaseReport{
+public class US15_TC01 extends TestBaseReport {
 
 
     @Test
-    public void accountErisebilirlik(){
+    public void accountPropertyErisebilirlik(){
 
         extentTest = extentReports.createTest("Report Account Accessibility Test",
-                                              "After logging into the registered user page, they should be able to access the account and go to the propetries");
+                                            "After logging into the registered user page, they should be able to access the account and go to the propetries");
         //
         //User goes to hauseheaven homepage
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -54,3 +54,5 @@ public class US14_TC01 extends TestBaseReport{
     }
 
 }
+
+
