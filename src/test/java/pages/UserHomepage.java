@@ -31,6 +31,8 @@ public class UserHomepage {
     @FindBy(xpath = "//button[normalize-space()='Login']")
     public WebElement loginGiris;
 
+    @FindBy(xpath = "//a[@class='text-white']")
+    public WebElement wishlist;
 
 
 
