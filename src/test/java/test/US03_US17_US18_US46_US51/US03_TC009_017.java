@@ -237,12 +237,6 @@ public class US03_TC009_017 extends TestBaseReport {
     public void test15() {
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
-        //02_ "Chicago" element is visible and active.
-        //03_ When the "Chicago" element is clicked on, it is correct.
-        //04_ When the number of properties shown in the "Chicago" element is climbed, the number of diligences is correct.
-        //05_Browser is closed.
-
-        //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page Find by Locations \"Chicago\" in the section pears your element And being active");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         ReusableMethods.waitFor(3);
@@ -254,16 +248,16 @@ public class US03_TC009_017 extends TestBaseReport {
         softAssert.assertTrue(userHomePageBody.chicagoElement.isEnabled(), "Chicago Element is not enable");
         extentTest.pass("Chicago Element is visible and enable");
 
-        //03_ When the "Austin" element is clicked on, the details are directed to the page.
+        //03_ When the "Chicago" element is clicked on, the details are directed to the page.
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBody.chicagoElementClick);
         ReusableMethods.waitFor(3);
         String actualUrl = Driver.getDriver().getCurrentUrl();
-        String expectedUrl = "https://qa.hauseheaven.com/city/austin";
+        String expectedUrl = "https://qa.hauseheaven.com/city/chicago";
         softAssert.assertEquals(actualUrl, expectedUrl, "We couldn't get to the page with the details.");
         extentTest.pass("Went to the page with the details.");
 
-        //04_ When the number of properties shown in the "Austin" element is clicked on the page where the details are the same.
-        String expectedPropertiesNumber = "3 Results";
+        //04_ When the number of properties shown in the "Chicago" element is clicked on the page where the details are the same.
+        String expectedPropertiesNumber = "1 Results";
         System.out.println(userHomePageBody.findByElementResultProperties.getText());
         String actualPropertiesNumber = userHomePageBody.findByElementResultProperties.getText();
 
@@ -274,4 +268,72 @@ public class US03_TC009_017 extends TestBaseReport {
         //05_Browser is closed.
     }
 
+    @Test(priority = 8)
+    public void test16() {
+        //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
+        //02_ "Los Angeles" element is visible and active.
+        //03_ When the "Los Angeles" element is clicked on, it is accurately directed to the page of the details.
+        //04_ When the number of properties shown in the "Los Angeles" element is clicked on the page where the details are the same.
+        //05_Browser is closed.
+
+
+        //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
+        extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page Find by Locations \"Los Angeles\" in the section pears your element And being active");
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        ReusableMethods.waitFor(3);
+        JSUtilities.scrollToElement(Driver.getDriver(), userHomePageBody.chicagoElement);
+        ReusableMethods.waitFor(3);
+
+        //02_ "Los Angeles" element is visible and active.
+        softAssert.assertTrue(userHomePageBody.losAngelesElement.isDisplayed(), "Los Angeles Element is not visible");
+        softAssert.assertTrue(userHomePageBody.losAngelesElement.isEnabled(), "Los Angeles Element is not enable");
+        extentTest.pass("Los Angeles Element is visible and enable");
+
+        //03_ When the "Los Angeles" element is clicked on, the details are directed to the page.
+        JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBody.losAngelesElementClick);
+        ReusableMethods.waitFor(3);
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.hauseheaven.com/city/los-angeles";
+        softAssert.assertEquals(actualUrl, expectedUrl, "We couldn't get to the page with the details.");
+        extentTest.pass("Went to the page with the details.");
+
+        //04_ When the number of properties show in the "Los Angeles" element is clicked on the page where the details are the same.
+        String expectedPropertiesNumber = "4 Results";
+        System.out.println(userHomePageBody.findByElementResultProperties.getText());
+        String actualPropertiesNumber = userHomePageBody.findByElementResultProperties.getText();
+
+        Assert.assertTrue(actualPropertiesNumber.contains(expectedPropertiesNumber), "The expected number of results and the result are not the same");
+        extentTest.pass("The number of expected results and the result are the same ");
+        softAssert.assertAll();
+
+        //05_Browser is closed.
+    }
+
+    @Test(priority = 9)
+    public void test17() {
+        //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
+        extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page In the Find by Locations section \"Browse by Locations\" button to appear and active");
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        ReusableMethods.waitFor(3);
+        JSUtilities.scrollToElement(Driver.getDriver(), userHomePageBody.chicagoElement);
+        ReusableMethods.waitFor(3);
+
+        //02_Browse by locations button is visible and tested that it is active.
+        softAssert.assertTrue(userHomePageBody.browseByLocations.isDisplayed(), "Browse by locations Element is not visible");
+        softAssert.assertTrue(userHomePageBody.browseByLocations.isEnabled(), "Browse by locations Element is not enable");
+        extentTest.pass("Browse by locations is visible and enable");
+
+        //03_browse by locations button is tested to the Properties page.
+        JSUtilities.clickWithJS(Driver.getDriver(),userHomePageBody.browseByLocations);
+        ReusableMethods.waitFor(3);
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.hauseheaven.com/properties";
+        softAssert.assertEquals(actualUrl,expectedUrl,"Did not go to the requested page");
+        extentTest.pass("went to properties page");
+
+        softAssert.assertAll();
+
+        //04_browser is closed.
+    }
 }
+
