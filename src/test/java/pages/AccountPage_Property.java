@@ -244,14 +244,20 @@ public class AccountPage_Property {
     public WebElement cookies;
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     public WebElement yuklenenMulk;
-    @FindBy(xpath = "//i[@class='fa fa-edit'])[1]")
+    @FindBy(xpath = "(//i[@class='fa fa-edit'])[1]")
     public WebElement mulkDuzenleme;
-    @FindBy(xpath = "//a[@class='btn btn-icon btn-sm btn-danger deleteDialog'])[1]")
+    @FindBy(xpath = "(//a[@class='btn btn-icon btn-sm btn-danger deleteDialog'])[1]")
     public WebElement yuklenenMulkuSil;
     @FindBy(xpath = "//button[@class='float-end btn btn-danger delete-crud-entry']")
     public WebElement yuklenenMulkuSilBilgiKutusu;
     @FindBy(xpath = "//span[text()='Publish']")
     public WebElement saveExitUstuElement;
+    @FindBy(xpath = "//span[text()='The name field is required.']")
+    public WebElement titleGirilmdigindeVerilenHata;
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    public WebElement contentGirilmedigindeVerilenHata;
+    @FindBy(xpath = "//td[@class='column-key-id sorting_1 dtr-control']")
+    public WebElement yuklenenMulkID;
 
 
 }

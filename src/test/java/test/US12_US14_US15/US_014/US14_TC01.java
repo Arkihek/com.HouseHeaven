@@ -46,7 +46,6 @@ public class US14_TC01 extends TestBaseReport{
         // The user has verified that he has accessed the account properties page
         Assert.assertTrue(kullanici.createaccounproperty.isDisplayed());
         extentTest.pass("Tests that you can access the Account Properties page");
-        Driver.getDriver().close();
         extentTest.info("Closes the Browser");
 
 

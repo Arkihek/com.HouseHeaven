@@ -115,8 +115,6 @@ public class US14_TC03 extends TestBaseReport {
         kullanici.mulkDuzenleme.click();
         Assert.assertTrue(kullanici.title.isDisplayed());
         extentTest.pass("Tests that you can edit the loaded property");
-
-        Driver.getDriver().close();
         extentTest.info("Closes the Browser");
 
     }
