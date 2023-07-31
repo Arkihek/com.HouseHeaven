@@ -170,14 +170,32 @@ public class UserHomePage_Body {
     @FindBy(xpath = "//*[@class='alert alert-success alert-dismissible']")
     public WebElement addedToWishList;
 
-    //*--------search--------
-    @FindBy(xpath = "//*[@class='input-with-icon']")
-    public WebElement searchForLocationsBox;
 
+    //*--------realEstateAgent--------
     @FindBy(xpath = "//*[@class='call-to-act-head']")
     public WebElement realEstateAgent;
     @FindBy(xpath = "//*[@class='btn btn-call-to-act']")
     public WebElement signUpTodayButton;
+
+    //*--------search--------
+    @FindBy(xpath = "//*[@class='hero-search']")
+    public WebElement findAccesibleHomesToRent;
+    @FindBy(xpath = "//*[@class='form-control']")
+    public WebElement searchForLocationBox;
+    @FindBy(xpath = "//(//*[@class='selection'])[1]")
+    public WebElement minPriceBox;
+    @FindBy(xpath = "//(//*[@class='selection'])[2]")
+    public WebElement maxPriceBox;
+    @FindBy(xpath = "//(//*[@class='selection'])[3]")
+    public WebElement propertyTypeBox;
+    @FindBy(xpath = "//(//*[@class='selection'])[4]")
+    public WebElement bedRoomsBox;
+    @FindBy(xpath = "//(//*[@class='selection'])[5]")
+    public WebElement propertyLocationBox;
+    @FindBy(xpath = "//*[@class='btn search-btn']")
+    public WebElement searchResultBox;
+
+
 
 
 
