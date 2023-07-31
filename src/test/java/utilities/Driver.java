@@ -20,6 +20,9 @@ public class Driver {
     public static void closeDriver(){
        driver.close();
     }
+    public static void quitDriver(){
+        driver.quit();
+    }
 
 }
 
