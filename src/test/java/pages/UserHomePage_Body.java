@@ -174,4 +174,12 @@ public class UserHomePage_Body {
     @FindBy(xpath = "//*[@class='input-with-icon']")
     public WebElement searchForLocationsBox;
 
+    @FindBy(xpath = "//*[@class='call-to-act-head']")
+    public WebElement realEstateAgent;
+    @FindBy(xpath = "//*[@class='btn btn-call-to-act']")
+    public WebElement signUpTodayButton;
+
+
+
+
 }
