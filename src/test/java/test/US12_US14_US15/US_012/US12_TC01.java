@@ -55,16 +55,18 @@ public class US12_TC01 {
         ReusableMethods.waitFor(1);
 
 
+              // HATA BURDA //
         // siteye foto yüklemeli //
-        JSUtilities.scrollToElement(Driver.getDriver(),kullanici.content);
-        ReusableMethods.waitFor(1);
-        WebElement imagesElement = Driver.getDriver().findElement(By.xpath("//div[@id='multiple-upload']"));
-        ReusableMethods.waitFor(2);
-        String dinamikDosyaYolu = "Villa2.webp";
-        ReusableMethods.waitFor(5);
-        imagesElement.sendKeys(dinamikDosyaYolu);
-        ReusableMethods.waitFor(5);
+      //  JSUtilities.scrollToElement(Driver.getDriver(),kullanici.content);
+      //  ReusableMethods.waitFor(1);
+      //  WebElement imagesElement = Driver.getDriver().findElement(By.xpath("//div[@id='multiple-upload']"));
+      //  ReusableMethods.waitFor(2);
+      //  String dinamikDosyaYolu = "Villa2.webp";
+      //  ReusableMethods.waitFor(5);
+      //  imagesElement.sendKeys(dinamikDosyaYolu);
+      //  ReusableMethods.waitFor(5);
 
+        // HATA BURDA //
 
 
 

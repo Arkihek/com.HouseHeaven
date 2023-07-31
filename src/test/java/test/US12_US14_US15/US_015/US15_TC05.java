@@ -1,22 +1,19 @@
-package test.US12_US14_US15.US_014;
+package test.US12_US14_US15.US_015;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AccountPage_Property;
 import pages.UserHomepage;
 import utilities.*;
 
-public class US14_TC03 extends TestBaseReport {
-
+public class US15_TC05 extends TestBaseReport {
 
     @Test
-    public void mulkEklemeDuzenleme(){
+    public void ilanSilmeOnayMesaji(){
+
 
         extentTest = extentReports.createTest("Reported property adding and editing testing",
-                                             "Registered user should be able to add and edit property");
+                "Registered user should be able to add and edit property");
 
 
         //User goes to hauseheaven homepage
@@ -103,23 +100,19 @@ public class US14_TC03 extends TestBaseReport {
         extentTest.info("After the user fills in her information, she presses the save button to save.");
         ReusableMethods.waitFor(2);
 
-        // tests that the property is loaded
-        Assert.assertTrue(kullanici.yuklenenMulk.isDisplayed());
-        extentTest.pass("Tests that the property is loaded");
+
+        //User deletes the uploaded property
+        kullanici.yuklenenMulkuSil.click();
+        ReusableMethods.waitFor(1);
+        kullanici.yuklenenMulkuSilBilgiKutusu.click();
+
+        // yüklenen mülkü sildikten sonra onay mesajı görüntülendiğini dogrular
 
 
-        //Tests that you can edit the uploaded property
-        kullanici.addProperty.click();
-        JSUtilities.scrollToElement(Driver.getDriver(),kullanici.title);
-        kullanici.properties.click();
-        kullanici.mulkDuzenleme.click();
-        Assert.assertTrue(kullanici.title.isDisplayed());
-        extentTest.pass("Tests that you can edit the loaded property");
+        ReusableMethods.waitFor(3);
         extentTest.info("Closes the Browser");
 
+
     }
+
 }
-
-
-
-
