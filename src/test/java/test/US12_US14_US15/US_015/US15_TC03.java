@@ -117,10 +117,16 @@ public class US15_TC03 extends TestBaseReport {
 
 
             //User deletes the uploaded property
+            kullanici.properties.click();
+            String iD=kullanici.yuklenenMulkID.getText();
             kullanici.yuklenenMulkuSil.click();
+            ReusableMethods.waitFor(1);
             kullanici.yuklenenMulkuSilBilgiKutusu.click();
+            ReusableMethods.waitFor(1);
+            String iD2=kullanici.yuklenenMulkID.getText();
+            Assert.assertNotEquals(iD,iD2);
+            extentTest.pass("Uploaded Mulk deleted");
 
-            Driver.getDriver().close();
             extentTest.info("Closes the Browser");
 
         }
