@@ -14,6 +14,9 @@ public class US15_TC04 extends TestBaseReport {
     @Test
     public void tittleGirilmedigindeHata(){
 
+        extentTest = extentReports.createTest("Reported Title test",
+                "The user must fill the required field title without saving while adding an ad.");
+
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         AccountPage_Property kullanici = new AccountPage_Property();
         SoftAssert softAssert = new SoftAssert();
@@ -108,6 +111,9 @@ public class US15_TC04 extends TestBaseReport {
     @Test
     public void contentGirilmedigindeHata(){
 
+        extentTest = extentReports.createTest("Reported content test",
+                "When adding an ad, the user must fill the required field without saving the content.");
+
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         AccountPage_Property kullanici = new AccountPage_Property();
@@ -196,6 +202,9 @@ public class US15_TC04 extends TestBaseReport {
     @Test
     public void propertyLocationGirilmedigindeHata(){
 
+        extentTest = extentReports.createTest("Reported property test",
+                "The user must fill in the required field without saving the property while adding an ad.");
+
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         AccountPage_Property kullanici = new AccountPage_Property();
         SoftAssert softAssert = new SoftAssert();
@@ -275,10 +284,10 @@ public class US15_TC04 extends TestBaseReport {
         extentTest.info("After the user fills in her information, she presses the save button to save.");
         ReusableMethods.waitFor(2);
 
-        // kullanıcı property Location girmediginden dolayı hata mesajı goruntulenmelıdır
+        // The error message should be displayed because the user did not enter the property Location
 
             softAssert.assertTrue(kullanici.title.isDisplayed());
-            extentTest.fail("\"TEST FAILED: Property Location doldurulmadığı halde hata mesajı vermedi");
+            extentTest.fail("\"TEST FAILED: Property Location did not give an error message even though it was not populated");
 
         extentTest.info("Closes the Browser");
 
