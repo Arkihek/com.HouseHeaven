@@ -1,4 +1,4 @@
-package test.US04;
+package test.US01_US04_US19_US32_US42;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
