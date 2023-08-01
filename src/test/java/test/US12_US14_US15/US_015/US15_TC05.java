@@ -1,6 +1,7 @@
 package test.US12_US14_US15.US_015;
 
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AccountPage_Property;
 import pages.UserHomepage;
@@ -9,11 +10,11 @@ import utilities.*;
 public class US15_TC05 extends TestBaseReport {
 
     @Test
-    public void ilanSilmeOnayMesaji(){
+    public void ilanSilmeDogrulama(){
 
 
-        extentTest = extentReports.createTest("Reported property adding and editing testing",
-                "Registered user should be able to add and edit property");
+        extentTest = extentReports.createTest("Reported ad deletion test",
+                                              "Registered user should be able to delete the ad");
 
 
         //User goes to hauseheaven homepage
@@ -102,14 +103,23 @@ public class US15_TC05 extends TestBaseReport {
 
 
         //User deletes the uploaded property
+        String iD=kullanici.yuklenenMulkID.getText();
         kullanici.yuklenenMulkuSil.click();
         ReusableMethods.waitFor(1);
         kullanici.yuklenenMulkuSilBilgiKutusu.click();
+        extentTest.info("User deletes the uploaded property");
+        String iD2=kullanici.yuklenenMulkID.getText();
 
-        // yüklenen mülkü sildikten sonra onay mesajı görüntülendiğini dogrular
 
+        //confirms that a confirmation message is displayed after deleting the uploaded property
 
-        ReusableMethods.waitFor(3);
+        if (iD==iD2){
+            extentTest.fail("TEST FAİLD : Post is not deleted from property page after deletion");
+        }else {
+            extentTest.pass("TEST PASSED : After the post was deleted, it was also deleted on the property page");
+        }
+
+        ReusableMethods.waitFor(1);
         extentTest.info("Closes the Browser");
 
 
