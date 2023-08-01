@@ -182,18 +182,30 @@ public class UserHomePage_Body {
     public WebElement findAccesibleHomesToRent;
     @FindBy(xpath = "//*[@class='form-control']")
     public WebElement searchForLocationBox;
-    @FindBy(xpath = "//(//*[@class='selection'])[1]")
+    @FindBy(xpath = "(//*[@class='selection'])[1]")
     public WebElement minPriceBox;
-    @FindBy(xpath = "//(//*[@class='selection'])[2]")
+    @FindBy(xpath = "(//*[@class='selection'])[2]")
     public WebElement maxPriceBox;
-    @FindBy(xpath = "//(//*[@class='selection'])[3]")
+    @FindBy(xpath = "(//*[@class='selection'])[3]")
     public WebElement propertyTypeBox;
-    @FindBy(xpath = "//(//*[@class='selection'])[4]")
+    @FindBy(xpath = "(//*[@class='selection'])[4]")
     public WebElement bedRoomsBox;
-    @FindBy(xpath = "//(//*[@class='selection'])[5]")
+    @FindBy(xpath = "(//*[@class='selection'])[5]")
     public WebElement propertyLocationBox;
     @FindBy(xpath = "//*[@class='btn search-btn']")
     public WebElement searchResultBox;
+    @FindBy(xpath = "(//*[@class='listing-card-info-price'])[1]")
+    public WebElement priceElement1;
+    @FindBy(xpath = "(//*[@class='listing-card-info-price'])[2]")
+    public WebElement priceElement2;
+    @FindBy(xpath = "(//*[@class='listing-card-info-price'])[3]")
+    public WebElement priceElement3;
+    @FindBy(xpath = "(//*[@class='listing-card-info-icon'])[1]")
+    public WebElement bedroomNumber;
+    @FindBy(xpath = "(//*[@class='listing-location'])[1]")
+    public WebElement locationElement;
+
+
 
 
 
