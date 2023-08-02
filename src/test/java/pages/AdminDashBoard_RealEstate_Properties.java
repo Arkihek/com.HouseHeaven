@@ -60,10 +60,10 @@ public class AdminDashBoard_RealEstate_Properties {
     public WebElement RealEstatePropertiesDeleteButonapprove;
 
 
-    @FindBy(xpath = "//li[@id='cms-plugins-location']//a[@class='nav-link nav-toggle']")
+    @FindBy(xpath = "//span[normalize-space()='Locations']")
     public WebElement adminDashboardLocationsButonu;
 
-    @FindBy(xpath = "//a[@class='nav-link'][normalize-space()='Cities']")
+    @FindBy(xpath = "//a[normalize-space()='Cities']")
     public WebElement aDbLocationsCitiesButonu;
 
 
@@ -121,6 +121,12 @@ public class AdminDashBoard_RealEstate_Properties {
 
     @FindBy(xpath = "//span[normalize-space()='Reload']")
     public WebElement LocationsReload;
+
+    @FindBy(xpath = "//span[@class='username d-none d-sm-inline']")
+    public WebElement adminLogout;
+
+    @FindBy(xpath = "//a[normalize-space()='Logout']")
+    public WebElement admincikis;
 
 
 }
