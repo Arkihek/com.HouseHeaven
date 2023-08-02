@@ -18,6 +18,7 @@ public class US13_TC01 {
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         AccountPage_Property kullanici = new AccountPage_Property();
+        UserHomepage userHomepage = new UserHomepage();
 
 
         kullanici.signIn.click();
@@ -25,7 +26,8 @@ public class US13_TC01 {
         kullanici.password.sendKeys(ConfigReader.getProperty("userPass"));
         kullanici.login.click();
 
-
+        JSUtilities.clickWithJS(Driver.getDriver(),userHomepage.team5Team5);
+        ReusableMethods.waitFor(3);
         Assert.assertTrue(kullanici.dashboard.isDisplayed());
         Assert.assertTrue(kullanici.dashboard.isEnabled());
 

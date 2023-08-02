@@ -7,6 +7,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 public class US16_TC04 {
+    // burada hata var düzeltilecek sonradan
 
     @Test
     public void kayitliKullaniciHomeHeader() {

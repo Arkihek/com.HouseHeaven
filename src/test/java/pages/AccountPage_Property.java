@@ -183,7 +183,7 @@ public class AccountPage_Property {
 
 
     // Sayfaya loginden sonraki AccountPage bölümü
-    @FindBy(xpath = "//a[@title='Profile']")
+    @FindBy(xpath = "//*[@class='ti-dashboard']")
     public WebElement dashboard;
     @FindBy(xpath = "//a[@title='Settings']")
     public WebElement settings;
@@ -221,8 +221,9 @@ public class AccountPage_Property {
     //security
     @FindBy(xpath = "//button[text()='Update password']")
     public WebElement updatePassword;
-    @FindBy(xpath = "//div[@class ='alert alert-success alert-dismissible']")
-    public WebElement successfull;
+    @FindBy(xpath = "//span[@data-dismiss='alert']")
+    public WebElement Successfull;
+
 
     // Kredi Kartı Locet'leri
     @FindBy(xpath = "//input[@id='stripe-number']")
