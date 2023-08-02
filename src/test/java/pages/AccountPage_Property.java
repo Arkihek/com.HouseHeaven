@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
 import utilities.Driver;
 
 public class AccountPage_Property {
@@ -66,6 +67,18 @@ public class AccountPage_Property {
     public WebElement category;
     @FindBy(xpath = "//input[@class='select2-search__field']")
     public WebElement categoryClicktenSonraYeniKutu;
+    @FindBy(xpath = "//a[@class='dz-remove']")
+    public WebElement removeFile;
+    @FindBy(xpath = "(//a[@class='prt-link-detail'])[1]")
+    public WebElement listingIlkUrun;
+    @FindBy(xpath = "//h3[@class='prt-price-fix']")
+    public WebElement yuklenenMulkFiyat;
+    @FindBy(xpath = "//*[@id=\"clOne\"]/div/ul/li[3]/text()")
+    public WebElement yuklenenMullkSquare;
+    @FindBy(xpath = "//*[@id=\"clOne\"]/div/ul/li[2]/text()")
+    public WebElement yuklenenMulkBathrooms;
+    @FindBy(xpath = "(//div[@class='block-body'])[2]")
+    public WebElement yuklenenMulkDescription;
 
     // Add Property bölümü (Feature kısmı)
     @FindBy(xpath = "(//input[@value='1'])[3]")
@@ -232,7 +245,7 @@ public class AccountPage_Property {
     public WebElement sendMessageIletisimOnay;
 
     // Mulk islemleri yükleme silme düzenleme vb.
-    @FindBy(xpath = "(//div [@class='click slick-initialized slick-slider'])[1]")
+    @FindBy(xpath = "(//div [@class='click slick-initialized slick-slider'])[2]")
     public WebElement mulkIlani;
     @FindBy(xpath = "(//a[@rel='nofollow'])[1]")
     public WebElement girisYaptiginaDairBilgi;

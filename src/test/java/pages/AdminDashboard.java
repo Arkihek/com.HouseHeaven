@@ -46,6 +46,24 @@ public AdminDashboard() {
     @FindBy(xpath = "//span[@class='signin']")
     public WebElement  AdminSigninButon;
 
+    @FindBy(xpath = "(//span[@class='title'])[4]")
+    public WebElement realEstate;
+
+    @FindBy(xpath = "(//a[@class='nav-link'])[4]")
+    public WebElement realEstateProperties;
+
+    @FindBy(xpath = "(//i[@class='fa fa-edit'])[2]")
+    public WebElement yukklenenIlanIDAdminEdit;
+
+    @FindBy(xpath = "//span[@id='select2-moderation_status-container']")
+    public WebElement moderationStatus;
+
+    @FindBy(xpath = "(//button[@class='btn btn-info'])[2]")
+    public WebElement adminModernStatusUstuSaveExit;
+
+    @FindBy(xpath = "//div[@class='toast toast-success']")
+    public WebElement pendingAprowed;
+
 }
 
 

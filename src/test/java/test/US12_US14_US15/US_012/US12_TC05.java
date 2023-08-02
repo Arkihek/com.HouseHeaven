@@ -1,6 +1,5 @@
 package test.US12_US14_US15.US_012;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -12,30 +11,27 @@ import pages.AdminDashboard;
 import pages.UserHomepage;
 import utilities.*;
 
-import java.security.Key;
-
-public class US12_TC04 extends TestBaseReport {
+public class US12_TC05 extends TestBaseReport {
 
 
     @Test
-    public void eklenenMulkIlanTesti(){
+    public void dogruMulkIlani(){
 
 
+    extentTest = extentReports.createTest("Correct loading test with details of loaded property with report",
+            "The information the user enters to upload the property should appear in the property details after uploading in the same way");
 
-        extentTest = extentReports.createTest("Reported property adding and editing testing",
-                "Registered user should be able to add and edit property");
 
-
-        //User goes to hauseheaven homepage
+    //User goes to hauseheaven homepage
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        AccountPage_Property kullanici = new AccountPage_Property();
-        UserHomepage userHomepage =new UserHomepage();
-        AdminDashboard adminDashboard=new AdminDashboard();
-        Actions actions = new Actions(Driver.getDriver());
+    AccountPage_Property kullanici = new AccountPage_Property();
+    UserHomepage userHomepage =new UserHomepage();
+    AdminDashboard adminDashboard=new AdminDashboard();
+    Actions actions = new Actions(Driver.getDriver());
         extentTest.info("User goes to hauseheaven homepage");
 
 
-        //User fills in information for login to the system
+    //User fills in information for login to the system
         kullanici.signIn.click();
         kullanici.mailKutusu.sendKeys(ConfigReader.getProperty("userMail"));
         kullanici.password.sendKeys(ConfigReader.getProperty("userPass"));
@@ -44,7 +40,7 @@ public class US12_TC04 extends TestBaseReport {
 
 
 
-        //User gets credit to give property ad
+    //User gets credit to give property ad
         kullanici.addProperty.click();
         kullanici.buyCredits.click();
         kullanici.credits5puan.click();
@@ -52,7 +48,7 @@ public class US12_TC04 extends TestBaseReport {
 
 
 
-        //user enters card information //
+    //user enters card information //
         ReusableMethods.waitFor(1);
         kullanici.cardNumber.sendKeys(ConfigReader.getProperty("cardNumber"));
         kullanici.cardName.sendKeys(ConfigReader.getProperty("cardName"));
@@ -66,8 +62,8 @@ public class US12_TC04 extends TestBaseReport {
         extentTest.info("Enters card information and clicks checkout link");
 
 
-        //After the user completes the card transaction, she goes to the add property page where she can add the
-        // property and fills in the required fields.
+    //After the user completes the card transaction, she goes to the add property page where she can add the
+    // property and fills in the required fields.
         ReusableMethods.waitFor(2);
         kullanici.addProperty.click();
         extentTest.info("After the user completes the card transaction, she clicks on the add property link");
@@ -103,7 +99,7 @@ public class US12_TC04 extends TestBaseReport {
         extentTest.info("The user fills in all the necessary information for the ad.");
 
 
-        //User saves information entered
+    //User saves information entered
         ReusableMethods.waitFor(2);
         JSUtilities.scrollToElement(Driver.getDriver(),userHomepage.wishlist);
         ReusableMethods.waitFor(2);
@@ -111,12 +107,12 @@ public class US12_TC04 extends TestBaseReport {
         extentTest.info("After the user fills in her information, she presses the save button to save.");
         ReusableMethods.waitFor(2);
 
-        // tests that the property is loaded
+    // tests that the property is loaded
         Assert.assertTrue(kullanici.yuklenenMulk.isDisplayed());
         extentTest.pass("Tests that the property is loaded");
 
 
-        //Login with admin username and password
+    //Login with admin username and password
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         adminDashboard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
         adminDashboard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
@@ -141,12 +137,47 @@ public class US12_TC04 extends TestBaseReport {
         String ilkUrunTitle=kullanici.listingIlkUrun.getText();
         extentTest.info("The user goes to the url and tests that it is loaded");
         String yuklenenIlanTitle="For Sale Villa Admin2";
+        ReusableMethods.waitFor(1);
+        WebElement sayfaAssagiKaydirma=Driver.getDriver().findElement(By.xpath("//h1[@class='ipt-title']"));
+        JSUtilities.scrollToElement(Driver.getDriver(),sayfaAssagiKaydirma);
+        ReusableMethods.waitFor(1);
+        kullanici.listingIlkUrun.click();
         Assert.assertEquals(ilkUrunTitle,yuklenenIlanTitle);
         extentTest.pass("Seen by other users on the listing page");
         ReusableMethods.waitFor(1);
 
-            }
+        String expectedMulkFiayat="$150,000";
+        String actualMulkfiyat=kullanici.yuklenenMulkFiyat.getText();
+        Assert.assertEquals(actualMulkfiyat,expectedMulkFiayat);
+        extentTest.info("The property price has been correctly uploaded to the site.");
 
-        }
+        String expected="by the sea";
+        String actual=kullanici.yuklenenMulkDescription.getText();
+        Assert.assertTrue(actual.contains(expected));
+        extentTest.info("Description correctly uploaded to the site");
+
+        extentTest.info("Uploaded Mulk has been uploaded to the site correctly with details");
+        extentTest.info("The browser is closed");
+
+        /*
+
+        expected="2";
+        actual=kullanici.yuklenenMulkBathrooms.getText();
+        Assert.assertTrue(actual.contains(expected));
+        extentTest.info("Bathrooms Sayısı siteye dogru bır sekılde yuklenmıstır");
 
 
+        expected="315";
+        actual=kullanici.yuklenenMullkSquare.getText();
+        Assert.assertTrue(actual.contains(expected));
+        extentTest.info("Square dogru şekilde siteye yüklenmıstır");
+
+
+         */
+
+
+
+
+
+    }
+}
