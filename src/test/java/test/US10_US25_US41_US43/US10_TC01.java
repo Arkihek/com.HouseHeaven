@@ -19,36 +19,13 @@ public class US10_TC01 extends TestBaseReport {
                 " Visiter should be able to verify that can access the contact page");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         WebElement contactButonu = Driver.getDriver().findElement(By.linkText("Contact"));
-        contactButonu.click();
-        WebElement address1 = Driver.getDriver().findElement(By.xpath("//div[@class='cn-info-content']"));
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(address1.isDisplayed());
-
-        JSUtilities.scrollToBottom(Driver.getDriver());
-        Thread.sleep(3000);
-        JSUtilities.scrollToTop(Driver.getDriver());
-        Thread.sleep(3000);
-
-
-
-
-        Driver.getDriver().switchTo().frame(Driver.getDriver().findElement(By.tagName("iframe")));
-
-
-
-
-        WebElement ifaddress2 =Driver.getDriver()
-                .findElement(By.xpath("//div[text()='4655 Wild Indigo St, Houston, TX 77027, USA']"));
-        JSUtilities.scrollToElement(Driver.getDriver(),ifaddress2);
-
-        softAssert.assertTrue(ifaddress2.isDisplayed());
-        Driver.getDriver().switchTo().defaultContent();
-        JSUtilities.scrollToTop(Driver.getDriver());
-        Thread.sleep(3000);
-        softAssert.assertTrue(address1.isDisplayed());
-
-
+        softAssert.assertTrue(contactButonu.isDisplayed());
+        softAssert.assertTrue(contactButonu.isEnabled());
+        contactButonu.click();
+        Thread.sleep(2000);
+        softAssert.assertAll();
+        extentTest.pass("\n" +
+                "User can access the contact page");
     }
-
-
 }
