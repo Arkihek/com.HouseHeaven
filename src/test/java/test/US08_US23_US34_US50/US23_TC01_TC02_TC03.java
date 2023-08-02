@@ -6,7 +6,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Header_AgentsPage;
-import pages.UserHomePage;
+
+import pages.UserHomepage;
 import utilities.*;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 public class US23_TC01_TC02_TC03 extends TestBaseReport {
 
     Header_AgentsPage headerAgentsPage = new Header_AgentsPage();
-    UserHomePage userHomePage = new UserHomePage();
+    UserHomepage userHomePage = new UserHomepage();
     SoftAssert softAssert = new SoftAssert();
 
     @BeforeTest

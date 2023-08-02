@@ -10,8 +10,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pages.AdminDashBoard;
+
 import pages.AdminDashBoard_RealEstate_Properties;
+import pages.AdminDashboard;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -24,7 +25,7 @@ public class US050_TC01_TC02 extends TestBaseReport {
 
     AdminDashBoard_RealEstate_Properties adminDashBLocationsCities = new AdminDashBoard_RealEstate_Properties();
     SoftAssert softAssert = new SoftAssert();
-    AdminDashBoard adminDashBoard = new AdminDashBoard();
+    AdminDashboard adminDashBoard = new AdminDashboard();
 
     @BeforeTest
     public void setup(){
