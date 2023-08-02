@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="131f782a-a8c7-438b-b3da-6e933dccf210" name="Changes" comment="" />
+    <list default="true" id="131f782a-a8c7-438b-b3da-6e933dccf210" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/AccountPage_Property.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/AccountPage_Property.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/test/US02_US13_US16_US33_US35_US49/US_13/US13_TC01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/US02_US13_US16_US33_US35_US49/US_13/US13_TC01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/test/US02_US13_US16_US33_US35_US49/US_13/US13_TC02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/US02_US13_US16_US33_US35_US49/US_13/US13_TC02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/test/US02_US13_US16_US33_US35_US49/US_13/US13_TC03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/US02_US13_US16_US33_US35_US49/US_13/US13_TC03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/test/US02_US13_US16_US33_US35_US49/US_13/US13_TC04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/US02_US13_US16_US33_US35_US49/US_13/US13_TC04.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/test/US02_US13_US16_US33_US35_US49/US_13/US13_TC05.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/US02_US13_US16_US33_US35_US49/US_13/US13_TC05.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/test/US02_US13_US16_US33_US35_US49/US_16/US16_TC04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/US02_US13_US16_US33_US35_US49/US_16/US16_TC04.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,25 +26,130 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2T3QakVy0mCoEAqZo873tZJAv6Z" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ihsan\IdeaProjects\com.Team5.HauseHeaven\src\test\java\utilities" />
     </key>
+  </component>
+  <component name="RunManager" selected="TestNG.US13_TC05">
+    <configuration name="US13_TC03.settingsErisebilirlik" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="com.Team5.HauseHeaven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.US02_US13_US16_US33_US35_US49.US_13.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.US02_US13_US16_US33_US35_US49.US_13" />
+      <option name="MAIN_CLASS_NAME" value="test.US02_US13_US16_US33_US35_US49.US_13.US13_TC03" />
+      <option name="METHOD_NAME" value="settingsErisebilirlik" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="US13_TC04" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="com.Team5.HauseHeaven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.US02_US13_US16_US33_US35_US49.US_13.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.US02_US13_US16_US33_US35_US49.US_13" />
+      <option name="MAIN_CLASS_NAME" value="test.US02_US13_US16_US33_US35_US49.US_13.US13_TC04" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="US13_TC04.buyCreditsErisebilirlik" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="com.Team5.HauseHeaven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.US02_US13_US16_US33_US35_US49.US_13.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.US02_US13_US16_US33_US35_US49.US_13" />
+      <option name="MAIN_CLASS_NAME" value="test.US02_US13_US16_US33_US35_US49.US_13.US13_TC04" />
+      <option name="METHOD_NAME" value="buyCreditsErisebilirlik" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="US13_TC05" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="com.Team5.HauseHeaven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.US02_US13_US16_US33_US35_US49.US_13.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.US02_US13_US16_US33_US35_US49.US_13" />
+      <option name="MAIN_CLASS_NAME" value="test.US02_US13_US16_US33_US35_US49.US_13.US13_TC05" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="US13_TC05.securityErisebilirlik" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="com.Team5.HauseHeaven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.US02_US13_US16_US33_US35_US49.US_13.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.US02_US13_US16_US33_US35_US49.US_13" />
+      <option name="MAIN_CLASS_NAME" value="test.US02_US13_US16_US33_US35_US49.US_13.US13_TC05" />
+      <option name="METHOD_NAME" value="securityErisebilirlik" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.US13_TC05" />
+        <item itemvalue="TestNG.US13_TC05.securityErisebilirlik" />
+        <item itemvalue="TestNG.US13_TC04.buyCreditsErisebilirlik" />
+        <item itemvalue="TestNG.US13_TC04" />
+        <item itemvalue="TestNG.US13_TC03.settingsErisebilirlik" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

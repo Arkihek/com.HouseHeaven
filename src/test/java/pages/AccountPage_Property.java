@@ -196,7 +196,7 @@ public class AccountPage_Property {
 
 
     // Sayfaya loginden sonraki AccountPage bölümü
-    @FindBy(xpath = "//a[@title='Profile']")
+    @FindBy(xpath = "//*[@class='ti-dashboard']")
     public WebElement dashboard;
     @FindBy(xpath = "//a[@title='Settings']")
     public WebElement settings;
@@ -211,9 +211,32 @@ public class AccountPage_Property {
     @FindBy(xpath = "//a[@title='Logout']")
     public WebElement logout;
 
+    //dashboard
+    @FindBy(xpath = "//h4[text() = 'Your Current Credits: ']")
+    public WebElement yourCurentCredits;
+    //settings
+    @FindBy(xpath = "//button[@class='btn btn-primary fw6']")
+    public WebElement Save;
+    @FindBy(xpath = "//div[@class = 'alert alert-success alert-dismissible']")
+    public WebElement successful;
+    @FindBy(xpath = "//h4[text()='Account Information']")
+    public WebElement accountInformation;
+
     //buycredits
     @FindBy(xpath = "(//button[@class='btn btn-primary mt-2'])[2]")
     public WebElement credits5puan;
+    @FindBy(xpath = "(//button[@class='btn btn-primary mt-2'])[3]")
+    public WebElement credits6puan;
+    @FindBy(xpath = "(//button[@class='btn btn-primary mt-2'])[4]")
+    public WebElement credits7puan;
+    @FindBy(xpath = "(//button[@class='btn btn-primary mt-2'])[5]")
+    public WebElement credits8puan;
+    //security
+    @FindBy(xpath = "//button[text()='Update password']")
+    public WebElement updatePassword;
+    @FindBy(xpath = "//span[@data-dismiss='alert']")
+    public WebElement Successfull;
+
 
     // Kredi Kartı Locet'leri
     @FindBy(xpath = "//input[@id='stripe-number']")
