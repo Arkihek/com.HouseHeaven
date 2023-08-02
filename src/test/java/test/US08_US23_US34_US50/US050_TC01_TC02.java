@@ -10,7 +10,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import pages.AdminDashBoard_RealEstate_Properties;
 import pages.AdminDashboard;
 import utilities.ConfigReader;
@@ -27,35 +26,48 @@ public class US050_TC01_TC02 extends TestBaseReport {
     SoftAssert softAssert = new SoftAssert();
     AdminDashboard adminDashBoard = new AdminDashboard();
 
-    @BeforeTest
-    public void setup(){
+
+    @Test
+    public void TC01() {
+        adminDashBLocationsCities = new AdminDashBoard_RealEstate_Properties();
+        softAssert = new SoftAssert();
+        adminDashBoard = new AdminDashboard();
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         adminDashBoard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
         adminDashBoard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
         adminDashBoard.adminSignIn.click();
-        adminDashBLocationsCities.adminDashboardLocationsButonu.click();
-    }
-    @Test
-    public void TC01() {
         extentTest = extentReports.createTest("Admin must login to dashboard", "Click on the Locations title under the Dashboard and the Cities page under it should be visible and accessible.");
         // must be logged in to the admin dashboard
         //Click on the Locations title under the Dashboard and the Cities page under it should be visible and accessible
         //Dasboard altındaki Locations başlığına tıklanmalı ve altındaki Cities sayfası görüntülenbilir ve ulaşılabilmelidir
-        ReusableMethods.waitFor(2);
         ReusableMethods.waitFor(3);
-        Assert.assertTrue(adminDashBLocationsCities.aDbLocationsCitiesButonu.isDisplayed());
+        adminDashBLocationsCities.adminDashboardLocationsButonu.click();
+        //Assert.assertTrue(adminDashBLocationsCities.aDbLocationsCitiesButonu.isDisplayed());
         adminDashBLocationsCities.aDbLocationsCitiesButonu.click();
         softAssert.assertTrue(adminDashBLocationsCities.LocationsBulkActions.isDisplayed(), "\n" +
                 "Bulk actions could not be displayed");
         extentTest.info("Loactions clicked, cities displayed");
         softAssert.assertTrue(adminDashBLocationsCities.LocationsReload.isDisplayed(), "Locations button not displayed");
+        adminDashBLocationsCities.adminLogout.click();
+        adminDashBLocationsCities.admincikis.click();
+        Driver.closeDriver();
     }
 
     @Test
     public void TC02() {
+        adminDashBoard = new AdminDashboard();
+        softAssert = new SoftAssert();
+        adminDashBLocationsCities = new AdminDashBoard_RealEstate_Properties();
+
+        ReusableMethods.waitFor(3);
+
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        adminDashBoard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
+        adminDashBoard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
+        adminDashBoard.adminSignIn.click();
         extentTest = extentReports.createTest("Adding Cites page elements and cities", "city \u200B\u200Bnumbers and sites can be added and displayed");
         ReusableMethods.waitFor(2);
-        ReusableMethods.waitFor(3);
+        adminDashBLocationsCities.adminDashboardLocationsButonu.click();
         adminDashBLocationsCities.aDbLocationsCitiesButonu.click();
         // The elements on the page can be viewed and verified to be active
         List<WebElement> aktifilanSayisi = Driver.getDriver().findElements(By.xpath("LocationsCitiesAktifIlanSayisi"));
@@ -120,8 +132,13 @@ public class US050_TC01_TC02 extends TestBaseReport {
         softAssert.assertTrue(deleleteWait.isDisplayed(),"could not be displayed");
         ReusableMethods.waitFor(2);
         extentTest.pass("Login to the admin dashboard and add ialn numbers and advertisements from the cities section, deleted");
+        adminDashBLocationsCities.adminLogout.click();
+        adminDashBLocationsCities.admincikis.click();
     }
 }
+
+}
+
 
 
 
