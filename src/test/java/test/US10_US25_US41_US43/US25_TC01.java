@@ -20,7 +20,7 @@ public class US25_TC01 extends TestBaseReport {
         //goruntuleyebilmeli
 
         extentTest = extentReports.createTest("Visibility of contact information test for registered user",
-                "Registered user should be able to log in and contact informations should match ");
+                "Registered user should be able to login contact informations should be visible and addresses should match ");
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         extentTest.info("Kullanici hauseheaven anasayfaya gider");
@@ -31,9 +31,12 @@ public class US25_TC01 extends TestBaseReport {
         extentTest.info("giriş yapmak için sign ın linkine tıklar");
         kullanici.mailKutusu.sendKeys(ConfigReader.getProperty("userMail"));
         extentTest.info("Kullanıcı adını girer");
+        Thread.sleep(3000);
         kullanici.password.sendKeys(ConfigReader.getProperty("userPass"));
         kullanici.login.click();
+        Thread.sleep(2000);
         extentTest.info("password'unu girer ve sayfaya login olur");
+        Thread.sleep(2000);
 
 
         WebElement contactButonu = Driver.getDriver().findElement(By.linkText("Contact"));
@@ -41,6 +44,14 @@ public class US25_TC01 extends TestBaseReport {
         WebElement address1 = Driver.getDriver().findElement(By.xpath("//div[@class='cn-info-content']"));
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(address1.isDisplayed());
+        WebElement emailInformationBody = Driver.getDriver().findElement(By.xpath("//h4[text()='Email']"));
+        softAssert.assertTrue(emailInformationBody.isDisplayed());
+        WebElement emailInformationFooter = Driver.getDriver().findElement(By.xpath("//*[text()=' info@hauseheaven.com']"));
+        softAssert.assertTrue(emailInformationFooter.isDisplayed());
+        WebElement phoneNumberBody = Driver.getDriver().findElement(By.xpath("//div[@class='cn-info-detail'][3]"));
+        softAssert.assertTrue(phoneNumberBody.isDisplayed());
+        WebElement phoneNumberFooter = Driver.getDriver().findElement(By.xpath("//*[text()=' +1 246-345-0695']"));
+        softAssert.assertTrue(phoneNumberFooter.isDisplayed());
 
         JSUtilities.scrollToBottom(Driver.getDriver());
         Thread.sleep(3000);
@@ -57,6 +68,11 @@ public class US25_TC01 extends TestBaseReport {
         JSUtilities.scrollToTop(Driver.getDriver());
         Thread.sleep(3000);
         softAssert.assertTrue(address1.isDisplayed());
+
+        softAssert.assertAll();
+
+        extentTest.pass("\n" +
+                "Registered User can view contact information");
 
 
     }
