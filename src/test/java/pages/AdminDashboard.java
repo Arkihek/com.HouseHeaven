@@ -46,6 +46,36 @@ public AdminDashboard() {
     @FindBy(xpath = "//span[@class='signin']")
     public WebElement  AdminSigninButon;
 
+
+    @FindBy(xpath = "(//*[@class='nav-link nav-toggle'])[10]")
+    public WebElement paymentsButton;
+
+    @FindBy(xpath = "(//*[@class='nav-link'])[9]")
+    public WebElement transactionsButton;
+
+    @FindBy(xpath = "(//*[@class=' text-start column-key-customer_id'])[1]")
+    public WebElement paymentsPayerName1;
+    @FindBy(xpath = "(//*[@class=' text-start column-key-customer_id'])[2]")
+    public WebElement paymentsPayerName2;
+    @FindBy(xpath = "(//*[@class=' text-start column-key-customer_id'])[3]")
+    public WebElement paymentsPayerName3;
+    @FindBy(xpath = "(//*[@class=' text-start column-key-customer_id'])[4]")
+    public WebElement paymentsPayerName4;
+    @FindBy(xpath = "(//*[@class=' text-start column-key-customer_id'])[5]")
+    public WebElement paymentsPayerName5;
+    @FindBy(xpath = "(//*[@class=' text-start column-key-customer_id'])[6]")
+    public WebElement paymentsPayerName6;
+    @FindBy(xpath = "(//*[@class=' text-start column-key-customer_id'])[7]")
+    public WebElement paymentsPayerName7;
+    @FindBy(xpath = "(//*[@class=' text-start column-key-customer_id'])[8]")
+    public WebElement paymentsPayerName8;
+    @FindBy(xpath = "(//*[@class=' text-start column-key-customer_id'])[9]")
+    public WebElement paymentsPayerName9;
+    @FindBy(xpath = "(//*[@class=' text-start column-key-customer_id'])[10]")
+    public WebElement paymentsPayerName10;
+    @FindBy(xpath = "(//*[@class='nav-item '])[1]")
+    public WebElement dashboardButton;
+
 }
 
 
