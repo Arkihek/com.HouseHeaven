@@ -119,6 +119,7 @@ public class US050_TC01_TC02 extends TestBaseReport {
         WebElement deleleteWait = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='toast-title']")));
         softAssert.assertTrue(deleleteWait.isDisplayed(),"could not be displayed");
         ReusableMethods.waitFor(2);
+        extentTest.pass("Login to the admin dashboard and add ialn numbers and advertisements from the cities section, deleted");
     }
 }
 

@@ -191,5 +191,6 @@ public class US34_TC01_TC02_TC03_TC04_TC05 extends TestBaseReport {
         WebElement deleteconfirm = deleteWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='toast-title']")));
         softAssert.assertTrue(deleteconfirm.isDisplayed(), "not deleted");
         ReusableMethods.waitFor(2);
+        extentTest.pass("Input the admin part, the number of advertisements in properties and the test for adding and removing advertisements.");
     }
 }
