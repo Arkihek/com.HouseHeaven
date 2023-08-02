@@ -17,16 +17,6 @@ public class US17_TC020 extends TestBaseReport {
 
     @Test
     public void test20(){
-        //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
-        //02_As a registered user, log in with the correct username and password from the signin button
-
-
-
-
-
-
-
-        //10_Browser will be closed.
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test","On the home page, make sure that Recently Viewed Properties visible and active");
@@ -63,8 +53,9 @@ public class US17_TC020 extends TestBaseReport {
         ReusableMethods.waitFor(3);
 
         //06_Recently Viewed Properties is verified to be visible.
-        JSUtilities.scrollToElement(Driver.getDriver(),userHomePageBody.getRecentlyViewedPropertiesLocate);
+        JSUtilities.scrollToElement(Driver.getDriver(),userHomePageBody.firstPostChoosePlanButton);
         ReusableMethods.waitFor(3);
+
         softAssert.assertTrue(userHomePageBody.recentlyViewedProperties.isDisplayed(),"Recently Viewed Properties section is not visible.");
         extentTest.pass("Recently Viewed Properties is visible");
 
@@ -88,6 +79,8 @@ public class US17_TC020 extends TestBaseReport {
         System.out.println(recentlyHouseName);
         softAssert.assertEquals(recentlyHouseName,houseName);
         softAssert.assertAll();
+
+        Driver.closeDriver();
 
         //10_Browser will be closed.
     }

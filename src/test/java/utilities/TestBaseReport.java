@@ -40,7 +40,7 @@ public class TestBaseReport {
     // Her test methodundan sonra eğer testte hata varsa, ekran görüntüsü alıp rapora ekliyor
  //  @AfterMethod(alwaysRun = true)
  //  public void tearDownMethod(ITestResult result) throws IOException {
-
+//
  //      if (result.getStatus() == ITestResult.FAILURE) { // eğer testin sonucu başarısızsa
  //          String screenshotLocation = ReusableMethods.getScreenshot(result.getName());
  //          extentTest.fail(result.getName());
@@ -50,7 +50,7 @@ public class TestBaseReport {
  //          extentTest.skip("Test Case is skipped: " + result.getName()); // Ignore olanlar
  //      }
  //      Driver.closeDriver();
-
+//
  //  }
 
 
@@ -59,5 +59,6 @@ public class TestBaseReport {
     public void tearDownTest() {
 
         extentReports.flush();
+        Driver.closeDriver();
     }
 }
