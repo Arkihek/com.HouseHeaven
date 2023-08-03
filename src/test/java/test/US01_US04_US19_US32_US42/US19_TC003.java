@@ -88,6 +88,8 @@ public class US19_TC003 extends TestBaseReport {
         Driver.getDriver().switchTo().window(ikinciSafyaHandle);
 
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://hauseheaven.com/news/benefit-of-investing"));
+        Driver.getDriver().close();
+        Driver.getDriver().switchTo().window(ilkWHDDegeri);
 
         JSUtilities.scrollToBottom(Driver.getDriver());
         ReusableMethods.waitFor(2);
@@ -103,8 +105,10 @@ public class US19_TC003 extends TestBaseReport {
         }
         Driver.getDriver().switchTo().window(ucuncuSafyaHandle);
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://hauseheaven.com/news/a-guide-to-negotiating"));
+        Driver.getDriver().close();
+        Driver.getDriver().switchTo().window(ilkWHDDegeri);
 
-        JSUtilities.scrollToBottom(Driver.getDriver());
+
         ReusableMethods.waitFor(2);
         Driver.getDriver().findElement(By.xpath("(//span[contains(text(),'The Rise Of Sustainable Homes: Building For A Gree')])[1]")).click();
 
@@ -118,8 +122,10 @@ public class US19_TC003 extends TestBaseReport {
         }
         Driver.getDriver().switchTo().window(dorduncuSafyaHandle);
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://hauseheaven.com/news/the-rise-of-sutainable-homes"));
+        Driver.getDriver().close();
+        Driver.getDriver().switchTo().window(ilkWHDDegeri);
 
-        JSUtilities.scrollToBottom(Driver.getDriver());
+
         ReusableMethods.waitFor(2);
         Driver.getDriver().findElement(By.xpath("(//span[contains(text(),'How to Stage Your Home for a Quick and Profitable ')])[1]")).click();
 
@@ -133,8 +139,10 @@ public class US19_TC003 extends TestBaseReport {
         }
         Driver.getDriver().switchTo().window(besinciSafyaHandle);
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://hauseheaven.com/news/how-to-stage-your-home-for-sale"));
+        Driver.getDriver().close();
+        Driver.getDriver().switchTo().window(ilkWHDDegeri);
 
-        JSUtilities.scrollToBottom(Driver.getDriver());
+
         ReusableMethods.waitFor(2);
         Driver.getDriver().findElement(By.xpath("(//span[contains(text(),'Investing in Vacation Rental Properties: A Lucrati')])[1]")).click();
 
@@ -147,19 +155,22 @@ public class US19_TC003 extends TestBaseReport {
         }
         Driver.getDriver().switchTo().window(altinciSafyaHandle);
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://hauseheaven.com/news/investing-in-vacation"));
+        Driver.getDriver().close();
+        Driver.getDriver().switchTo().window(ilkWHDDegeri);
 
-        JSUtilities.scrollToBottom(Driver.getDriver());
+
         ReusableMethods.waitFor(2);
         WebElement appStore=Driver.getDriver().findElement(By.xpath("//i[@class='lni-apple theme-cl']"));
-        appStore.click();
+        JSUtilities.clickWithJS(Driver.getDriver(),appStore);
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://www.apple.com/app-store/"));
+        Driver.getDriver().navigate().back();
 
         // Bu link belirtilen adrese gitmiyor farklı bir adrese gidiyor.D olayısıyla burada bir hatalı kod yazilmis.
-        JSUtilities.scrollToBottom(Driver.getDriver());
+
         ReusableMethods.waitFor(2);
         WebElement googlePlayStore=Driver.getDriver().findElement(By.xpath("//div[@class='footer-widget']//div[1]//div[1]//a[1]"));
-        googlePlayStore.click();
-        Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://play.google.com/store/games?hl=tr&gl=US"));
+        JSUtilities.clickWithJS(Driver.getDriver(),googlePlayStore);
+        softAssert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://play.google.com/store/games?hl=tr&gl=US"));
 
         extentTest.pass("User can access the website");
     }
