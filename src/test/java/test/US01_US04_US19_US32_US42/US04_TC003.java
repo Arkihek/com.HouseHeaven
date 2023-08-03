@@ -20,14 +20,15 @@ public class US04_TC003 extends TestBaseReport {
 
         @Test
     public void test01(){
-
-
+            extentTest = extentReports.createTest("Active Footer test"," \n" +
+                    "User tests that Footer part takes to correct address");
+            // URL'ye gidilir.
             Driver.getDriver().get(ConfigReader.getProperty("url"));
-
             JSUtilities.scrollToBottom(Driver.getDriver());
 
             JSUtilities.scrollToBottom(Driver.getDriver());
             ReusableMethods.waitFor(2);
+            // Sırayla Footer bolumundeki ogelere tıklanarak doğru adrese gotutrup goturmedigi kontrol edilir.
             WebElement abaouUs=Driver.getDriver().findElement(By.xpath("//a[@href='https://qa.hauseheaven.com/about-us']"));
 
             abaouUs.click();
@@ -142,16 +143,17 @@ public class US04_TC003 extends TestBaseReport {
 
             JSUtilities.scrollToBottom(Driver.getDriver());
             ReusableMethods.waitFor(2);
-            WebElement googlePlayStore=Driver.getDriver().findElement(By.xpath("//div[@class='footer-widget']//div[1]//div[1]//a[1]"));
-            googlePlayStore.click();
-            Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://play.google.com/store/games?hl=tr&gl=US"));
-
-            JSUtilities.scrollToBottom(Driver.getDriver());
-            ReusableMethods.waitFor(2);
             WebElement appStore=Driver.getDriver().findElement(By.xpath("//i[@class='lni-apple theme-cl']"));
             appStore.click();
             Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://www.apple.com/app-store/"));
 
+            // Bu link belirtilen adrese gitmiyor farklı bir adrese gidiyor.D olayısıyla burada bir hatalı kod yazilmis.
+            JSUtilities.scrollToBottom(Driver.getDriver());
+            ReusableMethods.waitFor(2);
+            WebElement googlePlayStore=Driver.getDriver().findElement(By.xpath("//div[@class='footer-widget']//div[1]//div[1]//a[1]"));
+            googlePlayStore.click();
+            Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://play.google.com/store/games?hl=tr&gl=US"));
 
+            extentTest.pass("User can access the website");
         }
 }

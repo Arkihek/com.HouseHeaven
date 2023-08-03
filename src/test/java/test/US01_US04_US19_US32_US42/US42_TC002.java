@@ -7,19 +7,20 @@ import org.testng.asserts.SoftAssert;
 import pages.AdminDashBoard_RealEstate_Properties;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
 import java.util.List;
 
-public class US32_TC004 extends TestBaseReport {
+public class US42_TC002 extends TestBaseReport {
+
     AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties = new AdminDashBoard_RealEstate_Properties();
     SoftAssert softAssert = new SoftAssert();
 
     @Test
-    public void test() {
-        extentTest = extentReports.createTest("Testimonials comments test"," User should be able to view comments on testimonials page");
-
-        //Mevcut yorumlar sayfa yüklendiğinde görünür olmalı ve doğru şekilde listelenmelidir.
+    public void test01() {
+        extentTest = extentReports.createTest("Packages displayed test"," User tests that the package is visible");
+        //Packages sayfasındaki ögeler sayfa yüklendiğinde görünür ve aktif olmalıdır
 
         // Browser acilir
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
@@ -29,15 +30,17 @@ public class US32_TC004 extends TestBaseReport {
         adminDashBoardRealEstateProperties.RealEstatePropertiesadminPssword.sendKeys("951847");
         // signin nutonuna tıklanır.
         adminDashBoardRealEstateProperties.RealEstatePropertiesAdminSigninButonu.click();
-        // Testimonials sayfasina giris yapilir
-        Driver.getDriver().findElement(By.xpath("//span[normalize-space()='Testimonials']")).click();
-
-        //Yorumların gorunurlugu test edilir.
-        List<WebElement> comments = Driver.getDriver().findElements(By.xpath("//td[@class='text-start no-sort dtr-control']"));
-        for (WebElement each : comments) {
-            softAssert.assertTrue(each.isDisplayed(), "Comments are not displayed");
+        // Packages sayfasina tiklanir.
+        ReusableMethods.waitFor(2);
+        WebElement packages = Driver.getDriver().findElement(By.xpath("//span[normalize-space()='Packages']"));
+        packages.click();
+        // Packages'deki ogelerin gorunur oldugu dogrulanir.
+        List<WebElement> packagesOgeler = Driver.getDriver().findElements(By.xpath("//tr[@class='odd']//td[@class='text-start no-sort dtr-control']"));
+        for (WebElement each : packagesOgeler) {
+            softAssert.assertTrue(each.isDisplayed(), "Packages are not displayed");
             System.out.println(each.getText());
+
+            extentTest.pass("Packages is Displayed");
         }
-        extentTest.pass("Comments displayed");
     }
 }
