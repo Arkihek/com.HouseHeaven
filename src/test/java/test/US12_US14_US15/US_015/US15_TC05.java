@@ -13,14 +13,15 @@ public class US15_TC05 extends TestBaseReport {
     public void ilanSilmeDogrulama(){
 
 
+        AccountPage_Property kullanici = new AccountPage_Property();
+        UserHomepage userHomepage =new UserHomepage();
+
+
         extentTest = extentReports.createTest("Reported ad deletion test",
                                               "Registered user should be able to delete the ad");
 
-
         //User goes to hauseheaven homepage
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        AccountPage_Property kullanici = new AccountPage_Property();
-        UserHomepage userHomepage =new UserHomepage();
         extentTest.info("User goes to hauseheaven homepage");
 
 

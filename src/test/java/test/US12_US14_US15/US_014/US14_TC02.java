@@ -13,13 +13,16 @@ public class US14_TC02 extends TestBaseReport {
     @Test
     public void accountPropertyMevcutIlanListe(){
 
+
+            AccountPage_Property kullanici = new AccountPage_Property();
+            UserHomepage userHomepage = new UserHomepage();
+
+
             extentTest = extentReports.createTest("Existing posting list test with report",
                                                 "User account property should be able to view current listing list");
 
             //User goes to hauseheaven homepage
             Driver.getDriver().get(ConfigReader.getProperty("url"));
-            AccountPage_Property kullanici = new AccountPage_Property();
-            UserHomepage userHomepage = new UserHomepage();
             extentTest.info("User goes to hauseheaven homepage");
 
 
