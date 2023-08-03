@@ -26,7 +26,7 @@ public class US09_TC005 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
 
         //Facebook butonu testi
-        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed(),"Facebook butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed());
         extentTest.pass("Facebook butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.facebookButonu);
         String blogSayfasiWHD = Driver.getDriver().getWindowHandle();
@@ -41,12 +41,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(facebookSayfaHandle);
         String expectedFacebookBaslik = "Facebook";
         String actualFacebookBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik,"Facebook sayfasi acilmadi");
+        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik);
         extentTest.pass("Facebook sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Linkedin butonu testi
-        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed(),"Linkedin butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed());
         extentTest.pass("Linkedin butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.linkedinButonu);
         Set<String> wHDSeti2 = Driver.getDriver().getWindowHandles();
@@ -60,12 +60,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(linkedinSayfaHandle);
         String expectedLinkedinBaslik = "LinkedIn Oturum Açma, Kayıt Olma | LinkedIn";
         String actualLinkedinBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik,"LinkedIn sayfasi acilmadi");
+        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik);
         extentTest.pass("LinkedIn sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Twitter butonu testi
-        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed(),"Twitter butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed());
         extentTest.pass("Twitter butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.twitterButonu);
         ReusableMethods.waitFor(2);
@@ -80,10 +80,11 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(twitterSayfaHandle);
         String expectedTwitterBaslik = "Twitter'a giriş yap / X";
         String actualTwitterBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik,"Twitter sayfasi acilmadi");
+        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik);
         extentTest.pass("Twitter sayfasinin acildigini test eder");
         softAssert.assertAll();
         Driver.quitDriver();
+        extentTest.info("Sayfayi kapatir");
     }
     @Test(priority = 2)
     public void IkinciBlogSayfa () {
@@ -100,7 +101,7 @@ public class US09_TC005 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
 
         //Facebook butonu testi
-        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed(),"Facebook butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed());
         extentTest.pass("Facebook butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.facebookButonu);
         String blogSayfasiWHD = Driver.getDriver().getWindowHandle();
@@ -115,12 +116,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(facebookSayfaHandle);
         String expectedFacebookBaslik = "Facebook";
         String actualFacebookBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik,"Facebook sayfasi acilmadi");
+        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik);
         extentTest.pass("Facebook sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Linkedin butonu testi
-        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed(),"Linkedin butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed());
         extentTest.pass("Linkedin butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.linkedinButonu);
         Set<String> wHDSeti2 = Driver.getDriver().getWindowHandles();
@@ -134,12 +135,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(linkedinSayfaHandle);
         String expectedLinkedinBaslik = "LinkedIn Oturum Açma, Kayıt Olma | LinkedIn";
         String actualLinkedinBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik,"LinkedIn sayfasi acilmadi");
+        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik);
         extentTest.pass("LinkedIn sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Twitter butonu testi
-        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed(),"Twitter butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed());
         extentTest.pass("Twitter butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.twitterButonu);
         ReusableMethods.waitFor(2);
@@ -154,10 +155,11 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(twitterSayfaHandle);
         String expectedTwitterBaslik = "Twitter'a giriş yap / X";
         String actualTwitterBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik,"Twitter sayfasi acilmadi");
+        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik);
         extentTest.pass("Twitter sayfasinin acildigini test eder");
         softAssert.assertAll();
         Driver.quitDriver();
+        extentTest.info("Sayfayi kapatir");
     }
     @Test(priority = 3)
     public void UcuncuBlogSayfa () {
@@ -174,7 +176,7 @@ public class US09_TC005 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
 
         //Facebook butonu testi
-        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed(),"Facebook butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed());
         extentTest.pass("Facebook butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.facebookButonu);
         String blogSayfasiWHD = Driver.getDriver().getWindowHandle();
@@ -189,12 +191,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(facebookSayfaHandle);
         String expectedFacebookBaslik = "Facebook";
         String actualFacebookBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik,"Facebook sayfasi acilmadi");
+        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik);
         extentTest.pass("Facebook sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Linkedin butonu testi
-        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed(),"Linkedin butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed());
         extentTest.pass("Linkedin butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.linkedinButonu);
         Set<String> wHDSeti2 = Driver.getDriver().getWindowHandles();
@@ -208,12 +210,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(linkedinSayfaHandle);
         String expectedLinkedinBaslik = "LinkedIn Oturum Açma, Kayıt Olma | LinkedIn";
         String actualLinkedinBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik,"LinkedIn sayfasi acilmadi");
+        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik);
         extentTest.pass("LinkedIn sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Twitter butonu testi
-        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed(),"Twitter butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed());
         extentTest.pass("Twitter butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.twitterButonu);
         ReusableMethods.waitFor(2);
@@ -228,10 +230,11 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(twitterSayfaHandle);
         String expectedTwitterBaslik = "Twitter'a giriş yap / X";
         String actualTwitterBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik,"Twitter sayfasi acilmadi");
+        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik);
         extentTest.pass("Twitter sayfasinin acildigini test eder");
         softAssert.assertAll();
         Driver.quitDriver();
+        extentTest.info("Sayfayi kapatir");
     }
     @Test(priority = 4)
     public void DorduncuBlogSayfa () {
@@ -248,7 +251,7 @@ public class US09_TC005 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
 
         //Facebook butonu testi
-        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed(),"Facebook butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed());
         extentTest.pass("Facebook butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.facebookButonu);
         String blogSayfasiWHD = Driver.getDriver().getWindowHandle();
@@ -263,12 +266,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(facebookSayfaHandle);
         String expectedFacebookBaslik = "Facebook";
         String actualFacebookBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik,"Facebook sayfasi acilmadi");
+        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik);
         extentTest.pass("Facebook sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Linkedin butonu testi
-        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed(),"Linkedin butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed());
         extentTest.pass("Linkedin butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.linkedinButonu);
         Set<String> wHDSeti2 = Driver.getDriver().getWindowHandles();
@@ -282,12 +285,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(linkedinSayfaHandle);
         String expectedLinkedinBaslik = "LinkedIn Oturum Açma, Kayıt Olma | LinkedIn";
         String actualLinkedinBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik,"LinkedIn sayfasi acilmadi");
+        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik);
         extentTest.pass("LinkedIn sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Twitter butonu testi
-        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed(),"Twitter butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed());
         extentTest.pass("Twitter butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.twitterButonu);
         ReusableMethods.waitFor(2);
@@ -302,10 +305,11 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(twitterSayfaHandle);
         String expectedTwitterBaslik = "Twitter'a giriş yap / X";
         String actualTwitterBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik,"Twitter sayfasi acilmadi");
+        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik);
         extentTest.pass("Twitter sayfasinin acildigini test eder");
         softAssert.assertAll();
         Driver.quitDriver();
+        extentTest.info("Sayfayi kapatir");
     }
     @Test(priority = 5)
     public void BesinciBlogSayfa () {
@@ -322,7 +326,7 @@ public class US09_TC005 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
 
         //Facebook butonu testi
-        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed(),"Facebook butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed());
         extentTest.pass("Facebook butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.facebookButonu);
         String blogSayfasiWHD = Driver.getDriver().getWindowHandle();
@@ -337,12 +341,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(facebookSayfaHandle);
         String expectedFacebookBaslik = "Facebook";
         String actualFacebookBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik,"Facebook sayfasi acilmadi");
+        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik);
         extentTest.pass("Facebook sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Linkedin butonu testi
-        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed(),"Linkedin butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed());
         extentTest.pass("Linkedin butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.linkedinButonu);
         Set<String> wHDSeti2 = Driver.getDriver().getWindowHandles();
@@ -356,12 +360,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(linkedinSayfaHandle);
         String expectedLinkedinBaslik = "LinkedIn Oturum Açma, Kayıt Olma | LinkedIn";
         String actualLinkedinBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik,"LinkedIn sayfasi acilmadi");
+        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik);
         extentTest.pass("LinkedIn sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Twitter butonu testi
-        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed(),"Twitter butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed());
         extentTest.pass("Twitter butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.twitterButonu);
         ReusableMethods.waitFor(2);
@@ -376,10 +380,11 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(twitterSayfaHandle);
         String expectedTwitterBaslik = "Twitter'a giriş yap / X";
         String actualTwitterBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik,"Twitter sayfasi acilmadi");
+        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik);
         extentTest.pass("Twitter sayfasinin acildigini test eder");
         softAssert.assertAll();
         Driver.quitDriver();
+        extentTest.info("Sayfayi kapatir");
     }
     @Test(priority = 6)
     public void AltinciBlogSayfa () {
@@ -396,7 +401,7 @@ public class US09_TC005 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
 
         //Facebook butonu testi
-        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed(),"Facebook butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed());
         extentTest.pass("Facebook butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.facebookButonu);
         String blogSayfasiWHD = Driver.getDriver().getWindowHandle();
@@ -411,12 +416,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(facebookSayfaHandle);
         String expectedFacebookBaslik = "Facebook";
         String actualFacebookBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik,"Facebook sayfasi acilmadi");
+        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik);
         extentTest.pass("Facebook sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Linkedin butonu testi
-        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed(),"Linkedin butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed());
         extentTest.pass("Linkedin butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.linkedinButonu);
         Set<String> wHDSeti2 = Driver.getDriver().getWindowHandles();
@@ -430,12 +435,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(linkedinSayfaHandle);
         String expectedLinkedinBaslik = "LinkedIn Oturum Açma, Kayıt Olma | LinkedIn";
         String actualLinkedinBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik,"LinkedIn sayfasi acilmadi");
+        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik);
         extentTest.pass("LinkedIn sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Twitter butonu testi
-        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed(),"Twitter butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed());
         extentTest.pass("Twitter butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.twitterButonu);
         ReusableMethods.waitFor(2);
@@ -450,10 +455,11 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(twitterSayfaHandle);
         String expectedTwitterBaslik = "Twitter'a giriş yap / X";
         String actualTwitterBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik,"Twitter sayfasi acilmadi");
+        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik);
         extentTest.pass("Twitter sayfasinin acildigini test eder");
         softAssert.assertAll();
         Driver.quitDriver();
+        extentTest.info("Sayfayi kapatir");
     }
     @Test(priority = 7)
     public void YedinciBlogSayfa () {
@@ -470,7 +476,7 @@ public class US09_TC005 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
 
         //Facebook butonu testi
-        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed(),"Facebook butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed());
         extentTest.pass("Facebook butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.facebookButonu);
         String blogSayfasiWHD = Driver.getDriver().getWindowHandle();
@@ -485,12 +491,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(facebookSayfaHandle);
         String expectedFacebookBaslik = "Facebook";
         String actualFacebookBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik,"Facebook sayfasi acilmadi");
+        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik);
         extentTest.pass("Facebook sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Linkedin butonu testi
-        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed(),"Linkedin butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed());
         extentTest.pass("Linkedin butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.linkedinButonu);
         Set<String> wHDSeti2 = Driver.getDriver().getWindowHandles();
@@ -504,12 +510,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(linkedinSayfaHandle);
         String expectedLinkedinBaslik = "LinkedIn Oturum Açma, Kayıt Olma | LinkedIn";
         String actualLinkedinBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik,"LinkedIn sayfasi acilmadi");
+        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik);
         extentTest.pass("LinkedIn sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Twitter butonu testi
-        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed(),"Twitter butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed());
         extentTest.pass("Twitter butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.twitterButonu);
         ReusableMethods.waitFor(2);
@@ -524,10 +530,11 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(twitterSayfaHandle);
         String expectedTwitterBaslik = "Twitter'a giriş yap / X";
         String actualTwitterBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik,"Twitter sayfasi acilmadi");
+        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik);
         extentTest.pass("Twitter sayfasinin acildigini test eder");
         softAssert.assertAll();
         Driver.quitDriver();
+        extentTest.info("Sayfayi kapatir");
     }
     @Test(priority = 8)
     public void SekizinciBlogSayfa () {
@@ -544,7 +551,7 @@ public class US09_TC005 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
 
         //Facebook butonu testi
-        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed(),"Facebook butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed());
         extentTest.pass("Facebook butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.facebookButonu);
         String blogSayfasiWHD = Driver.getDriver().getWindowHandle();
@@ -559,12 +566,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(facebookSayfaHandle);
         String expectedFacebookBaslik = "Facebook";
         String actualFacebookBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik,"Facebook sayfasi acilmadi");
+        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik);
         extentTest.pass("Facebook sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Linkedin butonu testi
-        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed(),"Linkedin butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed());
         extentTest.pass("Linkedin butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.linkedinButonu);
         Set<String> wHDSeti2 = Driver.getDriver().getWindowHandles();
@@ -578,12 +585,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(linkedinSayfaHandle);
         String expectedLinkedinBaslik = "LinkedIn Oturum Açma, Kayıt Olma | LinkedIn";
         String actualLinkedinBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik,"LinkedIn sayfasi acilmadi");
+        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik);
         extentTest.pass("LinkedIn sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Twitter butonu testi
-        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed(),"Twitter butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed());
         extentTest.pass("Twitter butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.twitterButonu);
         ReusableMethods.waitFor(2);
@@ -598,10 +605,11 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(twitterSayfaHandle);
         String expectedTwitterBaslik = "Twitter'a giriş yap / X";
         String actualTwitterBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik,"Twitter sayfasi acilmadi");
+        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik);
         extentTest.pass("Twitter sayfasinin acildigini test eder");
         softAssert.assertAll();
         Driver.quitDriver();
+        extentTest.info("Sayfayi kapatir");
     }
     @Test(priority = 9)
     public void DokuzuncuBlogSayfa () {
@@ -618,7 +626,7 @@ public class US09_TC005 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
 
         //Facebook butonu testi
-        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed(),"Facebook butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed());
         extentTest.pass("Facebook butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.facebookButonu);
         String blogSayfasiWHD = Driver.getDriver().getWindowHandle();
@@ -633,12 +641,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(facebookSayfaHandle);
         String expectedFacebookBaslik = "Facebook";
         String actualFacebookBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik,"Facebook sayfasi acilmadi");
+        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik);
         extentTest.pass("Facebook sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Linkedin butonu testi
-        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed(),"Linkedin butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed());
         extentTest.pass("Linkedin butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.linkedinButonu);
         Set<String> wHDSeti2 = Driver.getDriver().getWindowHandles();
@@ -652,12 +660,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(linkedinSayfaHandle);
         String expectedLinkedinBaslik = "LinkedIn Oturum Açma, Kayıt Olma | LinkedIn";
         String actualLinkedinBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik,"LinkedIn sayfasi acilmadi");
+        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik);
         extentTest.pass("LinkedIn sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Twitter butonu testi
-        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed(),"Twitter butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed());
         extentTest.pass("Twitter butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.twitterButonu);
         ReusableMethods.waitFor(2);
@@ -672,10 +680,11 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(twitterSayfaHandle);
         String expectedTwitterBaslik = "Twitter'a giriş yap / X";
         String actualTwitterBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik,"Twitter sayfasi acilmadi");
+        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik);
         extentTest.pass("Twitter sayfasinin acildigini test eder");
         softAssert.assertAll();
         Driver.quitDriver();
+        extentTest.info("Sayfayi kapatir");
     }
     @Test(priority = 10)
     public void OnuncuBlogSayfa () {
@@ -692,7 +701,7 @@ public class US09_TC005 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
 
         //Facebook butonu testi
-        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed(),"Facebook butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed());
         extentTest.pass("Facebook butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.facebookButonu);
         String blogSayfasiWHD = Driver.getDriver().getWindowHandle();
@@ -707,12 +716,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(facebookSayfaHandle);
         String expectedFacebookBaslik = "Facebook";
         String actualFacebookBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik,"Facebook sayfasi acilmadi");
+        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik);
         extentTest.pass("Facebook sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Linkedin butonu testi
-        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed(),"Linkedin butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed());
         extentTest.pass("Linkedin butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.linkedinButonu);
         Set<String> wHDSeti2 = Driver.getDriver().getWindowHandles();
@@ -726,12 +735,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(linkedinSayfaHandle);
         String expectedLinkedinBaslik = "LinkedIn Oturum Açma, Kayıt Olma | LinkedIn";
         String actualLinkedinBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik,"LinkedIn sayfasi acilmadi");
+        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik);
         extentTest.pass("LinkedIn sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Twitter butonu testi
-        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed(),"Twitter butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed());
         extentTest.pass("Twitter butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.twitterButonu);
         ReusableMethods.waitFor(2);
@@ -746,10 +755,11 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(twitterSayfaHandle);
         String expectedTwitterBaslik = "Twitter'a giriş yap / X";
         String actualTwitterBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik,"Twitter sayfasi acilmadi");
+        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik);
         extentTest.pass("Twitter sayfasinin acildigini test eder");
         softAssert.assertAll();
         Driver.quitDriver();
+        extentTest.info("Sayfayi kapatir");
     }
     @Test(priority = 11)
     public void OnbirinciBlogSayfa () {
@@ -766,7 +776,7 @@ public class US09_TC005 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
 
         //Facebook butonu testi
-        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed(),"Facebook butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed());
         extentTest.pass("Facebook butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.facebookButonu);
         String blogSayfasiWHD = Driver.getDriver().getWindowHandle();
@@ -781,12 +791,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(facebookSayfaHandle);
         String expectedFacebookBaslik = "Facebook";
         String actualFacebookBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik,"Facebook sayfasi acilmadi");
+        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik);
         extentTest.pass("Facebook sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Linkedin butonu testi
-        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed(),"Linkedin butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed());
         extentTest.pass("Linkedin butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.linkedinButonu);
         Set<String> wHDSeti2 = Driver.getDriver().getWindowHandles();
@@ -800,12 +810,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(linkedinSayfaHandle);
         String expectedLinkedinBaslik = "LinkedIn Oturum Açma, Kayıt Olma | LinkedIn";
         String actualLinkedinBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik,"LinkedIn sayfasi acilmadi");
+        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik);
         extentTest.pass("LinkedIn sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Twitter butonu testi
-        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed(),"Twitter butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed());
         extentTest.pass("Twitter butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.twitterButonu);
         ReusableMethods.waitFor(2);
@@ -820,10 +830,11 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(twitterSayfaHandle);
         String expectedTwitterBaslik = "Twitter'a giriş yap / X";
         String actualTwitterBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik,"Twitter sayfasi acilmadi");
+        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik);
         extentTest.pass("Twitter sayfasinin acildigini test eder");
         softAssert.assertAll();
         Driver.quitDriver();
+        extentTest.info("Sayfayi kapatir");
     }
     @Test(priority = 12)
     public void OnikinciBlogSayfa () {
@@ -840,7 +851,7 @@ public class US09_TC005 extends TestBaseReport {
         SoftAssert softAssert = new SoftAssert();
 
         //Facebook butonu testi
-        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed(),"Facebook butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.facebookButonu.isDisplayed());
         extentTest.pass("Facebook butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.facebookButonu);
         String blogSayfasiWHD = Driver.getDriver().getWindowHandle();
@@ -855,12 +866,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(facebookSayfaHandle);
         String expectedFacebookBaslik = "Facebook";
         String actualFacebookBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik,"Facebook sayfasi acilmadi");
+        softAssert.assertEquals(actualFacebookBaslik,expectedFacebookBaslik);
         extentTest.pass("Facebook sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Linkedin butonu testi
-        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed(),"Linkedin butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.linkedinButonu.isDisplayed());
         extentTest.pass("Linkedin butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.linkedinButonu);
         Set<String> wHDSeti2 = Driver.getDriver().getWindowHandles();
@@ -874,12 +885,12 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(linkedinSayfaHandle);
         String expectedLinkedinBaslik = "LinkedIn Oturum Açma, Kayıt Olma | LinkedIn";
         String actualLinkedinBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik,"LinkedIn sayfasi acilmadi");
+        softAssert.assertEquals(actualLinkedinBaslik,expectedLinkedinBaslik);
         extentTest.pass("LinkedIn sayfasinin acildigini test eder");
         Driver.getDriver().switchTo().window(blogSayfasiWHD);
 
         //Twitter butonu testi
-        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed(),"Twitter butonu gorunmuyor");
+        softAssert.assertTrue(userHomePageBlog.twitterButonu.isDisplayed());
         extentTest.pass("Twitter butonunun gorunurlulugunu test eder");
         JSUtilities.clickWithJS(Driver.getDriver(), userHomePageBlog.twitterButonu);
         ReusableMethods.waitFor(2);
@@ -894,9 +905,10 @@ public class US09_TC005 extends TestBaseReport {
         Driver.getDriver().switchTo().window(twitterSayfaHandle);
         String expectedTwitterBaslik = "Twitter'a giriş yap / X";
         String actualTwitterBaslik = Driver.getDriver().getTitle();
-        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik,"Twitter sayfasi acilmadi");
+        softAssert.assertEquals(actualTwitterBaslik,expectedTwitterBaslik);
         extentTest.pass("Twitter sayfasinin acildigini test eder");
         softAssert.assertAll();
         Driver.quitDriver();
+        extentTest.info("Sayfayi kapatir");
     }
 }
