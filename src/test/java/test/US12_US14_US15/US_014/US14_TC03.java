@@ -15,14 +15,17 @@ public class US14_TC03 extends TestBaseReport {
     @Test
     public void mulkEklemeDuzenleme(){
 
+
+        AccountPage_Property kullanici = new AccountPage_Property();
+        UserHomepage userHomepage =new UserHomepage();
+
+
         extentTest = extentReports.createTest("Reported property adding and editing testing",
                                              "Registered user should be able to add and edit property");
 
 
         //User goes to hauseheaven homepage
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        AccountPage_Property kullanici = new AccountPage_Property();
-        UserHomepage userHomepage =new UserHomepage();
         extentTest.info("User goes to hauseheaven homepage");
 
 

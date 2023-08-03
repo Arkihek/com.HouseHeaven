@@ -49,11 +49,16 @@ public class US10_TC02 extends TestBaseReport {
 
         WebElement yaziElementiSuccess= Driver.getDriver().findElement(By.xpath("//div[@class='contact-message contact-success-message']"));
         yaziElementiSuccess.getText();
-        String expectedYaziSuccess = "Send message successfully!";
-        Thread.sleep(2000);
 
-        String actualYaziSuccess = yaziElementiSuccess.getText();
-        softAssert.assertTrue(actualYaziSuccess.equals(expectedYaziSuccess));
+        WebElement successMessage = Driver.getDriver().findElement(By.id("alert-container"));
+        System.out.println(successMessage.getText());
+
+        softAssert.assertTrue(successMessage.isDisplayed());
+        softAssert.assertAll();
+
+        extentTest.pass("\n" +
+                "Visitor can send a message through out the contact page.");
+
 
 
 

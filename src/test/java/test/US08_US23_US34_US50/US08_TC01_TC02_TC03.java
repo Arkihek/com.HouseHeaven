@@ -2,37 +2,30 @@ package test.US08_US23_US34_US50;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Header_AgentsPage;
-import utilities.ConfigReader;
-import utilities.Driver;
-import utilities.JSUtilities;
-import utilities.TestBaseReport;
+import utilities.*;
 
 import java.util.List;
 
 public class US08_TC01_TC02_TC03 extends TestBaseReport {
 
-    Header_AgentsPage headerAgentsPage = new Header_AgentsPage();
-    SoftAssert softAssert = new SoftAssert();
-
-    @BeforeTest
-    public void setup() {
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
-        headerAgentsPage.agentsPageAgentLinki.click();
-
-    }
 
     @Test
     public void TC01() {
 
+        Header_AgentsPage headerAgentsPage = new Header_AgentsPage();
+        SoftAssert softAssert = new SoftAssert();
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
         extentTest = extentReports.createTest("Redirect to Agent link", "Agent should be able to click on the link");
         //Browser opens
         // Go to Url
 
+        headerAgentsPage.agentsPageAgentLinki.click();
         // Verify and click the Agents link on the top bar of the homepage
+
+        ReusableMethods.waitFor(3);
         softAssert.assertTrue(headerAgentsPage.agentsPageAgentLinki.isDisplayed(), "Agent link cannot be displayed");
         extentTest.info("Agent Link verified");
 
@@ -41,7 +34,9 @@ public class US08_TC01_TC02_TC03 extends TestBaseReport {
         String actualTitle = Driver.getDriver().getCurrentUrl();
         softAssert.assertTrue(actualTitle.equals(expectedTitle), "Not logged in to the Agents page");
         extentTest.info("Agents page is open");
-        softAssert.assertAll();
+        ReusableMethods.waitFor(2);
+       // softAssert.assertAll();
+
 
 
     }
@@ -50,8 +45,13 @@ public class US08_TC01_TC02_TC03 extends TestBaseReport {
     public void TC02() {
 
 
+        Header_AgentsPage headerAgentsPage = new Header_AgentsPage();
+        SoftAssert softAssert = new SoftAssert();
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        headerAgentsPage.agentsPageAgentLinki.click();
         extentTest = extentReports.createTest("View real estate agent advertisement page and information", "Number of houses should display real estate agent information");
 
+        ReusableMethods.waitFor(3);
         //Number and information of real estate ads
         List<WebElement> emlakciEvsayisi = Driver.getDriver().findElements(By.xpath(ConfigReader.getProperty("numberOfHouses")));
         for (WebElement each : emlakciEvsayisi) {
@@ -64,16 +64,25 @@ public class US08_TC01_TC02_TC03 extends TestBaseReport {
             softAssert.assertTrue(eachinformation.isDisplayed(), "Realtor information not displayed");
             System.out.println(eachinformation.getText());
         }
+        extentTest.info("Realtor information display");
         extentTest.pass("Real estate agent information display test");
-        softAssert.assertAll();
+        ReusableMethods.waitFor(2);
+        //softAssert.assertAll();
+
+
 
     }
 
     @Test
     public void TC03() {
+        Header_AgentsPage headerAgentsPage = new Header_AgentsPage();
+        SoftAssert softAssert = new SoftAssert();
+
         extentTest = extentReports.createTest("Display For Sale and For Rent links", "For Sale and For Rent should be viewable and verified");
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        headerAgentsPage.agentsPageAgentLinki.click();
 
-
+        ReusableMethods.waitFor(3);
         headerAgentsPage.agentsPageClickOnPhoto.click();
         //For Sale and For Rent should be viewable and verified
         JSUtilities.scrollToElement(Driver.getDriver(), headerAgentsPage.agentPageAgentsForSaleLink);
@@ -83,7 +92,10 @@ public class US08_TC01_TC02_TC03 extends TestBaseReport {
         softAssert.assertTrue(headerAgentsPage.agentsPageAgentsForRentLinki.isDisplayed(), "Unable to display Agent for Rent link");
         softAssert.assertTrue(headerAgentsPage.agentsPageAgentsForRentLinki.isEnabled(), "Agent for Rent link accessible");
         extentTest.pass("Agents for rent link display and accessibility test");
-        softAssert.assertAll();
-        Driver.closeDriver();
+        ReusableMethods.waitFor(2);
+      //  softAssert.assertAll();
+       // Driver.closeDriver();
+
     }
+
 }

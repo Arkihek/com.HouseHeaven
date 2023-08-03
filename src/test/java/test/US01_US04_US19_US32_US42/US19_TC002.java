@@ -19,16 +19,20 @@ public class US19_TC002 extends TestBaseReport {
 
     @Test
     public void test01(){
+        extentTest = extentReports.createTest("\n" +
+                "Active Footer test"," User tests that the Footer section is active");
+        // Kayıtlı kullanıcı girişi yaparak Footer bölümündeki tüm ögeler aktif olmalıdır.
+
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-
+        // Signup butonuna tıklanır
         userHomepage.signupButonu.click();
-
+        // Kullanici adi girilir
         userHomepage.usernamegiris.sendKeys(ConfigReader.getProperty("userMail"));
-
+        // Sifre girilir
         userHomepage.passwordGiris.sendKeys(ConfigReader.getProperty("userPass"));
-
+        // login'e tıklanir
         userHomepage.loginGiris.click();
-
+        // Footer bolumundeki ogelerin aktif oldugu kontrol edilir.
         List<WebElement> footerList=Driver.getDriver().findElements(By.xpath("(//div[@class='row'])[11]"));
 
         for (WebElement fotterEach:footerList
@@ -36,5 +40,6 @@ public class US19_TC002 extends TestBaseReport {
             softAssert.assertTrue(fotterEach.isEnabled(),"The menus in the Footer section are not Enabled");
 
         }
+        extentTest.pass("User can access Footer is Enabled");
     }
 }

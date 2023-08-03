@@ -14,13 +14,17 @@ public class US15_TC04 extends TestBaseReport {
     @Test
     public void tittleGirilmedigindeHata(){
 
+
+        AccountPage_Property kullanici = new AccountPage_Property();
+        SoftAssert softAssert = new SoftAssert();
+        UserHomepage userHomepage =new UserHomepage();
+
+
+
         extentTest = extentReports.createTest("Reported Title test",
                 "The user must fill the required field title without saving while adding an ad.");
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        AccountPage_Property kullanici = new AccountPage_Property();
-        SoftAssert softAssert = new SoftAssert();
-        UserHomepage userHomepage =new UserHomepage();
         extentTest.info("User goes to hauseheaven homepage");
 
 
@@ -111,14 +115,16 @@ public class US15_TC04 extends TestBaseReport {
     @Test
     public void contentGirilmedigindeHata(){
 
-        extentTest = extentReports.createTest("Reported content test",
-                "When adding an ad, the user must fill the required field without saving the content.");
 
-
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
         AccountPage_Property kullanici = new AccountPage_Property();
         SoftAssert softAssert = new SoftAssert();
         UserHomepage userHomepage =new UserHomepage();
+
+
+        extentTest = extentReports.createTest("Reported content test",
+                "When adding an ad, the user must fill the required field without saving the content.");
+
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
         extentTest.info("User goes to hauseheaven homepage");
 
 
@@ -202,13 +208,16 @@ public class US15_TC04 extends TestBaseReport {
     @Test
     public void propertyLocationGirilmedigindeHata(){
 
+
+        AccountPage_Property kullanici = new AccountPage_Property();
+        SoftAssert softAssert = new SoftAssert();
+        UserHomepage userHomepage =new UserHomepage();
+
+
         extentTest = extentReports.createTest("Reported property test",
                 "The user must fill in the required field without saving the property while adding an ad.");
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        AccountPage_Property kullanici = new AccountPage_Property();
-        SoftAssert softAssert = new SoftAssert();
-        UserHomepage userHomepage =new UserHomepage();
         extentTest.info("User goes to hauseheaven homepage");
 
 

@@ -14,13 +14,16 @@ public class US15_TC01 extends TestBaseReport {
     @Test
     public void accountPropertyErisebilirlik(){
 
+
+        AccountPage_Property kullanici = new AccountPage_Property();
+        UserHomepage userHomepage = new UserHomepage();
+
+
         extentTest = extentReports.createTest("Report Account Accessibility Test",
                                             "After logging into the registered user page, they should be able to access the account and go to the propetries");
         //
         //User goes to hauseheaven homepage
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        AccountPage_Property kullanici = new AccountPage_Property();
-        UserHomepage userHomepage = new UserHomepage();
         extentTest.info("User goes to hauseheaaven homepage");
 
 

@@ -22,16 +22,18 @@ public class US19_TC001 extends TestBaseReport {
 
     @Test
     public void test01(){
+        extentTest = extentReports.createTest("Footer section visibility","The user should test that the Footer section is visible.");
+       // URL'ye gidilir
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-
+        // Signup butonuna tıklanır
         userHomepage.signupButonu.click();
-
+        // Kullanici adi girilir
         userHomepage.usernamegiris.sendKeys(ConfigReader.getProperty("userMail"));
-
+        // Sifre girilir
         userHomepage.passwordGiris.sendKeys(ConfigReader.getProperty("userPass"));
-
+        // login'e tıklanir
         userHomepage.loginGiris.click();
-
+        // Footer bolumundeki ogelerin gorunurlugu kontrol edilir.
         List<WebElement>footerList=Driver.getDriver().findElements(By.xpath("(//div[@class='row'])[11]"));
 
         for (WebElement fotterEach:footerList
@@ -40,6 +42,6 @@ public class US19_TC001 extends TestBaseReport {
 
         }
 
-
+        extentTest.pass("User can access the website");
     }
 }

@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Istenen Classlari toplu calistirma">
+
+    <test name="class calistirma">
+
+        <classes>
+            <class name="test.US08_US23_US34_US50.US08_TC01_TC02_TC03"></class>
+            <class name="test.US08_US23_US34_US50.US23_TC01_TC02_TC03"></class>
+            <class name="test.US08_US23_US34_US50.US34_TC01_TC02_TC03_TC04_TC05"></class>
+            <class name="test.US08_US23_US34_US50.US050_TC01_TC02"></class>
+
+        </classes>
+    </test>
+</suite>

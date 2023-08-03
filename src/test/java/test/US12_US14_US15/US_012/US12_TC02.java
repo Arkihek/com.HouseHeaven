@@ -13,11 +13,14 @@ public class US12_TC02 extends TestBaseReport {
     @Test
     public void addPropertyLinki() {
 
+        AccountPage_Property kullanici = new AccountPage_Property();
+        SoftAssert softAssert = new SoftAssert();
+
+
         extentTest = extentReports.createTest("Reported add Property tetsi","The user should be able to see the add property link and go to the relevant page when clicked");
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         extentTest.info("User hauseheaven goes to homepage");
-        AccountPage_Property kullanici = new AccountPage_Property();
 
         // User fills in their information to log in to the system
         kullanici.signIn.click();
@@ -29,7 +32,6 @@ public class US12_TC02 extends TestBaseReport {
         extentTest.info("enters his password and logs in to the page");
 
         // verify that the add property link appears
-        SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(kullanici.addProperty.isDisplayed(),"The add Property link should appear");
         extentTest.pass("tests that the add Property link is displayed");
 

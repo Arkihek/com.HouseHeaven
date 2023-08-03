@@ -113,14 +113,15 @@ public class US12_TC01 extends TestBaseReport {
     public void mulkEklemeSave(){
 
 
+        AccountPage_Property kullanici = new AccountPage_Property();
+        UserHomepage userHomepage =new UserHomepage();
+
+
         extentTest = extentReports.createTest("Reported feature addition testing",
                                 "Registered user should be able to add features");
 
-
         //User goes to hauseheaven homepage
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        AccountPage_Property kullanici = new AccountPage_Property();
-        UserHomepage userHomepage =new UserHomepage();
         extentTest.info("User goes to hauseheaven homepage");
 
 
