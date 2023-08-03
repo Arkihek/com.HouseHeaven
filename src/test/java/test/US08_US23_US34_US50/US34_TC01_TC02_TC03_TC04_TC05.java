@@ -1,5 +1,6 @@
 package test.US08_US23_US34_US50;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -7,10 +8,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import pages.AdminDashBoard_RealEstate_Properties;
 import pages.AdminDashboard;
 import utilities.ConfigReader;
@@ -22,6 +21,8 @@ import java.time.Duration;
 import java.util.List;
 
 public class US34_TC01_TC02_TC03_TC04_TC05 extends TestBaseReport {
+
+
 
     @Test
     public void TC01() {
@@ -104,9 +105,18 @@ public class US34_TC01_TC02_TC03_TC04_TC05 extends TestBaseReport {
         adminDashBoard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
         adminDashBoard.adminSignIn.click();
         extentTest = extentReports.createTest("Number of active postings", "The number of advertisements and active advertisements on the page should be displayed.");
+
+        // The number of advertisements and active advertisements on the page should be displayed.
+
+        //      Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        //  adminDashBoard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
+        //  adminDashBoard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
+        //  adminDashBoard.adminSignIn.click();
         ReusableMethods.waitFor(2);
+
         realEstate.RealEstatePropertiesRealEstateLinki.click();
         ReusableMethods.waitFor(2);
+
         realEstate.RealEstatePropertiesPropertiesLinki.click();
         ReusableMethods.waitFor(2);
         softAssert.assertTrue(realEstate.RealEstatePropertiesilanSayisi.isDisplayed(), "ilan sayıları görüntülenemiyor");
