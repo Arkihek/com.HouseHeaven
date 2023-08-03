@@ -41,6 +41,7 @@ public class US08_TC01_TC02_TC03 extends TestBaseReport {
 
     @Test
     public void TC02() {
+
         Header_AgentsPage headerAgentsPage = new Header_AgentsPage();
         SoftAssert softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("url"));
