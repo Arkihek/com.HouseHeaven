@@ -8,12 +8,15 @@ import pages.UserHomePage_Body;
 import utilities.*;
 
 public class US03_TC002_08 extends TestBaseReport {
-    SoftAssert softAssert = new SoftAssert();
-    UserHomePage_Body userHomePageBody = new UserHomePage_Body();
-    Actions actions = new Actions(Driver.getDriver());
+
+
 
     @Test(priority = 1)
     public void TC002() {
+
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"9876 Elmwood Avenue\" visible and active");
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -65,6 +68,8 @@ public class US03_TC002_08 extends TestBaseReport {
 
     @Test(priority = 2)
     public void TC003() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"13579 Elmwood Avenue\" visible and active");
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
@@ -113,6 +118,8 @@ public class US03_TC002_08 extends TestBaseReport {
 
     @Test(priority = 3)
     public void TC004() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"2468 Pine Street\" visible and active");
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
@@ -161,6 +168,8 @@ public class US03_TC002_08 extends TestBaseReport {
 
     @Test(priority = 4)
     public void TC005() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
 
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"9876 Pine Avenue\" visible and active");
@@ -211,6 +220,8 @@ public class US03_TC002_08 extends TestBaseReport {
 
     @Test(priority = 5)
     public void TC006() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"13579 Willow Street\" visible and active");
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
@@ -260,6 +271,8 @@ public class US03_TC002_08 extends TestBaseReport {
 
     @Test(priority = 6)
     public void TC007() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"2468 Willow Street\" visible and active");
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
@@ -309,6 +322,8 @@ public class US03_TC002_08 extends TestBaseReport {
 
     @Test(priority = 7)
     public void TC008() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"Browse more properties\" visible and active");
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.

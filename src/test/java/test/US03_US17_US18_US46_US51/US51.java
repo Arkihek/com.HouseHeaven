@@ -11,13 +11,11 @@ import pages.AccountPage_Property;
 import pages.AdminDashboard;
 import pages.RegisterationPage;
 import pages.UserHomePage_Body;
-import utilities.ConfigReader;
-import utilities.Driver;
-import utilities.ReusableMethods;
-import utilities.TestBaseReport;
+import utilities.*;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 
 public class US51 extends TestBaseReport {
@@ -63,19 +61,8 @@ public class US51 extends TestBaseReport {
     @Test
     public void test02() {
 
-        //01_Browser acilir ve ziyaretci https://qa.hauseheaven.com/admin anasayfasina gider.
-        //02_Admin olarak signin butonundan dogru usarname ve password ile giris yapilir
-        //03_Media sayfasindaki butonlarin aktif ve gorunur olduklari test edilir.
-        //04_Browser kapatilir.
-
-        //01_Browser is open and the visitor goes to https://qa.hauseheven.com/admin homepage.
-        //02_As an administrator, log in with the correct username and password from the signin button
-
-        //04_browser is closed.
-
-
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
-        extentTest = extentReports.createTest("Hauseheaven test", "Media title should be active and visible on the admin dashboard");
+        extentTest = extentReports.createTest("Hauseheaven test", "Your buttons should be active and visible on the Media page on the admin dashboard");
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         ReusableMethods.waitFor(3);
 
@@ -88,9 +75,98 @@ public class US51 extends TestBaseReport {
         extentTest.info("Admin login successful");
 
         //03_The buttons on the media page are tested to be active and visible.
+        adminDashboard.mediaButton.click();
+        ReusableMethods.waitFor(2);
 
+        softAssert.assertTrue(adminDashboard.uploadButton.isDisplayed());
+        extentTest.info("upload button is visible");
+        softAssert.assertTrue(adminDashboard.uploadButton.isEnabled());
+        extentTest.info("upload button is enable");
+
+        softAssert.assertTrue(adminDashboard.downloadButton.isDisplayed());
+        extentTest.info("download button is visible");
+        softAssert.assertTrue(adminDashboard.downloadButton.isEnabled());
+        extentTest.info("download button is enable");
+
+        softAssert.assertTrue(adminDashboard.createFolderButton.isDisplayed());
+        extentTest.info("create Folder button is visible");
+        softAssert.assertTrue(adminDashboard.createFolderButton.isEnabled());
+        extentTest.info("create Folder button is enable");
+
+        softAssert.assertTrue(adminDashboard.refreshButton.isDisplayed());
+        extentTest.info("refresh button is visible");
+        softAssert.assertTrue(adminDashboard.refreshButton.isEnabled());
+        extentTest.info("refresh button is enable");
+
+
+        softAssert.assertTrue(adminDashboard.filterButton.isDisplayed());
+        extentTest.info("filter button is visible");
+        softAssert.assertTrue(adminDashboard.filterButton.isEnabled());
+        extentTest.info("filter button is enable");
+        adminDashboard.filterButton.click();
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitFor(2);
+
+
+        softAssert.assertTrue(adminDashboard.wiewInButton.isDisplayed());
+        extentTest.info("wiewIn button is visible");
+        softAssert.assertTrue(adminDashboard.wiewInButton.isEnabled());
+        extentTest.info("wiewIn button is enable");
+        adminDashboard.wiewInButton.click();
+        ReusableMethods.waitFor(2);
+
+
+        softAssert.assertTrue(adminDashboard.shortButton.isDisplayed());
+        extentTest.info("short button is visible");
+        softAssert.assertTrue(adminDashboard.shortButton.isEnabled());
+        extentTest.info("short button is enable");
+        adminDashboard.shortButton.click();
+        ReusableMethods.waitFor(2);
+
+        JSUtilities.clickWithJS(Driver.getDriver(),adminDashboard.mediaList);
+        softAssert.assertTrue(adminDashboard.actionsButton.isDisplayed());
+        extentTest.info("actions button is visible");
+        softAssert.assertTrue(adminDashboard.actionsButton.isEnabled());
+        extentTest.info("actions button is enable");
+        adminDashboard.actionsButton.click();
+        ReusableMethods.waitFor(2);
+
+        softAssert.assertTrue(adminDashboard.wiewSelect1Button.isDisplayed());
+        extentTest.info("wiew button is visible");
+        softAssert.assertTrue(adminDashboard.wiewSelect1Button.isEnabled());
+        extentTest.info("wiew button is enable");
+        adminDashboard.wiewSelect1Button.click();
+        ReusableMethods.waitFor(2);
+        adminDashboard.wiewSelect2Button.click();
+        ReusableMethods.waitFor(2);
+        extentTest.pass("Elements under the Media heading are active and visible in the admin control panel");
+        //04_browser is closed.
+
+        softAssert.assertAll();
+    }
+
+    @Test
+    public void test03() {
+
+
+        //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
+        extentTest = extentReports.createTest("Hauseheaven test", "Your buttons should be active and visible on the Media page on the admin dashboard");
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        ReusableMethods.waitFor(3);
+
+        //02_As an administrator, log in with the correct username and password from the signin button
+        adminDashboard.adminEMail.sendKeys("admin21" + Keys.TAB);
+        adminDashboard.adminPassword.sendKeys("951847" + Keys.TAB);
+        adminDashboard.adminRemember.click();
+        adminDashboard.adminSignIn.click();
+        adminDashboard.adminGirisKontrol.isDisplayed();
+        extentTest.info("Admin login successful");
+
+        adminDashboard.mediaButton.click();
+        ReusableMethods.waitFor(2);
 
     }
+
 
     @Test
     public void test22() {
@@ -207,4 +283,5 @@ public class US51 extends TestBaseReport {
         Assert.assertTrue(adminDashboard.wiewInTrashButton.isDisplayed());
         Driver.closeDriver();
     }
+
 }

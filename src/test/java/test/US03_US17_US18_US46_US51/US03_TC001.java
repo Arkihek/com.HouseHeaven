@@ -10,11 +10,10 @@ import utilities.*;
 
 public class US03_TC001 extends TestBaseReport {
 
-    SoftAssert softAssert = new SoftAssert();
-    UserHomePage_Body userHomePageBody = new UserHomePage_Body();
-
     @Test
     public void test01() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
         extentTest = extentReports.createTest("Hauseheaven test", "The user must be able to verify that the requested element is visible");
 
@@ -25,6 +24,7 @@ public class US03_TC001 extends TestBaseReport {
         ReusableMethods.waitFor(3);
 
         //02_How It Works on Home page. It is confirmed that the section is visible.
+        JSUtilities.scrollToElement(Driver.getDriver(), userHomePageBody.howItWorks);
         softAssert.assertTrue(userHomePageBody.howItWorks.isDisplayed());
         extentTest.info("howItWorks section is visible");
         ReusableMethods.waitFor(3);
@@ -40,6 +40,7 @@ public class US03_TC001 extends TestBaseReport {
             softAssert.assertTrue(webElementsIsDisplay[i].isDisplayed());
             extentTest.info(stringsWebElements[i] + " element was tested to be visible");
         }
+        softAssert.assertAll();
         //06_Browser is closed.
     }
 }
