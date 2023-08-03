@@ -5,8 +5,10 @@
     <test name="class calistirma">
 
         <classes>
-            <class name="test.US08_US23_US34_US50.US08_TC01_TC02_TC03"></class>
-            <class name="test.US08_US23_US34_US50.US23_TC01_TC02_TC03"></class>
+            <class name="test.US02_US13_US16_US33_US35_US49.US_02.US02_TC02"></class>
+            <class name="test.US10_US25_US41_US43.US41_TC01"></class>
+            <class name="test.US03_US17_US18_US46_US51.US03_TC022_24"></class>
+            <class name="test.US03_US17_US18_US46_US51.US46_001_003"></class>
             <class name="test.US08_US23_US34_US50.US34_TC01_TC02_TC03_TC04_TC05"></class>
             <class name="test.US08_US23_US34_US50.US050_TC01_TC02"></class>
 
