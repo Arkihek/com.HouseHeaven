@@ -1,7 +1,6 @@
 package test.US01_US04_US19_US32_US42;
 
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.AdminDashBoard_RealEstate_Properties;
@@ -11,11 +10,12 @@ import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
 public class US32_TC002 extends TestBaseReport {
-    AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties=new AdminDashBoard_RealEstate_Properties();
-    SoftAssert softAssert=new SoftAssert();
+
 
     @Test
     public void test02(){
+        AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties=new AdminDashBoard_RealEstate_Properties();
+        SoftAssert softAssert=new SoftAssert();
         // Testimoniels sayfasına ulaşılabilmeli ve düzgün bir şekilde görüntülenmelidir.
 
         extentTest = extentReports.createTest("Testimonials login test"," User should be able to click on admin testimonials and view");

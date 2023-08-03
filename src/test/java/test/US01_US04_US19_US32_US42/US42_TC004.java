@@ -11,11 +11,12 @@ import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
 public class US42_TC004 extends TestBaseReport {
-    AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties=new AdminDashBoard_RealEstate_Properties();
-    Actions actions=new Actions(Driver.getDriver());
+
 
     @Test
     public void test01(){
+        AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties=new AdminDashBoard_RealEstate_Properties();
+        Actions actions=new Actions(Driver.getDriver());
         extentTest = extentReports.createTest("New packages delete test"," User deletes newly added packages");
 
         //Eklenen packages düzenlendikten sonra silinmeli ve silindiği kontrol edilmelidir.

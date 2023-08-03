@@ -2,24 +2,23 @@ package test.US01_US04_US19_US32_US42;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.UserHomepage;
 import utilities.*;
 
-import java.util.List;
 import java.util.Set;
 
 public class US04_TC003 extends TestBaseReport {
     // Footer bölümündeki bağlantılara tıkladıktan sonra doğru adreslere görüldüğü doğrulanmalıdır.
 
-        UserHomepage userHomepage=new UserHomepage();
-        SoftAssert softAssert=new SoftAssert();
+
 
         @Test
     public void test01(){
+            UserHomepage userHomepage=new UserHomepage();
+            SoftAssert softAssert=new SoftAssert();
             extentTest = extentReports.createTest("Active Footer test"," \n" +
                     "User tests that Footer part takes to correct address");
             // URL'ye gidilir.

@@ -2,7 +2,6 @@ package test.US01_US04_US19_US32_US42;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.AdminDashBoard_RealEstate_Properties;
@@ -13,11 +12,12 @@ import utilities.TestBaseReport;
 
 public class US42_TC001 extends TestBaseReport {
 
-    AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties=new AdminDashBoard_RealEstate_Properties();
-    SoftAssert softAssert=new SoftAssert();
+
 
     @Test
     public void test01(){
+        AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties=new AdminDashBoard_RealEstate_Properties();
+        SoftAssert softAssert=new SoftAssert();
         extentTest = extentReports.createTest("Package login test"," User logs into package");
         // Admin dashboard'a giriş yapılır,
         // Packages sayfasına ulaşılır ve sayfa yüklendiğinde doğru bir şekilde yüklenmelidir.

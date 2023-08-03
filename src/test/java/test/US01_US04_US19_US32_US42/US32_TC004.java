@@ -12,11 +12,12 @@ import utilities.TestBaseReport;
 import java.util.List;
 
 public class US32_TC004 extends TestBaseReport {
-    AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties = new AdminDashBoard_RealEstate_Properties();
-    SoftAssert softAssert = new SoftAssert();
+
 
     @Test
     public void test() {
+        AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties = new AdminDashBoard_RealEstate_Properties();
+        SoftAssert softAssert = new SoftAssert();
         extentTest = extentReports.createTest("Testimonials comments test"," User should be able to view comments on testimonials page");
 
         //Mevcut yorumlar sayfa yüklendiğinde görünür olmalı ve doğru şekilde listelenmelidir.

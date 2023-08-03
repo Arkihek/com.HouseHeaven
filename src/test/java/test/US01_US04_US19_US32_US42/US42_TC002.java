@@ -14,11 +14,12 @@ import java.util.List;
 
 public class US42_TC002 extends TestBaseReport {
 
-    AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties = new AdminDashBoard_RealEstate_Properties();
-    SoftAssert softAssert = new SoftAssert();
+
 
     @Test
     public void test01() {
+        AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties = new AdminDashBoard_RealEstate_Properties();
+        SoftAssert softAssert = new SoftAssert();
         extentTest = extentReports.createTest("Packages displayed test"," User tests that the package is visible");
         //Packages sayfasındaki ögeler sayfa yüklendiğinde görünür ve aktif olmalıdır
 

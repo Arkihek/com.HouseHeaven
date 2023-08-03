@@ -15,11 +15,12 @@ public class US04_TC002 extends TestBaseReport {
 
     // Footer bölümündeki fonksiyonların kullanılabilir olduğu kontrol edilmelidir.
 
-    UserHomepage userHomepage = new UserHomepage();
-    SoftAssert softAssert = new SoftAssert();
+
 
     @Test
     public void test01() {
+        UserHomepage userHomepage = new UserHomepage();
+        SoftAssert softAssert = new SoftAssert();
         extentTest = extentReports.createTest("Footer section active","The user should test that the Footer section is active");
         // URL'ye gidilir.
         Driver.getDriver().get(ConfigReader.getProperty("url"));
