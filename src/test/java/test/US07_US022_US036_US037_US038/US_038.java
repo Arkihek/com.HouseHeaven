@@ -11,17 +11,17 @@ import pages.RealEstateTypes;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
-import utilities.TestBaseRapor;
+import utilities.TestBaseReport;
 
 import java.time.Duration;
 
-public class US_038 extends TestBaseRapor {
+public class US_038 extends TestBaseReport {
     @Test
     public void TC01() {
         RealEstateTypes realEstateTypes = new RealEstateTypes();
         AdminDashboard adminDashboard = new AdminDashboard();
         SoftAssert softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("By logging in as admin, the Types page is accessed","It is tested that the items on the Types page are visible and active, adding/editing and deleting new types.");
+        extentTest = extentReports.createTest("By logging in as admin, the Types page is accessed", "It is tested that the items on the Types page are visible and active, adding/editing and deleting new types.");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
@@ -37,7 +37,7 @@ public class US_038 extends TestBaseRapor {
         System.out.println(allTypesTable.getText());
         softAssert.assertTrue(allTypesTable.isDisplayed(), "Could not display all types table");
         extentTest.pass("Verifies that Types can be displayed and the number of Types can be displayed.");
-
+        Driver.closeDriver();
 
     }
 
@@ -46,6 +46,7 @@ public class US_038 extends TestBaseRapor {
         RealEstateTypes realEstateTypes = new RealEstateTypes();
         AdminDashboard adminDashboard = new AdminDashboard();
         SoftAssert softAssert = new SoftAssert();
+        extentTest = extentReports.createTest("By logging in as admin, the Types page is accessed", "It is tested that the items on the Types page are visible and active, adding/editing and deleting new types.");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
@@ -72,7 +73,7 @@ public class US_038 extends TestBaseRapor {
         softAssert.assertTrue(realEstateTypes.resetButtonTypes.isDisplayed(), "Reset item is not visible");
         softAssert.assertTrue(realEstateTypes.TypesButton.isDisplayed(), "Reset icon item is not visible");
         extentTest.pass("Verify that all elements on the page are visible and active");
-
+        Driver.closeDriver();
     }
 
     @Test
@@ -81,6 +82,7 @@ public class US_038 extends TestBaseRapor {
         AdminDashboard adminDashboard = new AdminDashboard();
         SoftAssert softAssert = new SoftAssert();
         Actions actions = new Actions(Driver.getDriver());
+        extentTest = extentReports.createTest("By logging in as admin, the Types page is accessed", "It is tested that the items on the Types page are visible and active, adding/editing and deleting new types.");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
@@ -98,6 +100,7 @@ public class US_038 extends TestBaseRapor {
         realEstateTypes.saveExitButtonTypes.click();
         softAssert.assertTrue(realEstateTypes.success.isDisplayed(), "No registration with new types information");
         extentTest.pass("Verify that new types are entered and saved");
+        Driver.closeDriver();
     }
 
     @Test
@@ -106,6 +109,7 @@ public class US_038 extends TestBaseRapor {
         AdminDashboard adminDashboard = new AdminDashboard();
         SoftAssert softAssert = new SoftAssert();
         Actions actions = new Actions(Driver.getDriver());
+        extentTest = extentReports.createTest("By logging in as admin, the Types page is accessed", "It is tested that the items on the Types page are visible and active, adding/editing and deleting new types.");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
@@ -127,6 +131,7 @@ public class US_038 extends TestBaseRapor {
         softAssert.assertTrue(realEstateTypes.confirmDelete.isDisplayed(), "Could not delete newly added Type");
         realEstateTypes.confirmDelete.click();
         extentTest.pass("It has been confirmed that editing and deletion has been done on the recorded Types.");
+        Driver.closeDriver();
     }
 
 }

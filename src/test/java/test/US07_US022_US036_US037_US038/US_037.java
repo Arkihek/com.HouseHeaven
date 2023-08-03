@@ -12,9 +12,9 @@ import pages.RealEstateFacilities;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
-import utilities.TestBaseRapor;
+import utilities.TestBaseReport;
 
-public class US_037 extends TestBaseRapor {
+public class US_037 extends TestBaseReport {
 
     @Test
     public void TC01() {
@@ -22,7 +22,7 @@ public class US_037 extends TestBaseRapor {
         RealEstateCategories realEstateCategories = new RealEstateCategories();
         AdminDashboard adminDashboard = new AdminDashboard();
         SoftAssert softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("By logging in as admin, the Categories page is accessed","It is tested that the items on the Categories page are visible and active, adding/editing and deleting new categories.");
+        extentTest = extentReports.createTest("By logging in as admin, the Categories page is accessed", "It is tested that the items on the Categories page are visible and active, adding/editing and deleting new categories.");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         adminDashboard.adminUsername.sendKeys(ConfigReader.getProperty("adminUser4"));
@@ -37,6 +37,7 @@ public class US_037 extends TestBaseRapor {
         System.out.println(AllCatoriesTable.getText());
         softAssert.assertTrue(AllCatoriesTable.isDisplayed(), "Could not display all categories table");
         extentTest.pass("Verifies that Categories can be displayed and the number of Categories can be displayed.");
+        Driver.closeDriver();
     }
 
     @Test
@@ -45,6 +46,7 @@ public class US_037 extends TestBaseRapor {
         RealEstateCategories realEstateCategories = new RealEstateCategories();
         AdminDashboard adminDashboard = new AdminDashboard();
         SoftAssert softAssert = new SoftAssert();
+        extentTest = extentReports.createTest("By logging in as admin, the Categories page is accessed", "It is tested that the items on the Categories page are visible and active, adding/editing and deleting new categories.");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         adminDashboard.adminUsername.sendKeys(ConfigReader.getProperty("adminUser4"));
@@ -71,6 +73,7 @@ public class US_037 extends TestBaseRapor {
         realEstateCategories.resetButtonCategories.click();
         softAssert.assertTrue(realEstateFacilities.resetIconFacilities.isDisplayed(), "Reset icon item is not visible");
         extentTest.pass("Verify that all elements on the page are visible and active");
+        Driver.closeDriver();
     }
 
     @Test
@@ -80,6 +83,7 @@ public class US_037 extends TestBaseRapor {
         AdminDashboard adminDashboard = new AdminDashboard();
         SoftAssert softAssert = new SoftAssert();
         Actions actions = new Actions(Driver.getDriver());
+        extentTest = extentReports.createTest("By logging in as admin, the Categories page is accessed", "It is tested that the items on the Categories page are visible and active, adding/editing and deleting new categories.");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         adminDashboard.adminUsername.sendKeys(ConfigReader.getProperty("adminUser4"));
@@ -98,7 +102,7 @@ public class US_037 extends TestBaseRapor {
         realEstateCategories.saveExitButtonCategories.click();
         softAssert.assertTrue(realEstateCategories.success.isDisplayed(), "No registration with new categories information");
         extentTest.pass("Verify that new categories are entered and saved");
-
+        Driver.closeDriver();
     }
 
     @Test
@@ -108,6 +112,7 @@ public class US_037 extends TestBaseRapor {
         AdminDashboard adminDashboard = new AdminDashboard();
         SoftAssert softAssert = new SoftAssert();
         Actions actions = new Actions(Driver.getDriver());
+        extentTest = extentReports.createTest("By logging in as admin, the Categories page is accessed", "It is tested that the items on the Categories page are visible and active, adding/editing and deleting new categories.");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         adminDashboard.adminUsername.sendKeys(ConfigReader.getProperty("adminUser4"));
@@ -131,6 +136,6 @@ public class US_037 extends TestBaseRapor {
         softAssert.assertTrue(realEstateCategories.confirmDelete.isDisplayed(), "Could not delete newly added categories");
         realEstateCategories.confirmDelete.click();
         extentTest.pass("It has been confirmed that editing and deletion has been done on the recorded Categories.");
-
+        Driver.closeDriver();
     }
 }

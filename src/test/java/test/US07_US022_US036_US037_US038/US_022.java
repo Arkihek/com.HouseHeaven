@@ -9,16 +9,16 @@ import pages.UserHomepage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
-import utilities.TestBaseRapor;
+import utilities.TestBaseReport;
 
-public class US_022 extends TestBaseRapor {
+public class US_022 extends TestBaseReport {
 
     @Test
     public void TC01() {
-        HeaderProjects headerProjects=new HeaderProjects();
+        HeaderProjects headerProjects = new HeaderProjects();
         UserHomepage userHomepage = new UserHomepage();
         SoftAssert softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("Must be able to access Project page as a registered user","As a registered user, you should be able to click on the Projects link and access the advertisements and their details.");
+        extentTest = extentReports.createTest("Must be able to access Project page as a registered user", "As a registered user, you should be able to click on the Projects link and access the advertisements and their details.");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         userHomepage.signupButonu.click();
         userHomepage.usernamegiris.sendKeys(ConfigReader.getProperty("userMail"));
@@ -33,11 +33,13 @@ public class US_022 extends TestBaseRapor {
         extentTest.info("As a registered user, the number of advertisements and the details of the advertisements can be accessed.");
         Driver.getDriver().navigate().back();
     }
+
     @Test
-    public void TC02(){
+    public void TC02() {
         HeaderProjects headerProjects = new HeaderProjects();
         UserHomepage userHomepage = new UserHomepage();
         SoftAssert softAssert = new SoftAssert();
+        extentTest = extentReports.createTest("Must be able to access Project page as a registered user", "As a registered user, you should be able to click on the Projects link and access the advertisements and their details.");
         userHomepage.signupButonu.click();
         userHomepage.usernamegiris.sendKeys(ConfigReader.getProperty("userMail"));
         userHomepage.passwordGiris.sendKeys(ConfigReader.getProperty("userPass"));
@@ -55,7 +57,7 @@ public class US_022 extends TestBaseRapor {
         ReusableMethods.wait(1);
         headerProjects.searchButton.click();
         extentTest.pass("Must be able to search and see search results as a registered user");
-
+        Driver.closeDriver();
     }
 
 }

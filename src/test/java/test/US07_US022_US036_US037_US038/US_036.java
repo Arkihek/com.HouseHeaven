@@ -12,14 +12,14 @@ import utilities.*;
 
 import java.util.List;
 
-public class US_036 extends TestBaseRapor {
+public class US_036 extends TestBaseReport {
 
     @Test
     public void TC01() {
         RealEstateFacilities realEstateFacilities = new RealEstateFacilities();
         AdminDashboard adminDashboard = new AdminDashboard();
         SoftAssert softAssert = new SoftAssert();
-        extentTest=extentReports.createTest("By logging in as admin, the Facilities page is accessed","It is tested that the items on the Facilities page are visible and active, adding/editing and deleting new facilities.");
+        extentTest = extentReports.createTest("By logging in as admin, the Facilities page is accessed", "It is tested that the items on the Facilities page are visible and active, adding/editing and deleting new facilities.");
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         adminDashboard.adminUsername.sendKeys(ConfigReader.getProperty("adminUser4"));
         adminDashboard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
@@ -33,7 +33,7 @@ public class US_036 extends TestBaseRapor {
         System.out.println(tumBodyElementi.getText());
         softAssert.assertTrue(tumBodyElementi.isDisplayed(), "Could not display all facilities table");
         extentTest.pass("Verifies that Facilities can be displayed and the number of Facilities can be displayed.");
-
+        Driver.closeDriver();
     }
 
     @Test
@@ -41,6 +41,7 @@ public class US_036 extends TestBaseRapor {
         RealEstateFacilities realEstateFacilities = new RealEstateFacilities();
         AdminDashboard adminDashboard = new AdminDashboard();
         SoftAssert softAssert = new SoftAssert();
+        extentTest = extentReports.createTest("By logging in as admin, the Facilities page is accessed", "It is tested that the items on the Facilities page are visible and active, adding/editing and deleting new facilities.");
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         adminDashboard.adminUsername.sendKeys(ConfigReader.getProperty("adminUser4"));
         adminDashboard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
@@ -65,7 +66,7 @@ public class US_036 extends TestBaseRapor {
         softAssert.assertTrue(realEstateFacilities.resetButtonFacilities.isDisplayed(), "Reset item is not visible");
         softAssert.assertTrue(realEstateFacilities.resetIconFacilities.isDisplayed(), "Reset icon item is not visible");
         extentTest.pass("Verify that all elements on the page are visible and active");
-
+        Driver.closeDriver();
     }
 
     @Test
@@ -73,6 +74,7 @@ public class US_036 extends TestBaseRapor {
         RealEstateFacilities realEstateFacilities = new RealEstateFacilities();
         AdminDashboard adminDashboard = new AdminDashboard();
         SoftAssert softAssert = new SoftAssert();
+        extentTest = extentReports.createTest("By logging in as admin, the Facilities page is accessed", "It is tested that the items on the Facilities page are visible and active, adding/editing and deleting new facilities.");
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         adminDashboard.adminUsername.sendKeys(ConfigReader.getProperty("adminUser4"));
         adminDashboard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
@@ -96,7 +98,7 @@ public class US_036 extends TestBaseRapor {
         realEstateFacilities.saveExitButtonFacilities.click();
         softAssert.assertTrue(realEstateFacilities.success.isDisplayed(), "No registration with new categories information");
         extentTest.pass("Verify that new facilities are entered and saved");
-
+        Driver.closeDriver();
     }
 
     @Test
@@ -104,6 +106,7 @@ public class US_036 extends TestBaseRapor {
         RealEstateFacilities realEstateFacilities = new RealEstateFacilities();
         AdminDashboard adminDashboard = new AdminDashboard();
         SoftAssert softAssert = new SoftAssert();
+        extentTest = extentReports.createTest("By logging in as admin, the Facilities page is accessed", "It is tested that the items on the Facilities page are visible and active, adding/editing and deleting new facilities.");
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         adminDashboard.adminUsername.sendKeys(ConfigReader.getProperty("adminUser4"));
         adminDashboard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
@@ -120,12 +123,12 @@ public class US_036 extends TestBaseRapor {
         realEstateFacilities.saveButtonFacilities.click();
         ReusableMethods.wait(3);
         realEstateFacilities.saveExitButtonFacilities.click();
-        softAssert.assertTrue(realEstateFacilities.success.isDisplayed(),"Could not edit new facilties information");
+        softAssert.assertTrue(realEstateFacilities.success.isDisplayed(), "Could not edit new facilties information");
         realEstateFacilities.deleteButtonFacilities.click();
-        softAssert.assertTrue(realEstateFacilities.confirmDelete.isDisplayed(),"Could not delete newly added Facilities");
+        softAssert.assertTrue(realEstateFacilities.confirmDelete.isDisplayed(), "Could not delete newly added Facilities");
         realEstateFacilities.confirmDelete.click();
         extentTest.pass("It has been confirmed that editing and deletion has been done on the recorded Facilities.");
-
+        Driver.closeDriver();
     }
 }
 
