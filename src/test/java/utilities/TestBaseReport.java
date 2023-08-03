@@ -36,29 +36,25 @@ public class TestBaseReport {
         extentHtmlReporter.config().setReportName("TestNG Reports");
     }
 
-
     // Her test methodundan sonra eğer testte hata varsa, ekran görüntüsü alıp rapora ekliyor
- //  @AfterMethod(alwaysRun = true)
- //  public void tearDownMethod(ITestResult result) throws IOException {
-//
- //      if (result.getStatus() == ITestResult.FAILURE) { // eğer testin sonucu başarısızsa
- //          String screenshotLocation = ReusableMethods.getScreenshot(result.getName());
- //          extentTest.fail(result.getName());
- //          extentTest.addScreenCaptureFromPath(screenshotLocation);
- //          extentTest.fail(result.getThrowable());
- //      } else if (result.getStatus() == ITestResult.SKIP) { // eğer test çalıştırılmadan geçilmezse
- //          extentTest.skip("Test Case is skipped: " + result.getName()); // Ignore olanlar
- //      }
- //      Driver.closeDriver();
-//
- //  }
+    @AfterMethod(alwaysRun = true)
+    public void tearDownMethod(ITestResult result) throws IOException {
 
+        if (result.getStatus() == ITestResult.FAILURE) { // eğer testin sonucu başarısızsa
+            String screenshotLocation = ReusableMethods.getScreenshot(result.getName());
+            extentTest.fail(result.getName());
+            extentTest.addScreenCaptureFromPath(screenshotLocation);
+            extentTest.fail(result.getThrowable());
+        } else if (result.getStatus() == ITestResult.SKIP) { // eğer test çalıştırılmadan geçilmezse
+            extentTest.skip("Test Case is skipped: " + result.getName()); // Ignore olanlar
+        }
+        Driver.closeDriver();
 
-    // Raporlandırmayı sonlandırmak icin
+    }
+
     @AfterTest(alwaysRun = true)
     public void tearDownTest() {
-
         extentReports.flush();
-        Driver.closeDriver();
     }
 }
+

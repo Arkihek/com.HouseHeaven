@@ -2,7 +2,6 @@ package test.US08_US23_US34_US50;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Header_AgentsPage;
@@ -11,6 +10,7 @@ import utilities.*;
 import java.util.List;
 
 public class US08_TC01_TC02_TC03 extends TestBaseReport {
+
 
     @Test
     public void TC01() {
@@ -35,12 +35,15 @@ public class US08_TC01_TC02_TC03 extends TestBaseReport {
         softAssert.assertTrue(actualTitle.equals(expectedTitle), "Not logged in to the Agents page");
         extentTest.info("Agents page is open");
         ReusableMethods.waitFor(2);
-        // softAssert.assertAll();
+       // softAssert.assertAll();
+
+
 
     }
 
     @Test
     public void TC02() {
+
 
         Header_AgentsPage headerAgentsPage = new Header_AgentsPage();
         SoftAssert softAssert = new SoftAssert();
@@ -64,6 +67,9 @@ public class US08_TC01_TC02_TC03 extends TestBaseReport {
         extentTest.info("Realtor information display");
         extentTest.pass("Real estate agent information display test");
         ReusableMethods.waitFor(2);
+        //softAssert.assertAll();
+
+
 
     }
 
@@ -87,6 +93,8 @@ public class US08_TC01_TC02_TC03 extends TestBaseReport {
         softAssert.assertTrue(headerAgentsPage.agentsPageAgentsForRentLinki.isEnabled(), "Agent for Rent link accessible");
         extentTest.pass("Agents for rent link display and accessibility test");
         ReusableMethods.waitFor(2);
+      //  softAssert.assertAll();
+       // Driver.closeDriver();
 
     }
 

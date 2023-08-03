@@ -7,7 +7,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.AdminDashBoard_RealEstate_Properties;
@@ -22,6 +21,7 @@ import java.util.List;
 
 public class US050_TC01_TC02 extends TestBaseReport {
 
+
     @Test
     public void TC01() {
         AdminDashBoard_RealEstate_Properties adminDashBLocationsCities = new AdminDashBoard_RealEstate_Properties();
@@ -32,6 +32,9 @@ public class US050_TC01_TC02 extends TestBaseReport {
         adminDashBoard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
         adminDashBoard.adminSignIn.click();
         extentTest = extentReports.createTest("Admin must login to dashboard", "Click on the Locations title under the Dashboard and the Cities page under it should be visible and accessible.");
+        // must be logged in to the admin dashboard
+        //Click on the Locations title under the Dashboard and the Cities page under it should be visible and accessible
+        //Dasboard altındaki Locations başlığına tıklanmalı ve altındaki Cities sayfası görüntülenbilir ve ulaşılabilmelidir
         ReusableMethods.waitFor(4);
         adminDashBLocationsCities.adminDashboardLocationsButonu.click();
         //Assert.assertTrue(adminDashBLocationsCities.aDbLocationsCitiesButonu.isDisplayed());
@@ -42,9 +45,9 @@ public class US050_TC01_TC02 extends TestBaseReport {
         extentTest.info("Loactions clicked, cities displayed");
         softAssert.assertTrue(adminDashBLocationsCities.LocationsReload.isDisplayed(), "Locations button not displayed");
         ReusableMethods.waitFor(2);
-        adminDashBLocationsCities.adminLogout.click();
+       adminDashBLocationsCities.adminLogout.click();
         ReusableMethods.waitFor(2);
-        adminDashBLocationsCities.admincikis.click();
+       adminDashBLocationsCities.admincikis.click();
         ReusableMethods.waitFor(2);
         Driver.closeDriver();
     }
@@ -135,11 +138,7 @@ public class US050_TC01_TC02 extends TestBaseReport {
         adminDashBLocationsCities.admincikis.click();
         ReusableMethods.waitFor(2);
     }
-
 }
-
-
-
 
 
 
