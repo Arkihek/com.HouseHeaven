@@ -9,7 +9,6 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.TestBaseReport;
 
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -18,11 +17,12 @@ public class US04_TC001 extends TestBaseReport {
 
  // Home page sayfasina gidilir ve footer bolumundeki menulerin gorundugu kontrol edilmelidir.
 
-    UserHomepage userHomepage=new UserHomepage();
-    SoftAssert softAssert=new SoftAssert();
+
 
     @Test
     public void test01(){
+        UserHomepage userHomepage=new UserHomepage();
+        SoftAssert softAssert=new SoftAssert();
         extentTest = extentReports.createTest("\n" +
                 "Footer section visibility","\n" +
                 "The user should test that the Footer section is visible.");

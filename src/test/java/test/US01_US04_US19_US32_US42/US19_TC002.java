@@ -14,11 +14,10 @@ import java.util.List;
 public class US19_TC002 extends TestBaseReport {
 
 
-    SoftAssert softAssert=new SoftAssert();
-    UserHomepage userHomepage=new UserHomepage();
-
     @Test
     public void test01(){
+        SoftAssert softAssert=new SoftAssert();
+        UserHomepage userHomepage=new UserHomepage();
         extentTest = extentReports.createTest("\n" +
                 "Active Footer test"," User tests that the Footer section is active");
         // Kayıtlı kullanıcı girişi yaparak Footer bölümündeki tüm ögeler aktif olmalıdır.

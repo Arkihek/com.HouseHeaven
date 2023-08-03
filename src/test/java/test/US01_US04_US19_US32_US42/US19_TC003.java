@@ -8,16 +8,15 @@ import org.testng.asserts.SoftAssert;
 import pages.UserHomepage;
 import utilities.*;
 
-import java.util.List;
 import java.util.Set;
 
 public class US19_TC003 extends TestBaseReport {
 
-    SoftAssert softAssert=new SoftAssert();
-    UserHomepage userHomepage=new UserHomepage();
 
     @Test
     public void test01(){
+        SoftAssert softAssert=new SoftAssert();
+        UserHomepage userHomepage=new UserHomepage();
         extentTest = extentReports.createTest("Active Footer test"," User tests that Footer part takes to correct address");
         // Kayıtlı kullanıcı girişi yaparak Footer bölümündeki linkler istenilen dogru adreslere yönlendirmelidir
 

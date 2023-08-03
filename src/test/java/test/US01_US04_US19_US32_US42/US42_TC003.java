@@ -13,13 +13,14 @@ import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
 public class US42_TC003 extends TestBaseReport {
-    AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties=new AdminDashBoard_RealEstate_Properties();
-    SoftAssert softAssert=new SoftAssert();
 
-    Actions actions=new Actions(Driver.getDriver());
 
     @Test
     public void test01(){
+        AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties=new AdminDashBoard_RealEstate_Properties();
+        SoftAssert softAssert=new SoftAssert();
+
+        Actions actions=new Actions(Driver.getDriver());
         extentTest = extentReports.createTest("New packages test"," User adds new packages\n");
 
         //Yeni packages eklenmeli ve ekleme başarıyla gerçekleşmelidir.

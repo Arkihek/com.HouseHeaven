@@ -11,9 +11,10 @@ public class US01_TC001 extends TestBaseReport {
 
     // Bir ziyaretçi olarak siteyi kullanabilmek icin web sitesine erişebildiğimi doğrulayabilmeliyim.
 
-    UserHomepage userHomepage = new UserHomepage();
+
     @Test
     public void test01(){
+        UserHomepage userHomepage = new UserHomepage();
         extentTest = extentReports.createTest("The website is accessible test"," User should be able to verify that I can access the website");
         //Browser acilir
         Driver.getDriver().get(ConfigReader.getProperty("url"));

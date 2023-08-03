@@ -17,11 +17,12 @@ public class US19_TC001 extends TestBaseReport {
     // Footer bölümündeki tüm ögeler (örneğin; linkler,adresler ve düğmeler)
     // sayfa yüklendiğinde görünür olmalıdır.
 
-    UserHomepage userHomepage=new UserHomepage();
-    SoftAssert softAssert=new SoftAssert();
+
 
     @Test
     public void test01(){
+        UserHomepage userHomepage=new UserHomepage();
+        SoftAssert softAssert=new SoftAssert();
         extentTest = extentReports.createTest("Footer section visibility","The user should test that the Footer section is visible.");
        // URL'ye gidilir
         Driver.getDriver().get(ConfigReader.getProperty("url"));

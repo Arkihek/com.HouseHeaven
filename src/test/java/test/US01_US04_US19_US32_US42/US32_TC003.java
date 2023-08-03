@@ -10,11 +10,12 @@ import utilities.Driver;
 import utilities.TestBaseReport;
 
 public class US32_TC003 extends TestBaseReport {
-    AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties=new AdminDashBoard_RealEstate_Properties();
-    SoftAssert softAssert=new SoftAssert();
+
 
     @Test
     public void test01(){
+        AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties=new AdminDashBoard_RealEstate_Properties();
+        SoftAssert softAssert=new SoftAssert();
         extentTest = extentReports.createTest("Testimonials Number of comments test"," User should be able to view comments on testimonials page");
 
         // Testimoniels sayfasındaki yorum sayısı kontrol edilmelidir.

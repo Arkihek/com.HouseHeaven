@@ -12,20 +12,17 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeListener;
-
 public class US32_TC005 extends TestBaseReport {
 
-    AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties=new AdminDashBoard_RealEstate_Properties();
-    SoftAssert softAssert=new SoftAssert();
 
-    Actions actions=new Actions(Driver.getDriver());
 
 
     @Test
     public void test01(){
+        AdminDashBoard_RealEstate_Properties adminDashBoardRealEstateProperties=new AdminDashBoard_RealEstate_Properties();
+        SoftAssert softAssert=new SoftAssert();
+
+        Actions actions=new Actions(Driver.getDriver());
         extentTest = extentReports.createTest("New comment test"," User adds and deletes new comments\n");
 
         // Yeni yorum ekleme başarılı bir şekilde gerçekleşmelidir ve eklenen yorumun silinip silinmelidir.
