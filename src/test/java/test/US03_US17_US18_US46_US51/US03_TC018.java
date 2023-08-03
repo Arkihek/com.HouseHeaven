@@ -8,12 +8,13 @@ import utilities.*;
 
 public class US03_TC018 extends TestBaseReport {
 
-    SoftAssert softAssert = new SoftAssert();
-    UserHomePage_Body userHomePageBody = new UserHomePage_Body();
-    Actions actions = new Actions(Driver.getDriver());
 
     @Test
     public void test18(){
+
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page Good Reviews by Customers in the section Elements appear And the feature of the shifting");

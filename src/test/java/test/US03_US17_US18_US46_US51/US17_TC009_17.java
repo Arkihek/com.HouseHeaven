@@ -9,13 +9,14 @@ import pages.UserHomePage_Body;
 import utilities.*;
 
 public class US17_TC009_17 extends TestBaseReport {
-    SoftAssert softAssert = new SoftAssert();
-    UserHomePage_Body userHomePageBody = new UserHomePage_Body();
-    Actions actions = new Actions(Driver.getDriver());
-    AccountPage_Property accountPageProperty = new AccountPage_Property();
+
 
     @Test(priority = 1)
     public void test09() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
 
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
@@ -67,6 +68,10 @@ public class US17_TC009_17 extends TestBaseReport {
 
     @Test(priority = 2)
     public void test10() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page Find by Locations \"Phoenix\" in the section pears your element And being active");
@@ -114,6 +119,10 @@ public class US17_TC009_17 extends TestBaseReport {
 
     @Test(priority = 3)
     public void test11() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page Find by Locations \"Miami\" in the section pears your element And being active");
@@ -159,6 +168,10 @@ public class US17_TC009_17 extends TestBaseReport {
 
     @Test(priority = 4)
     public void test12() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page Find by Locations \"New York\" in the section pears your element And being active");
@@ -205,6 +218,10 @@ public class US17_TC009_17 extends TestBaseReport {
 
     @Test(priority = 5)
     public void test13() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page Find by Locations \"Seattle\" in the section pears your element And being active");
@@ -250,6 +267,10 @@ public class US17_TC009_17 extends TestBaseReport {
 
     @Test(priority = 6)
     public void test14() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page Find by Locations \"Austin\" in the section pears your element And being active");
@@ -295,6 +316,10 @@ public class US17_TC009_17 extends TestBaseReport {
 
     @Test(priority = 7)
     public void test15() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page Find by Locations \"Chicago\" in the section pears your element And being active");
@@ -340,6 +365,10 @@ public class US17_TC009_17 extends TestBaseReport {
 
     @Test(priority = 8)
     public void test16() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page Find by Locations \"Los Angeles\" in the section pears your element And being active");
@@ -385,6 +414,10 @@ public class US17_TC009_17 extends TestBaseReport {
 
     @Test(priority = 9)
     public void test17() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page In the Find by Locations section \"Browse by Locations\" button to appear and active");

@@ -9,12 +9,10 @@ import utilities.*;
 
 public class US17_TC001 extends TestBaseReport {
 
-
-    SoftAssert softAssert = new SoftAssert();
-    UserHomePage_Body userHomePageBody = new UserHomePage_Body();
-
     @Test
     public void test01() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
         extentTest = extentReports.createTest("Hauseheaven test", "The user must be able to verify that the requested element is visible");
 
@@ -53,6 +51,7 @@ public class US17_TC001 extends TestBaseReport {
             softAssert.assertTrue(webElementsIsDisplay[i].isDisplayed());
             extentTest.info(stringsWebElements[i] + " element was tested to be visible");
         }
+        extentTest.pass("\"Evaluate Property\", \"Meet Your Agent\", \"Close The Deal\" elements are visible");
         softAssert.assertAll();
         //07_Browser is closed.
     }

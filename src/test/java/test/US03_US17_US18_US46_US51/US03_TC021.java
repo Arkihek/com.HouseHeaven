@@ -9,12 +9,13 @@ import utilities.*;
 
 public class US03_TC021 extends TestBaseReport {
 
-    SoftAssert softAssert = new SoftAssert();
-    UserHomePage_Body userHomePageBody = new UserHomePage_Body();
-    Actions actions = new Actions(Driver.getDriver());
+
 
     @Test
     public void test21(){
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test","On the home page, make sure that Recently Viewed Properties visible and active");
@@ -42,6 +43,7 @@ public class US03_TC021 extends TestBaseReport {
         softAssert.assertEquals(actualUrl,expectedUrl);
         extentTest.pass("this button goes to https://qa.hauseheaven.com/register url");
 
+        softAssert.assertAll();
 
         //05_Browser is closed.
 

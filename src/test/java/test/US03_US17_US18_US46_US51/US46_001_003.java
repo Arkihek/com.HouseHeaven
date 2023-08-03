@@ -15,15 +15,16 @@ import utilities.*;
 
 public class US46_001_003 extends TestBaseReport {
 
-    SoftAssert softAssert = new SoftAssert();
-    UserHomePage_Body userHomePageBody = new UserHomePage_Body();
-    Actions actions = new Actions(Driver.getDriver());
-    AccountPage_Property accountPageProperty = new AccountPage_Property();
-    RegisterationPage registerationPage = new RegisterationPage();
-    AdminDashboard adminDashboard = new AdminDashboard();
+
 
     @Test
     public void test01() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
+        RegisterationPage registerationPage = new RegisterationPage();
+        AdminDashboard adminDashboard = new AdminDashboard();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "Log in as a registered user, purchase new credits from the home body");
@@ -70,12 +71,19 @@ public class US46_001_003 extends TestBaseReport {
         extentTest.info("Withdrawn from the account");
         extentTest.pass("You can log in as a registered user and purchase new credits");
 
+        softAssert.assertAll();
         //06_Browser is closed.
-        // Driver.closeDriver();
+
     }
 
     @Test
     public void test02() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
+        RegisterationPage registerationPage = new RegisterationPage();
+        AdminDashboard adminDashboard = new AdminDashboard();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "You should be able to log in as a registered user, buy new credits on the accont page");
@@ -129,6 +137,13 @@ public class US46_001_003 extends TestBaseReport {
     @Test
     public void test03() {
 
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
+        RegisterationPage registerationPage = new RegisterationPage();
+        AdminDashboard adminDashboard = new AdminDashboard();
+
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "Must be able to log in as admin and should be able to visualise the credit received");
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
@@ -180,7 +195,7 @@ public class US46_001_003 extends TestBaseReport {
         }
         softAssert.assertAll();
         //07_Browser is closed.
-       // Driver.closeDriver();
+
     }
 }
 
