@@ -107,7 +107,7 @@ public class AdminDashboard {
     public WebElement createFolderButton;
     @FindBy(xpath = "//*[@class='btn btn-success js-change-action']")
     public WebElement refreshButton;
-    @FindBy(xpath = "//*[@class='btn btn-success dropdown-toggle js-rv-media-change-filter-group js-filter-by-type show']")
+    @FindBy(xpath = "//*[@class='btn btn-success dropdown-toggle js-rv-media-change-filter-group js-filter-by-type']")
     public WebElement filterButton;
     @FindBy(xpath = "(//*[@class='js-rv-media-change-filter'])[8]")
     public WebElement filterEverythingButton;
@@ -117,7 +117,7 @@ public class AdminDashboard {
     public WebElement filterVideoButton;
     @FindBy(xpath = "(//*[@class='js-rv-media-change-filter'])[11]")
     public WebElement filterDocumentButton;
-    @FindBy(xpath = "//*[@class='btn btn-success dropdown-toggle js-rv-media-change-filter-group js-filter-by-view-in show']")
+    @FindBy(xpath = "(//*[@class='fa fa-eye'])")
     public WebElement wiewInButton;
     @FindBy(xpath = "(//*[@class='js-rv-media-change-filter'])[12]")
     public WebElement wiewInAllMediaButton;
@@ -161,7 +161,7 @@ public class AdminDashboard {
     public WebElement wiewSelect1Button;
     @FindBy(xpath = "(//*[@class='btn btn-secondary'])[1]")
     public WebElement wiewSelect2Button;
-    @FindBy(xpath = "(//*[@class='rv-media-item'])[35]")
+    @FindBy(xpath = "(//*[@class='rv-media-item'])[2]")
     public WebElement mediaList;
 
     //user name is located on admin log in page
