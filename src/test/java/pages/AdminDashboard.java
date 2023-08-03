@@ -95,7 +95,105 @@ public AdminDashboard() {
     @FindBy(xpath = "(//*[@class='nav-item '])[1]")
     public WebElement dashboardButton;
 
+    @FindBy(xpath = "(//*[@class='nav-link'])[1]")
+    public WebElement dashboardPosts;
 
+    @FindBy(xpath = "(//*[@class='nav-link'])[2]")
+    public WebElement dashboardCatagories;
+
+    @FindBy(xpath = "(//*[@class='nav-link'])[3]")
+    public  WebElement dashboardTags;
+
+    @FindBy(xpath = "//*[@data-action='create']")
+    public WebElement postCreate;
+
+    @FindBy(xpath = "//*[@class='btn btn-secondary buttons-collection dropdown-toggle buttons-export']")
+    public WebElement postExportButton;
+
+    @FindBy(xpath = "//*[@class='btn btn-secondary buttons-reload']")
+    public WebElement postReoledButton;
+
+    @FindBy(xpath = "(//input[@type='text'])[1]")
+    public WebElement postCreateName;
+
+    @FindBy(xpath = "(//textarea[@class='form-control'])[1]")
+    public WebElement postDescription;
+
+    @FindBy(xpath = "//div[@role='textbox']")
+    public WebElement postParagraf;
+
+    @FindBy(xpath = "(//button[@name='submit'])[1]")
+    public WebElement postSaveExit;
+
+    @FindBy(xpath = "(//button[@name='submit'])[2]")
+    public WebElement postSave;
+
+    @FindBy(xpath = "(//*[@class='btn btn-icon btn-sm btn-primary'])[1]")
+    public WebElement postUpdate;
+
+    @FindBy(xpath = "(//*[@data-bs-original-title='Delete'])[1]")
+    public WebElement postDelete;
+
+    @FindBy(xpath = "//*[@name='status']")
+    public WebElement postStatus;
+
+    @FindBy(xpath = "(//*[@type='checkbox'])[3]")
+    public WebElement postCatagories;
+
+    @FindBy(xpath  ="(//*[@class='float-end btn btn-danger delete-crud-entry'])[1]")
+    public WebElement confirmDelete;
+
+    @FindBy(xpath = "//*[@name='name']")
+    public WebElement catagoriesName;
+
+    @FindBy(xpath = "//*[@class='select2-selection__rendered']")
+    public WebElement catagoriesParent;
+
+    @FindBy(xpath = "(//*[@class='form-control is-valid'])[2]")
+    public WebElement catagoriesDescription;
+
+    @FindBy(xpath = "(//*[@class='form-control is-valid'])[3]")
+    public WebElement catagoriesOrder;
+
+    @FindBy(xpath = "(//*[@class='form-control'])[4]")
+    public WebElement catagoriesIcon;
+
+    @FindBy(xpath = "(//*[@class='btn btn-info'])[1]")
+    public WebElement catagoriesSaveExit;
+
+    @FindBy(id="select2-parent_id-result-ltip-1")
+    public WebElement catagoriesParentSelect2;
+
+
+    @FindBy(xpath = "(//*[@class='select2-results__option select2-results__option--selectable'])[1]")
+    public WebElement catagoriesParentSelect;
+
+    @FindBy(xpath = "(//*[@class='datatables__info_wrap'])")
+    public WebElement tagsRecordSayi;
+
+    @FindBy(xpath = "//*[@class='column-key-id sorting_1']")
+    public WebElement tagsOrnek;
+
+    @FindBy(xpath = "//*[@data-action='create']")
+    public WebElement tagsCreate;
+
+    @FindBy(xpath = "(//*[@class='form-control'])[2]")
+    public WebElement tagsDescription;
+
+    @FindBy(xpath = "(//*[@class='form-control'])[1]")
+    public WebElement tagsName;
+
+    @FindBy(xpath = "(//*[@name='submit'])[2]")
+    public WebElement tagsSave;
+
+    @FindBy(xpath = "(//*[@class='btn btn-icon btn-sm btn-primary'])[1]")
+    public WebElement tagsUpdate;
+
+    @FindBy(xpath = "(//*[@class='fa fa-trash'])[1]")
+    public WebElement tagsDelete;
+
+    @FindBy(xpath = "(//*[@class='float-end btn btn-danger delete-crud-entry'])[1]")
+    public WebElement tagsDeleteOnay;
 }
 
 
