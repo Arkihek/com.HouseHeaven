@@ -22,45 +22,39 @@ import java.util.List;
 
 public class US050_TC01_TC02 extends TestBaseReport {
 
-    AdminDashBoard_RealEstate_Properties adminDashBLocationsCities = new AdminDashBoard_RealEstate_Properties();
-    SoftAssert softAssert = new SoftAssert();
-    AdminDashboard adminDashBoard = new AdminDashboard();
-
-
     @Test
     public void TC01() {
-        adminDashBLocationsCities = new AdminDashBoard_RealEstate_Properties();
-        softAssert = new SoftAssert();
-        adminDashBoard = new AdminDashboard();
+        AdminDashBoard_RealEstate_Properties adminDashBLocationsCities = new AdminDashBoard_RealEstate_Properties();
+        SoftAssert softAssert = new SoftAssert();
+        AdminDashboard adminDashBoard = new AdminDashboard();
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         adminDashBoard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
         adminDashBoard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
         adminDashBoard.adminSignIn.click();
         extentTest = extentReports.createTest("Admin must login to dashboard", "Click on the Locations title under the Dashboard and the Cities page under it should be visible and accessible.");
-        // must be logged in to the admin dashboard
-        //Click on the Locations title under the Dashboard and the Cities page under it should be visible and accessible
-        //Dasboard altındaki Locations başlığına tıklanmalı ve altındaki Cities sayfası görüntülenbilir ve ulaşılabilmelidir
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(4);
         adminDashBLocationsCities.adminDashboardLocationsButonu.click();
         //Assert.assertTrue(adminDashBLocationsCities.aDbLocationsCitiesButonu.isDisplayed());
+        ReusableMethods.waitFor(1);
         adminDashBLocationsCities.aDbLocationsCitiesButonu.click();
         softAssert.assertTrue(adminDashBLocationsCities.LocationsBulkActions.isDisplayed(), "\n" +
                 "Bulk actions could not be displayed");
         extentTest.info("Loactions clicked, cities displayed");
         softAssert.assertTrue(adminDashBLocationsCities.LocationsReload.isDisplayed(), "Locations button not displayed");
+        ReusableMethods.waitFor(2);
         adminDashBLocationsCities.adminLogout.click();
+        ReusableMethods.waitFor(2);
         adminDashBLocationsCities.admincikis.click();
+        ReusableMethods.waitFor(2);
         Driver.closeDriver();
     }
 
     @Test
     public void TC02() {
-        adminDashBoard = new AdminDashboard();
-        softAssert = new SoftAssert();
-        adminDashBLocationsCities = new AdminDashBoard_RealEstate_Properties();
-
-        ReusableMethods.waitFor(3);
-
+        AdminDashBoard_RealEstate_Properties adminDashBLocationsCities = new AdminDashBoard_RealEstate_Properties();
+        SoftAssert softAssert = new SoftAssert();
+        AdminDashboard adminDashBoard = new AdminDashboard();
+        ReusableMethods.waitFor(4);
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         adminDashBoard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
         adminDashBoard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
@@ -68,7 +62,9 @@ public class US050_TC01_TC02 extends TestBaseReport {
         extentTest = extentReports.createTest("Adding Cites page elements and cities", "city \u200B\u200Bnumbers and sites can be added and displayed");
         ReusableMethods.waitFor(2);
         adminDashBLocationsCities.adminDashboardLocationsButonu.click();
+        ReusableMethods.waitFor(2);
         adminDashBLocationsCities.aDbLocationsCitiesButonu.click();
+        ReusableMethods.waitFor(2);
         // The elements on the page can be viewed and verified to be active
         List<WebElement> aktifilanSayisi = Driver.getDriver().findElements(By.xpath("LocationsCitiesAktifIlanSayisi"));
         for (WebElement eachIlan : aktifilanSayisi) {
@@ -79,10 +75,10 @@ public class US050_TC01_TC02 extends TestBaseReport {
         softAssert.assertTrue(adminDashBLocationsCities.aDbLocationsCitiesNumberOfResult.isDisplayed(), "City numbers could not be displayed");
         // Clicking Create
         adminDashBLocationsCities.aDbLocationsCitiesCretaeButon.click();
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
         //Must be able to add a new city (district)
         Actions actions = new Actions(Driver.getDriver());
-        actions.click(adminDashBLocationsCities.aDbLocationsAddNewCities).sendKeys("abau.")
+        actions.click(adminDashBLocationsCities.aDbLocationsAddNewCities).sendKeys("Mel.")
                 .sendKeys(Keys.TAB)
                 .sendKeys("Alabama 281.Street").perform();
         actions.moveToElement(adminDashBLocationsCities.aDbLocationsState).click().perform();
@@ -107,6 +103,7 @@ public class US050_TC01_TC02 extends TestBaseReport {
         // Must be saved with Save & Exit
         ReusableMethods.waitFor(3);
         adminDashBLocationsCities.aDbLocationsSaveAndExit.click();
+        ReusableMethods.waitFor(2);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         WebElement notification = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='toast-message']")));
         //Save and exit confirm message test
@@ -132,9 +129,13 @@ public class US050_TC01_TC02 extends TestBaseReport {
         softAssert.assertTrue(deleleteWait.isDisplayed(),"could not be displayed");
         ReusableMethods.waitFor(2);
         extentTest.pass("Login to the admin dashboard and add ialn numbers and advertisements from the cities section, deleted");
+        ReusableMethods.waitFor(2);
         adminDashBLocationsCities.adminLogout.click();
+        ReusableMethods.waitFor(2);
         adminDashBLocationsCities.admincikis.click();
+        ReusableMethods.waitFor(2);
     }
+
 }
 
 

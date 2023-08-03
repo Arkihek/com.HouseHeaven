@@ -14,16 +14,13 @@ import java.util.List;
 
 public class US23_TC01_TC02_TC03 extends TestBaseReport {
 
-    Header_AgentsPage headerAgentsPage1 = new Header_AgentsPage();
-    UserHomepage userHomePage1 = new UserHomepage();
-    SoftAssert softAssert1 = new SoftAssert();
-
-
     @Test
     public void TC01() {
-        softAssert1 = new SoftAssert();
-        userHomePage1 = new UserHomepage();
-        headerAgentsPage1 = new Header_AgentsPage();
+
+        Header_AgentsPage headerAgentsPage1 = new Header_AgentsPage();
+        UserHomepage userHomePage1 = new UserHomepage();
+        SoftAssert softAssert1 = new SoftAssert();
+
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         userHomePage1.signupButonu.click();
         userHomePage1.usernamegiris.sendKeys(ConfigReader.getProperty("userMail"));
@@ -39,15 +36,15 @@ public class US23_TC01_TC02_TC03 extends TestBaseReport {
         String actualTitle = Driver.getDriver().getCurrentUrl();
         softAssert1.assertTrue(actualTitle.equals(expectedTitle), "Not logged in to the Agents page");
         extentTest.info("Agents page is open");
-        //  softAssert.assertAll();
+
+        ReusableMethods.waitFor(2);
         Driver.closeDriver();
     }
     @Test
     public void TC02() {
-        softAssert1 = new SoftAssert();
-        userHomePage1 = new UserHomepage();
-
-        headerAgentsPage1 = new Header_AgentsPage();
+        Header_AgentsPage headerAgentsPage1 = new Header_AgentsPage();
+        UserHomepage userHomePage1 = new UserHomepage();
+        SoftAssert softAssert1 = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         userHomePage1.signupButonu.click();
         userHomePage1.usernamegiris.sendKeys(ConfigReader.getProperty("userMail"));
@@ -71,23 +68,24 @@ public class US23_TC01_TC02_TC03 extends TestBaseReport {
             System.out.println(eachinformation.getText());
         }
         extentTest.pass("Real estate agent information display test");
-        //   softAssert.assertAll();
+        ReusableMethods.waitFor(2);
         Driver.closeDriver();
 
     }
 
     @Test
     public void TC03() {
-        softAssert1 = new SoftAssert();
-        userHomePage1 = new UserHomepage();
-
-        headerAgentsPage1 = new Header_AgentsPage();
+        Header_AgentsPage headerAgentsPage1 = new Header_AgentsPage();
+        UserHomepage userHomePage1 = new UserHomepage();
+        SoftAssert softAssert1 = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         userHomePage1.signupButonu.click();
         userHomePage1.usernamegiris.sendKeys(ConfigReader.getProperty("userMail"));
         userHomePage1.passwordGiris.sendKeys(ConfigReader.getProperty("userPass"));
         userHomePage1.loginGiris.click();
+        ReusableMethods.waitFor(2);
         headerAgentsPage1.agentsPageAgentLinki.click();
+        ReusableMethods.waitFor(2);
         extentTest = extentReports.createTest("Display For Sale and For Rent links", "For Sale and For Rent should be viewable and verified");
         JSUtilities.scrollToElement(Driver.getDriver(), headerAgentsPage1.agentsPageviewLinkiAgent);
         headerAgentsPage1.agentPageAllowCookiesKapama.click();
@@ -100,7 +98,7 @@ public class US23_TC01_TC02_TC03 extends TestBaseReport {
         softAssert1.assertTrue(headerAgentsPage1.agentsPageAgentsForRentLinki.isDisplayed(), "Unable to display Agent for Rent link");
         softAssert1.assertTrue(headerAgentsPage1.agentsPageAgentsForRentLinki.isEnabled(), "Agent for Rent link accessible");
         extentTest.pass("Agents for rent link display and accessibility test");
-        //   softAssert.assertAll();
+        ReusableMethods.waitFor(2);
         Driver.closeDriver();
     }
 }

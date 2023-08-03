@@ -23,17 +23,13 @@ import java.util.List;
 
 public class US34_TC01_TC02_TC03_TC04_TC05 extends TestBaseReport {
 
-    AdminDashBoard_RealEstate_Properties realEstate = new AdminDashBoard_RealEstate_Properties();
-    AdminDashboard adminDashBoard = new AdminDashboard();
-    SoftAssert softAssert = new SoftAssert();
-
     @Test
     public void TC01() {
 
 
-        realEstate = new AdminDashBoard_RealEstate_Properties();
-        adminDashBoard = new AdminDashboard();
-        softAssert = new SoftAssert();
+        AdminDashBoard_RealEstate_Properties realEstate = new AdminDashBoard_RealEstate_Properties();
+        AdminDashboard adminDashBoard = new AdminDashboard();
+        SoftAssert softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         ReusableMethods.waitFor(1);
         adminDashBoard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
@@ -66,17 +62,15 @@ public class US34_TC01_TC02_TC03_TC04_TC05 extends TestBaseReport {
     public void TC02() {
 
 
-        realEstate = new AdminDashBoard_RealEstate_Properties();
-        adminDashBoard = new AdminDashboard();
-        softAssert = new SoftAssert();
+        AdminDashBoard_RealEstate_Properties realEstate = new AdminDashBoard_RealEstate_Properties();
+        AdminDashboard adminDashBoard = new AdminDashboard();
+        SoftAssert softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         ReusableMethods.waitFor(1);
         adminDashBoard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
         ReusableMethods.waitFor(1);
         adminDashBoard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
         adminDashBoard.adminSignIn.click();
-
-
 
         extentTest = extentReports.createTest("real estate and properties login", "Real Estate title should be clickable and properties under it should be accessible.");
         //Real Estate title should be clicked and properties under it should be accessible.
@@ -90,40 +84,31 @@ public class US34_TC01_TC02_TC03_TC04_TC05 extends TestBaseReport {
 
         extentTest.info("click and login successful");
         extentTest.pass("test successful");
+        ReusableMethods.waitFor(2);
         realEstate.adminLogout.click();
+        ReusableMethods.waitFor(2);
         realEstate.admincikis.click();
+        ReusableMethods.waitFor(2);
         Driver.closeDriver();
     }
     @Test
     public void TC03() {
 
-
-        realEstate = new AdminDashBoard_RealEstate_Properties();
-        adminDashBoard = new AdminDashboard();
-        softAssert = new SoftAssert();
+        AdminDashBoard_RealEstate_Properties realEstate = new AdminDashBoard_RealEstate_Properties();
+        AdminDashboard adminDashBoard = new AdminDashboard();
+        SoftAssert softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
         adminDashBoard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
         ReusableMethods.waitFor(1);
         adminDashBoard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
         adminDashBoard.adminSignIn.click();
-
-
-
-
-
-
         extentTest = extentReports.createTest("Number of active postings", "The number of advertisements and active advertisements on the page should be displayed.");
-
-        // The number of advertisements and active advertisements on the page should be displayed.
-
-        //      Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
-        //  adminDashBoard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
-        //  adminDashBoard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
-        //  adminDashBoard.adminSignIn.click();
-
+        ReusableMethods.waitFor(2);
         realEstate.RealEstatePropertiesRealEstateLinki.click();
+        ReusableMethods.waitFor(2);
         realEstate.RealEstatePropertiesPropertiesLinki.click();
+        ReusableMethods.waitFor(2);
         softAssert.assertTrue(realEstate.RealEstatePropertiesilanSayisi.isDisplayed(), "ilan sayıları görüntülenemiyor");
         // posting numbers should be displayed.
         List<WebElement> aktifilanSayisi = Driver.getDriver().findElements(By.xpath("PropertiesRealEstateAktifIlanSayisi"));
@@ -132,7 +117,7 @@ public class US34_TC01_TC02_TC03_TC04_TC05 extends TestBaseReport {
         }
         extentTest.info("ad numbers viewed and verified");
         extentTest.pass("posting number test passed");
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
         realEstate.adminLogout.click();
         ReusableMethods.waitFor(2);
         realEstate.admincikis.click();
@@ -143,21 +128,15 @@ public class US34_TC01_TC02_TC03_TC04_TC05 extends TestBaseReport {
     @Test
     public void TC04() {
 
-        realEstate = new AdminDashBoard_RealEstate_Properties();
-        adminDashBoard = new AdminDashboard();
-        softAssert = new SoftAssert();
+        AdminDashBoard_RealEstate_Properties realEstate = new AdminDashBoard_RealEstate_Properties();
+        AdminDashboard adminDashBoard = new AdminDashboard();
+        SoftAssert softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
         adminDashBoard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
         adminDashBoard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
         adminDashBoard.adminSignIn.click();
-
-
-
-
-
-
         extentTest = extentReports.createTest("Create button posting information", "New ad information should be entered with the Create button and should be saved");
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         // New ad information should be entered with the Create button
@@ -166,11 +145,14 @@ public class US34_TC01_TC02_TC03_TC04_TC05 extends TestBaseReport {
         //   adminDashBoard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
         //   adminDashBoard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
         //   adminDashBoard.adminSignIn.click();
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
         realEstate.RealEstatePropertiesRealEstateLinki.click();
+        ReusableMethods.waitFor(2);
         realEstate.RealEstatePropertiesPropertiesLinki.click();
+        ReusableMethods.waitFor(2);
         // Click the Create button
         realEstate.RealEstatePropertiesCreateButon.click();
+        ReusableMethods.waitFor(2);
 
         // New ad information must be entered
 
@@ -182,7 +164,7 @@ public class US34_TC01_TC02_TC03_TC04_TC05 extends TestBaseReport {
                 .sendKeys(Keys.TAB);
         actions.sendKeys(Keys.TAB);
 
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
 
         actions.sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
@@ -228,6 +210,7 @@ public class US34_TC01_TC02_TC03_TC04_TC05 extends TestBaseReport {
                 .sendKeys(Keys.ENTER).perform();
 
         realEstate.RealEstatePropertiesSaveAndExitButton.click();
+        ReusableMethods.waitFor(2);
 
         WebDriverWait saveConfirm = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         WebElement savewait = saveConfirm.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='toast toast-success']")));
@@ -251,18 +234,21 @@ public class US34_TC01_TC02_TC03_TC04_TC05 extends TestBaseReport {
                 .sendKeys(Keys.CLEAR)
                 .sendKeys("Melih").perform();
         realEstate.RealEstatePropertiesSaveAndExitButton.click();
+        ReusableMethods.waitFor(1);
         // and should be deleted with delete
         realEstate.RealEstatePropertiesDeleteButton.click();
         ReusableMethods.waitFor(2);
         realEstate.RealEstatePropertiesDeleteButonapprove.click();
+        ReusableMethods.waitFor(1);
         WebDriverWait deleteWait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         WebElement deleteconfirm = deleteWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='toast-title']")));
         softAssert.assertTrue(deleteconfirm.isDisplayed(), "not deleted");
+        extentTest.info("Deleted Test");
         ReusableMethods.waitFor(2);
         realEstate.adminLogout.click();
         ReusableMethods.waitFor(2);
         realEstate.admincikis.click();
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
         Driver.closeDriver();
     }
 }
