@@ -141,7 +141,7 @@ public class US46_001_003 extends TestBaseReport {
         adminDashboard.adminRemember.click();
         adminDashboard.adminSignIn.click();
         Assert.assertTrue(adminDashboard.dashboardButton.isDisplayed());
-        extentTest.pass("Admin login successful");
+        extentTest.info("Admin login successful");
 
         //03_Confirms that the payments section is active and visible in the dashbord menu
         softAssert.assertTrue(adminDashboard.paymentsButton.isDisplayed());
