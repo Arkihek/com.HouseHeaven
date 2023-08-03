@@ -107,15 +107,21 @@ public class US14_TC04 extends TestBaseReport {
         // tests that the property is loaded
         Assert.assertTrue(kullanici.yuklenenMulk.isDisplayed());
         extentTest.pass("Tests that the property is loaded");
-
+        String iD=kullanici.yuklenenMulkID.getText();
 
         //User deletes the uploaded property
         kullanici.yuklenenMulkuSil.click();
+        ReusableMethods.waitFor(1);
         kullanici.yuklenenMulkuSilBilgiKutusu.click();
         extentTest.info("User deletes the uploaded property");
+        ReusableMethods.waitFor(1);
+        String iD2=kullanici.yuklenenMulkID.getText();
 
 
-        Driver.getDriver().close();
+        // Verifies that the page is up to date after deleting the post
+        ReusableMethods.waitFor(3);
+        Assert.assertNotEquals(iD,iD2);
+        extentTest.pass("Page Current");
         extentTest.info("Closes the Browser");
 
 

@@ -15,14 +15,16 @@ public class US01_TC001 extends TestBaseReport {
     @Test
     public void test01(){
         extentTest = extentReports.createTest("The website is accessible test"," User should be able to verify that I can access the website");
-        // Giriş testi yapılmiştir.
+        //Browser acilir
         Driver.getDriver().get(ConfigReader.getProperty("url"));
+        // Website ye erişilebildiği kontrol edilir.
         String ecpected="https://qa.hauseheaven.com/";
 
         String actual=Driver.getDriver().getCurrentUrl();
 
         Assert.assertEquals(actual,ecpected);
         extentTest.pass("User can access the website");
+        // Giriş testi yapılmiştır
 
     }
 

@@ -9,15 +9,17 @@ import pages.AccountPage_Property;
 import pages.UserHomepage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.JSUtilities;
 import utilities.TestBaseReport;
 
 public class US25_TC02 extends TestBaseReport {
 
     @Test
     public void test02() throws InterruptedException {
-
+        SoftAssert softAssert = new SoftAssert();
         extentTest = extentReports.createTest("Sending message test for registered user",
                 "Registered user should be able send a message through the contact page");
+
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         extentTest.info("Kullanici hauseheaven anasayfaya gider");
@@ -59,17 +61,15 @@ public class US25_TC02 extends TestBaseReport {
         WebElement sendMessageButonu = Driver.getDriver().findElement(By.xpath("//button[text()='Send message']"));
         sendMessageButonu.submit();
 
+        WebElement successMessagePopup = Driver.getDriver().findElement(By.id("alert-container"));
+        System.out.println(successMessagePopup.getText());
 
-        WebElement yaziElementiSuccess= Driver.getDriver().findElement(By.xpath("//div[@class='contact-message contact-success-message']"));
-        yaziElementiSuccess.getText();
-        String expectedYaziSuccess = "Send message successfully!";
+        softAssert.assertTrue(successMessagePopup.isDisplayed());
         Thread.sleep(2000);
-        SoftAssert softAssert = new SoftAssert();
 
-        String actualYaziSuccess = yaziElementiSuccess.getText();
-        softAssert.assertTrue(actualYaziSuccess.equals(expectedYaziSuccess));
+        softAssert.assertAll();
 
-
-
+        extentTest.pass("\n" +
+                "Registered user can send a message through out the contact page");
     }
 }

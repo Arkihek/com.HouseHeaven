@@ -47,7 +47,6 @@ public class US15_TC02 extends TestBaseReport {
         //test that properties are listed
         Assert.assertTrue(kullanici.ilanSayiBilgi.isDisplayed());
         extentTest.pass("Tests that the currently loaded posting list is displayed");
-        Driver.getDriver().close();
         extentTest.info("Closes the Browser");
 
 

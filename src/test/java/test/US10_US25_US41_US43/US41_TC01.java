@@ -1,64 +1,70 @@
 package test.US10_US25_US41_US43;
 
+import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import pages.RegisterationPage;
+import org.testng.asserts.SoftAssert;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.JSUtilities;
 import utilities.TestBaseReport;
 
 public class US41_TC01 extends TestBaseReport {
-    // Sign Up Today butonunun gorunur ve aktif oldugunu dogrulayabilmeli
-    //Yeni kullanici kaydi yapılabilmeli
-
-    //Body bolumundeki Sign Up Today butonunun gorunur ve aktif oldugunu dogrulayabilmeli
-
-    RegisterationPage registerationPage = new RegisterationPage();
 
     @Test
-    public void Test01() throws InterruptedException {
-        extentTest = extentReports.createTest("Sign Up Today button visibility test",
+    public void test01() throws InterruptedException {
 
-                " Verify that the Sign Up  Today button is visible and active and create a new registration");
+        //Bu alani faker ile yap
 
-
-
-        registerationPage = new RegisterationPage();
-
-        //Kullanici Hause Heaven anasayfaya gider
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
-        extentTest.info("User goes to Hause Heaven homepage");
+        extentTest = extentReports.createTest("opening a new account test",
+                       "Visitor should be able to open a new account");
 
 
-        //Header bolumundeki Sign In butonuna basar
-        registerationPage.sigInButonu.click();
-        extentTest.info("Press the Sign In button in the header section");
 
-
-        //login girisi altindaki "Register a new account" butonuna basar
-        registerationPage.registerNewAccount.click();
-        extentTest.info("user should be able to register new");
-
-        //Register altindaki kutucuklari doldurur
-
+        SoftAssert softAssert = new SoftAssert();
+        Driver.getDriver().get("https://qa.hauseheaven.com/");
+        WebElement signUpButton = Driver.getDriver().findElement(By.xpath("//a[@class='btn btn-call-to-act']"));
+        JSUtilities.scrollToBottom(Driver.getDriver());
+        Thread.sleep(2000);
+        signUpButton.click();
         Faker faker = new Faker();
-        registerationPage.registerFirstName.sendKeys(faker.name().firstName() + Keys.TAB);
-        registerationPage.registerLastName.sendKeys(faker.name().lastName() + Keys.TAB);
-        registerationPage.registerEMail.sendKeys(faker.internet().emailAddress() + Keys.TAB);
-        registerationPage.registerUserName.sendKeys(faker.name().username() + Keys.TAB);
-        registerationPage.registerPassword.sendKeys("asdf456." + Keys.TAB);
-        registerationPage.registerPasswordConfirm.sendKeys("asdf456." + Keys.TAB);
-        registerationPage.registerButon.click();
+        WebElement firstNameElementi = Driver.getDriver().findElement(By.name("first_name"));
+        String firstName = faker.name().firstName();
+        firstNameElementi.sendKeys(firstName);
 
-        registerationPage.logout.click();
+        WebElement lastNameElementi = Driver.getDriver().findElement(By.name("last_name"));
+        String lastNameFaker = faker.name().lastName();
+        lastNameElementi.sendKeys(lastNameFaker);
 
-        extentTest.pass("Correct information is entered");
+        WebElement emailElementiFaker = Driver.getDriver().findElement(By.id("email"));
+
+        String emailAdressFaker= faker.internet().emailAddress();
+        emailElementiFaker.sendKeys(emailAdressFaker);
+
+        WebElement usernameElementiFaker = Driver.getDriver().findElement(By.id("username"));
+        String userNameFaker = faker.name().username();
+        usernameElementiFaker.sendKeys(userNameFaker);
+        WebElement passwordFirstElementi = Driver.getDriver().findElement(By.id("password"));
+        String passwordElementiFaker = faker.internet().password(6,7);
+        passwordFirstElementi.sendKeys(passwordElementiFaker);
+        WebElement passwordConfirmElemeti = Driver.getDriver().findElement(By.id("password-confirm"));
+        passwordConfirmElemeti.sendKeys(passwordElementiFaker);
+        WebElement registerButton = Driver.getDriver().findElement(By.xpath("//button[@type='submit'][1]"));
+
+        registerButton.submit();
+        Thread.sleep(2000);
+        softAssert.assertAll();
+
+        Driver.closeDriver();
+
+
+        // extentTest.pass("\n" +
+         //       "Visitor should be able to create an account");
+
+
 
     }
 }
-
-
-
-
-
