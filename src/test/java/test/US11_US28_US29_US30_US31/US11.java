@@ -9,7 +9,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.TestBaseReport;
 
-public class US11_TC01 extends TestBaseReport {
+public class US11 extends TestBaseReport {
 
 
 
