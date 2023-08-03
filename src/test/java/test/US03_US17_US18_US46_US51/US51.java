@@ -31,17 +31,6 @@ public class US51 extends TestBaseReport {
     @Test
     public void test01() {
 
-        //01_Browser acilir ve ziyaretci https://qa.hauseheaven.com/admin anasayfasina gider.
-        //02_Admin olarak signin butonundan dogru usarname ve password ile giris yapilir
-        //03_Media sayfasindaki butonlarin aktif ve gorunur olduklari test edilir.
-        //04_Browser kapatilir.
-
-        //01_Browser is open and the visitor goes to https://qa.hauseheven.com/admin homepage.
-        //02_As an administrator, log in with the correct username and password from the signin button
-        //03_The buttons on the media page are tested to be active and visible.
-        //04_browser is closed.
-
-
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "Media title should be active and visible on the admin dashboard");
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
@@ -74,6 +63,16 @@ public class US51 extends TestBaseReport {
     @Test
     public void test02() {
 
+        //01_Browser acilir ve ziyaretci https://qa.hauseheaven.com/admin anasayfasina gider.
+        //02_Admin olarak signin butonundan dogru usarname ve password ile giris yapilir
+        //03_Media sayfasindaki butonlarin aktif ve gorunur olduklari test edilir.
+        //04_Browser kapatilir.
+
+        //01_Browser is open and the visitor goes to https://qa.hauseheven.com/admin homepage.
+        //02_As an administrator, log in with the correct username and password from the signin button
+
+        //04_browser is closed.
+
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "Media title should be active and visible on the admin dashboard");
@@ -87,6 +86,10 @@ public class US51 extends TestBaseReport {
         adminDashboard.adminSignIn.click();
         adminDashboard.adminGirisKontrol.isDisplayed();
         extentTest.info("Admin login successful");
+
+        //03_The buttons on the media page are tested to be active and visible.
+
+
     }
 
     @Test
