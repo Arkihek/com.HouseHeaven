@@ -26,10 +26,10 @@ public class US04_TC001 extends TestBaseReport {
         extentTest = extentReports.createTest("\n" +
                 "Footer section visibility","\n" +
                 "The user should test that the Footer section is visible.");
-
+        // URL 'ye girilir.
         Driver.getDriver().get(ConfigReader.getProperty("url"));
 
-
+        // Footer bölümündeki ogelerin gorundugu kontrol edilir.
         List<WebElement>footerList=Driver.getDriver().findElements(By.xpath("//*[@class='footer-widget']"));
 
         for (WebElement fotterEach:footerList
