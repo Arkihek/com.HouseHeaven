@@ -24,7 +24,7 @@ public class US08_TC01_TC02_TC03 extends TestBaseReport {
     }
 
     @Test
-    public void TC010() {
+    public void TC01() {
 
         headerAgentsPage = new Header_AgentsPage();
         softAssert = new SoftAssert();
@@ -51,7 +51,7 @@ public class US08_TC01_TC02_TC03 extends TestBaseReport {
     }
 
     @Test
-    public void TC021() {
+    public void TC02() {
 
 
         headerAgentsPage = new Header_AgentsPage();
@@ -80,7 +80,7 @@ public class US08_TC01_TC02_TC03 extends TestBaseReport {
     }
 
     @Test
-    public void TC030() {
+    public void TC03() {
         headerAgentsPage = new Header_AgentsPage();
         softAssert = new SoftAssert();
 
