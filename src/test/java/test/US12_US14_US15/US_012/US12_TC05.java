@@ -159,23 +159,6 @@ public class US12_TC05 extends TestBaseReport {
         extentTest.info("Uploaded Mulk has been uploaded to the site correctly with details");
         extentTest.info("The browser is closed");
 
-        /*
-
-        expected="2";
-        actual=kullanici.yuklenenMulkBathrooms.getText();
-        Assert.assertTrue(actual.contains(expected));
-        extentTest.info("Bathrooms Sayısı siteye dogru bır sekılde yuklenmıstır");
-
-
-        expected="315";
-        actual=kullanici.yuklenenMullkSquare.getText();
-        Assert.assertTrue(actual.contains(expected));
-        extentTest.info("Square dogru şekilde siteye yüklenmıstır");
-
-
-         */
-
-
 
 
 

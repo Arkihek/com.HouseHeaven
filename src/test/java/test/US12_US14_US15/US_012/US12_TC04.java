@@ -21,6 +21,11 @@ public class US12_TC04 extends TestBaseReport {
     public void eklenenMulkIlanTesti(){
 
 
+        AccountPage_Property kullanici = new AccountPage_Property();
+        UserHomepage userHomepage =new UserHomepage();
+        AdminDashboard adminDashboard=new AdminDashboard();
+        Actions actions = new Actions(Driver.getDriver());
+
 
         extentTest = extentReports.createTest("Reported property adding and editing testing",
                 "Registered user should be able to add and edit property");
@@ -28,10 +33,6 @@ public class US12_TC04 extends TestBaseReport {
 
         //User goes to hauseheaven homepage
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        AccountPage_Property kullanici = new AccountPage_Property();
-        UserHomepage userHomepage =new UserHomepage();
-        AdminDashboard adminDashboard=new AdminDashboard();
-        Actions actions = new Actions(Driver.getDriver());
         extentTest.info("User goes to hauseheaven homepage");
 
 

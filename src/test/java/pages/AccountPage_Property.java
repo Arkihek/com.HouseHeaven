@@ -79,6 +79,10 @@ public class AccountPage_Property {
     public WebElement yuklenenMulkBathrooms;
     @FindBy(xpath = "(//div[@class='block-body'])[2]")
     public WebElement yuklenenMulkDescription;
+    @FindBy(xpath = "(//i[@class='fa fa-edit'])[1]")
+    public WebElement yuklenenMulkEdit;
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    public WebElement yuklenenMulkEditSaveKontol;
 
     // Add Property bölümü (Feature kısmı)
     @FindBy(xpath = "(//input[@value='1'])[3]")

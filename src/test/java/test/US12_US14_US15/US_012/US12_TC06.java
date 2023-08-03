@@ -12,11 +12,13 @@ public class US12_TC06 extends TestBaseReport {
     public void mulkSahibineMesajGonderme(){
 
 
+        AccountPage_Property kullanici = new AccountPage_Property();
+        UserHomepage userHomepage=new UserHomepage();
+
+
         // User navigates to the given URL
         extentTest = extentReports.createTest("Test to send a message to a reported property owner","user should be able to send messages to property owners");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        AccountPage_Property kullanici = new AccountPage_Property();
-        UserHomepage userHomepage=new UserHomepage();
         extentTest.info("User hauseheaven goes to homepage");
 
         // User fills in their information to log in to the system
