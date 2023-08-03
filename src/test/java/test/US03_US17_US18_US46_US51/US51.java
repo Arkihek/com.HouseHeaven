@@ -53,7 +53,7 @@ public class US51 extends TestBaseReport {
         ReusableMethods.waitFor(2);
         String expectedUrl = "https://qa.hauseheaven.com/admin/media";
         String actualUrl = Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(actualUrl,expectedUrl);
+        Assert.assertEquals(actualUrl, expectedUrl);
 
         //05_Browser is closed.
     }
@@ -123,7 +123,7 @@ public class US51 extends TestBaseReport {
         adminDashboard.shortButton.click();
         ReusableMethods.waitFor(2);
 
-        JSUtilities.clickWithJS(Driver.getDriver(),adminDashboard.mediaList);
+        JSUtilities.clickWithJS(Driver.getDriver(), adminDashboard.mediaList);
         softAssert.assertTrue(adminDashboard.actionsButton.isDisplayed());
         extentTest.info("actions button is visible");
         softAssert.assertTrue(adminDashboard.actionsButton.isEnabled());
@@ -148,9 +148,8 @@ public class US51 extends TestBaseReport {
     @Test
     public void test03() {
 
-
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
-        extentTest = extentReports.createTest("Hauseheaven test", "Your buttons should be active and visible on the Media page on the admin dashboard");
+        extentTest = extentReports.createTest("Hauseheaven test", "Image should be uploaded from the media page with the upload button");
         Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
         ReusableMethods.waitFor(3);
 
@@ -164,6 +163,50 @@ public class US51 extends TestBaseReport {
 
         adminDashboard.mediaButton.click();
         ReusableMethods.waitFor(2);
+
+        //03_Media must confirm that the upload button on the page can be used to upload images
+        String filesPath = System.getProperty("user.dir") + "/src/test/java/test/US03_US17_US18_US46_US51/houseV.jpg";
+        System.out.println(filesPath);
+        ReusableMethods.waitFor(3);
+        Assert.assertTrue(Files.exists(Paths.get(filesPath)));
+
+        WebElement uploadProcess = Driver.getDriver().findElement(By.xpath("//*[@type='file']"));
+        ReusableMethods.wait(1);
+        uploadProcess.sendKeys(filesPath);
+        ReusableMethods.wait(1);
+        WebElement fileUploadedMessage = Driver.getDriver().findElement(By.xpath("//span[text()='houseV.jpg']"));
+        Assert.assertTrue(fileUploadedMessage.isDisplayed());
+
+        //04_browser is closed.
+    }
+
+    @Test
+    public void test04() {
+
+        //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
+        extentTest = extentReports.createTest("Hauseheaven test", "Image should be uploaded from the media page with the upload button");
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        ReusableMethods.waitFor(3);
+
+        //02_As an administrator, log in with the correct username and password from the signin button
+        adminDashboard.adminEMail.sendKeys("admin21" + Keys.TAB);
+        adminDashboard.adminPassword.sendKeys("951847" + Keys.TAB);
+        adminDashboard.adminRemember.click();
+        adminDashboard.adminSignIn.click();
+        adminDashboard.adminGirisKontrol.isDisplayed();
+        extentTest.info("Admin login successful");
+
+        adminDashboard.mediaButton.click();
+        ReusableMethods.waitFor(2);
+
+        adminDashboard.downloadButton.click();
+        //file path on internet and Enter
+        WebElement textSpaceDownload = Driver.getDriver().findElement(By.xpath("//*[@name='urls']"));
+        textSpaceDownload.click();
+        actions.sendKeys(textSpaceDownload, "https://qa.hauseheaven.com/storage/team1.png").sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
+        ReusableMethods.wait(1);
+        // Verify the File uploaded
+        Assert.assertTrue(adminDashboard.labelBlogPostDeleteConfirm.isDisplayed());
 
     }
 
@@ -216,6 +259,9 @@ public class US51 extends TestBaseReport {
         ReusableMethods.wait(1);
         // Verify the File uploaded
         Assert.assertTrue(adminDashboard.labelBlogPostDeleteConfirm.isDisplayed());
+
+
+
         ReusableMethods.wait(2);
         //Click the "Create New Folder" button.
         adminDashboard.createFolderButton.click();

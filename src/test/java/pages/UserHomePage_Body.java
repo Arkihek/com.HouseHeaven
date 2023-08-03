@@ -86,7 +86,8 @@ public class UserHomePage_Body {
     public WebElement addToWishList6;
     @FindBy(xpath = "(//*[@class='btn btn-theme-light-2 rounded'])[1]")
     public WebElement browseMoreProperties;
-
+    @FindBy(xpath = "//*[@class='alert alert-success alert-dismissible']")
+    public WebElement wishlistAlert;
 
     //*--------Find By Locations--------
     @FindBy(xpath = "(//*[@class='sec-heading center'])[3]")

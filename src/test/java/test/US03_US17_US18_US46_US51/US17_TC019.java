@@ -10,13 +10,14 @@ import utilities.*;
 
 public class US17_TC019 extends TestBaseReport {
 
-    SoftAssert softAssert = new SoftAssert();
-    UserHomePage_Body userHomePageBody = new UserHomePage_Body();
-    Actions actions = new Actions(Driver.getDriver());
-    AccountPage_Property accountPageProperty = new AccountPage_Property();
+
 
     @Test
     public void test19() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test","On the home page See Our Packages in the section Elements Visible and activation of buttons");
@@ -57,7 +58,7 @@ public class US17_TC019 extends TestBaseReport {
         JSUtilities.clickWithJS(Driver.getDriver(),userHomePageBody.firstPostChoosePlanButton);
         ReusableMethods.waitFor(3);
         String actualUrl = Driver.getDriver().getCurrentUrl();
-        String expectedUrl = "https://qa.hauseheaven.com/login";
+        String expectedUrl = "https://qa.hauseheaven.com/account/packages/1/subscribe";
         softAssert.assertEquals(actualUrl,expectedUrl);
         extentTest.pass("When the left button is pressed, it redirects to the login page");
 
@@ -69,7 +70,7 @@ public class US17_TC019 extends TestBaseReport {
         JSUtilities.clickWithJS(Driver.getDriver(),userHomePageBody.secondPostChoosePlanButton);
         ReusableMethods.waitFor(3);
         actualUrl = Driver.getDriver().getCurrentUrl();
-        expectedUrl = "https://qa.hauseheaven.com/login";
+        expectedUrl = "https://qa.hauseheaven.com/account/packages/2/subscribe";
         softAssert.assertEquals(actualUrl,expectedUrl);
         extentTest.pass("When the centre button is pressed, it redirects to the login page");
 
@@ -81,7 +82,7 @@ public class US17_TC019 extends TestBaseReport {
         JSUtilities.clickWithJS(Driver.getDriver(),userHomePageBody.thirdPostChoosePlanButton);
         ReusableMethods.waitFor(3);
         actualUrl = Driver.getDriver().getCurrentUrl();
-        expectedUrl = "https://qa.hauseheaven.com/login";
+        expectedUrl = "https://qa.hauseheaven.com/account/packages/131/subscribe";
         softAssert.assertEquals(actualUrl,expectedUrl);
         extentTest.pass("When the right button is pressed, it redirects to the login page");
 

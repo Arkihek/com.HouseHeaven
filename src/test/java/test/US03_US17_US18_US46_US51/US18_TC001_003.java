@@ -18,13 +18,15 @@ import java.util.List;
 
 public class US18_TC001_003 extends TestBaseReport {
 
-    SoftAssert softAssert = new SoftAssert();
-    UserHomePage_Body userHomePageBody = new UserHomePage_Body();
-    Actions actions = new Actions(Driver.getDriver());
-    AccountPage_Property accountPageProperty = new AccountPage_Property();
+
 
     @Test
     public void test01() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
+
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Find Accessible Homes To Rent of the search sectionvisible and active");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -54,6 +56,7 @@ public class US18_TC001_003 extends TestBaseReport {
         System.out.println(actuelResult);
         softAssert.assertTrue(actuelResult.contains(expectedResult));
         extentTest.fail("More than 0 results = " + actuelResult);
+        softAssert.assertAll();
 
         //06_Browser is closed.
         Driver.quitDriver();
@@ -61,6 +64,10 @@ public class US18_TC001_003 extends TestBaseReport {
 
     @Test
     public void test02() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Find Accessible Homes To Rent of the search section visible and active");
@@ -99,6 +106,8 @@ public class US18_TC001_003 extends TestBaseReport {
                 no++;
             }
         }
+        extentTest.pass("On the home page Find Accessible Homes To Rent of the search section visible and active");
+
         softAssert.assertAll();
         //05_browser is closed.
         Driver.closeDriver();
@@ -106,6 +115,10 @@ public class US18_TC001_003 extends TestBaseReport {
 
     @Test
     public void test03() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Find Accessible Homes To Rent of the search section visible and active");
@@ -142,6 +155,7 @@ public class US18_TC001_003 extends TestBaseReport {
         softAssert.assertTrue(userHomePageBody.locationElement.getText().contains(expectedLocation), "the result is not samsun. Result : " + userHomePageBody.locationElement.getText());
         extentTest.fail("the result is not samsun. Result : " + userHomePageBody.locationElement.getText());
 
+        softAssert.assertAll();
         //05_Browser is closed.
         Driver.closeDriver();
 

@@ -9,14 +9,14 @@ import pages.UserHomepage;
 import utilities.*;
 
 public class US17_TC020 extends TestBaseReport {
-    SoftAssert softAssert = new SoftAssert();
-    UserHomePage_Body userHomePageBody = new UserHomePage_Body();
-    Actions actions = new Actions(Driver.getDriver());
-    AccountPage_Property accountPageProperty = new AccountPage_Property();
-    UserHomepage userHomepage = new UserHomepage();
 
     @Test
     public void test20(){
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+        Actions actions = new Actions(Driver.getDriver());
+        AccountPage_Property accountPageProperty = new AccountPage_Property();
+        UserHomepage userHomepage = new UserHomepage();
 
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         extentTest = extentReports.createTest("Hauseheaven test","On the home page, make sure that Recently Viewed Properties visible and active");
