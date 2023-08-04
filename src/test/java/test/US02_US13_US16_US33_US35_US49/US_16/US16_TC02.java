@@ -8,6 +8,8 @@ import utilities.Driver;
 
 public class US16_TC02 {
 
+    //Header bölümündeki menülerin görünüp görünmediğini kontrol edin.
+
     @Test
     public void kayitliKullaniciHomeHeader() {
 
@@ -30,6 +32,7 @@ public class US16_TC02 {
         Assert.assertTrue(kullanici.addProperty.isDisplayed());
         Assert.assertTrue(kullanici.team5Team5.isDisplayed());
         Assert.assertTrue(kullanici.logout.isDisplayed());
+        Driver.closeDriver();
 
     }
 }

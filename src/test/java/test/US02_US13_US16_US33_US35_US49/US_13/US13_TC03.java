@@ -11,6 +11,8 @@ import utilities.ReusableMethods;
 
 public class US13_TC03 {
 
+    //ve sayfa yüklendiğinde görünür olmalı ve doğru bir şekilde listelenmelidir.
+
     @Test
     public void settingsErisebilirlik(){
 

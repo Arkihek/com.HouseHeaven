@@ -11,6 +11,8 @@ import utilities.ReusableMethods;
 
 public class US13_TC04 {
 
+    //Kayıtlı kullanıcı yeni krediler satın alma butonları görünür ve aktif oldugunu dogrulayalım.
+
     @Test
     public void buyCreditsErisebilirlik() {
 
@@ -33,11 +35,19 @@ public class US13_TC04 {
 
         Assert.assertTrue(kullanici.credits5puan.isDisplayed());
         kullanici.credits5puan.click();
+        ReusableMethods.waitFor(1);
+        Assert.assertTrue(kullanici.cardNumber.isEnabled());
+        Driver.getDriver().navigate().back();
+        ReusableMethods.waitFor(3);
+
         Assert.assertTrue(kullanici.credits6puan.isDisplayed());
         kullanici.credits6puan.click();
-        Assert.assertTrue(kullanici.credits7puan.isDisplayed());
-        kullanici.credits7puan.click();
-        Assert.assertTrue(kullanici.credits8puan.isDisplayed());
-        kullanici.credits8puan.click();
+        ReusableMethods.waitFor(1);
+        Assert.assertTrue(kullanici.cardNumber.isEnabled());
+        Driver.getDriver().navigate().back();
+        ReusableMethods.waitFor(3);
+
+
+        Driver.closeDriver();
     }
 }

@@ -12,6 +12,8 @@ import utilities.ReusableMethods;
 
 public class US13_TC02 {
 
+    //Account information kısmında güncelleme yapılabildigi dogrulanır.
+
     @Test
     public void settingsErisebilirlik(){
         SoftAssert softAssert=new SoftAssert();

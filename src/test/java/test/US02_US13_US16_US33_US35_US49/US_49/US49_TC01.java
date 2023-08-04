@@ -1,4 +1,4 @@
-package test.US02_US13_US16_US33_US35_US49.US_35;
+package test.US02_US13_US16_US33_US35_US49.US_49;
 
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
@@ -6,12 +6,12 @@ import pages.AdminDashboard;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class US35_TC01 {
+public class US49_TC01 {
 
-    //Admin dashboard'a giriş yapılmalıdır.
+    //Admin dahsboarda giriş yapılabılmelı
 
     @Test
-    public void Test01() {
+    public void test01(){
         AdminDashboard adminDashboard = new AdminDashboard();
 
         //Kullanici Hause Heaven Admin sayfasina gider
@@ -24,4 +24,5 @@ public class US35_TC01 {
         adminDashboard.adminGirisKontrol.isDisplayed();
         Driver.closeDriver();
     }
+
 }

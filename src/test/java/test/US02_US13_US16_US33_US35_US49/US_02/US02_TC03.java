@@ -8,6 +8,8 @@ import utilities.Driver;
 
 public class US02_TC03 {
 
+    // ilgili sayfaların tiklandiktan sonra istenilen sayfanin görüntülendigini dogrulayin.
+
     @Test
     public void homeHeader(){
 
@@ -32,5 +34,6 @@ public class US02_TC03 {
         Assert.assertTrue(kullanici.rememberMe.isDisplayed());
         kullanici.addProperty.click();
         Assert.assertTrue(kullanici.registerANewAccount.isDisplayed());
+        Driver.closeDriver();
     }
 }
