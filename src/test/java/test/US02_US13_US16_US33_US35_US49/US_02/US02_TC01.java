@@ -8,13 +8,13 @@ import utilities.Driver;
 
 public class US02_TC01 {
 
+    //Home page sayfasını ziyaret edin ve header bölümündeki menülerin görünüp görünmediğini kontrol edin.
 
     @Test
     public void homeHeader(){
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         UserHomepage kullanici = new UserHomepage();
-
 
 
         Assert.assertTrue(kullanici.home.isDisplayed());
@@ -26,8 +26,6 @@ public class US02_TC01 {
         Assert.assertTrue(kullanici.signUp.isDisplayed());
         Assert.assertTrue(kullanici.signIn.isDisplayed());
         Assert.assertTrue(kullanici.addProperty.isDisplayed());
-
-
+        Driver.closeDriver();
     }
-
 }

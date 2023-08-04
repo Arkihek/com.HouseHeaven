@@ -8,6 +8,8 @@ import utilities.Driver;
 
 public class US16_TC03 {
 
+    //Menüler gorunur ve tıklanabilir oldugunu dogrulayin.
+
     @Test
     public void kayitliKullaniciHomeHeader() {
 
@@ -39,5 +41,6 @@ public class US16_TC03 {
         kullanici.team5Team5.click();
         Assert.assertTrue(kullanici.logout.isDisplayed());
         kullanici.logout.click();
+        Driver.closeDriver();
     }
 }

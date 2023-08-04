@@ -11,6 +11,8 @@ import utilities.ReusableMethods;
 
 public class US13_TC05 {
 
+    // Kayıtlı kullanıcı sifreyi duzenleyebilmeli
+
     @Test
     public void securityErisebilirlik(){
 
@@ -36,8 +38,6 @@ public class US13_TC05 {
         Assert.assertTrue(kullanici.Successfull.isDisplayed());
         ReusableMethods.waitFor(3);
         Driver.closeDriver();
-
-
 
     }
 }

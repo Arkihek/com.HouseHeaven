@@ -6,12 +6,11 @@ import pages.AdminDashboard;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class US35_TC01 {
+public class US35_TC02 {
 
-    //Admin dashboard'a giriş yapılmalıdır.
-
+    //Real Estate başlığının altındaki Feautres ulaşılabilmeli
     @Test
-    public void Test01() {
+    public void test02(){
         AdminDashboard adminDashboard = new AdminDashboard();
 
         //Kullanici Hause Heaven Admin sayfasina gider
@@ -22,6 +21,12 @@ public class US35_TC01 {
         adminDashboard.adminRemember.click();
         adminDashboard.adminSignIn.click();
         adminDashboard.adminGirisKontrol.isDisplayed();
+
+
+        adminDashboard.realEstate.click();
+        adminDashboard.realEstateBasligindakiler.isEnabled();
+        adminDashboard.features.click();
         Driver.closeDriver();
+
     }
 }

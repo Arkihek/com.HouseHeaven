@@ -12,6 +12,9 @@ import utilities.ReusableMethods;
 
 public class US13_TC01 {
 
+    //Kayıtlı kullanıcı olarak site anasayfasından account dashboard linkinin
+    // görünür oldugunu ve tıklanınca  account dashboard sayfasına yönlendirildiği doğrulanır
+
     @Test
     public void dashboardaErisebilirlik(){
         SoftAssert softAssert=new SoftAssert();

@@ -8,6 +8,8 @@ import utilities.Driver;
 
 public class US16_TC01 {
 
+    //Home page sayfasını kayıtlı kullanıcı olarak ziyaret edilmeli
+
     @Test
     public void kayitliKullaniciHomeHeader(){
 
@@ -19,7 +21,7 @@ public class US16_TC01 {
         kullanici.passwordGiris.sendKeys(ConfigReader.getProperty("userPass"));
         kullanici.loginGiris.click();
 
-
+        Driver.closeDriver();
 
     }
 }

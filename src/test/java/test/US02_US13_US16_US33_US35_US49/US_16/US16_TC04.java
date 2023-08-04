@@ -7,7 +7,8 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 public class US16_TC04 {
-    // burada hata var düzeltilecek sonradan
+
+    //Header bolumundekı Menuler tıklanabıldıgı ve istenilen sayfaya gidildigını dogrulanmalı
 
     @Test
     public void kayitliKullaniciHomeHeader() {
@@ -33,12 +34,11 @@ public class US16_TC04 {
         kullanici.contact.click();
         Assert.assertTrue(kullanici.Contact.isDisplayed());
         kullanici.signUp.click();
-        //Assert.assertTrue(kullanici.forgotYourPassword.isDisplayed());
         kullanici.addProperty.click();
-        //Assert.assertTrue(kullanici.registerANewAccount.isDisplayed());
         kullanici.team5Team5.click();
         Assert.assertTrue(kullanici.yourCurrentCredits.isDisplayed());
         kullanici.logout.click();
         Assert.assertTrue(kullanici.findAccessibleHomes.isDisplayed());
+        Driver.closeDriver();
     }
 }

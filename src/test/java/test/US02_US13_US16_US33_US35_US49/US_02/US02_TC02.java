@@ -11,10 +11,11 @@ import utilities.ReusableMethods;
 
 public class US02_TC02 {
 
+    //Menüler gorunur ve tıklanabilir oldugunu dogrulayin.
+
     @Test
     public void homeHeader(){
         SoftAssert softAssert=new SoftAssert();
-
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         UserHomepage kullanici = new UserHomepage();
@@ -170,6 +171,4 @@ public class US02_TC02 {
         softAssert.assertEquals(actualSignInUrl,expectedSignInUrl);
         Driver.closeDriver();
     }
-
-
 }
