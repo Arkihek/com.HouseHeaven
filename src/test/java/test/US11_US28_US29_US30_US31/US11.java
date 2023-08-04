@@ -2,18 +2,14 @@ package test.US11_US28_US29_US30_US31;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-import pages.AdminDashboard;
 import pages.RegisterationPage;
-import pages.UserHomepage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.TestBaseReport;
 
-public class US11_TC01 extends TestBaseReport {
+public class US11 extends TestBaseReport {
 
 
 

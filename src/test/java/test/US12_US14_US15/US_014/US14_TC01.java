@@ -6,22 +6,25 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AccountPage_Property;
 import pages.UserHomepage;
-import utilities.ConfigReader;
-import utilities.Driver;
-import utilities.JSUtilities;
-import utilities.ReusableMethods;
+import utilities.*;
 
-public class US14_TC01 {
+public class US14_TC01 extends TestBaseReport{
 
 
     @Test
     public void accountErisebilirlik(){
 
+
+        AccountPage_Property kullanici = new AccountPage_Property();
+        UserHomepage userHomepage = new UserHomepage();
+
+
+        extentTest = extentReports.createTest("Report Account Accessibility Test",
+                                              "After logging into the registered user page, they should be able to access the account and go to the propetries");
         //
         //User goes to hauseheaven homepage
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        AccountPage_Property kullanici = new AccountPage_Property();
-        UserHomepage userHomepage = new UserHomepage();
+        extentTest.info("User goes to hauseheaaven homepage");
 
 
         //User fills in information for login to the system
@@ -29,21 +32,24 @@ public class US14_TC01 {
         kullanici.mailKutusu.sendKeys(ConfigReader.getProperty("userMail"));
         kullanici.password.sendKeys(ConfigReader.getProperty("userPass"));
         kullanici.login.click();
-        WebElement girisBilgii=Driver.getDriver().findElement(By.xpath("(//a[@rel='nofollow'])[1]"));
-        girisBilgii.click();
+        extentTest.info("Registered user enters correct username and password and clicks login link");
+        kullanici.girisYaptiginaDairBilgi.click();
+        extentTest.info("Click on profile after login");
 
 
         // scrolls down for the properties link to appear
         ReusableMethods.waitFor(1);
-        WebElement sayfaKaydir=Driver.getDriver().findElement(By.xpath("//h4[text()='Your Current Credits: ']"));
-        JSUtilities.scrollToElement(Driver.getDriver(),sayfaKaydir);
+        WebElement sayfaKaydirmakicinYazilanElement=Driver.getDriver().findElement(By.xpath("//h4[text()='Your Current Credits: ']"));
+        JSUtilities.scrollToElement(Driver.getDriver(),sayfaKaydirmakicinYazilanElement);
+        extentTest.info("Scrolls down the page to see the Properties link");
         ReusableMethods.waitFor(1);
         kullanici.properties.click();
+        extentTest.info("Clicks the Properties link");
 
         // The user has verified that he has accessed the account properties page
-        WebElement createaccounproperty=Driver.getDriver().findElement(By.xpath("//span[@data-action='create']"));
-        Assert.assertTrue(createaccounproperty.isDisplayed());
-        Driver.getDriver().close();
+        Assert.assertTrue(kullanici.createaccounproperty.isDisplayed());
+        extentTest.pass("Tests that you can access the Account Properties page");
+        extentTest.info("Closes the Browser");
 
 
 

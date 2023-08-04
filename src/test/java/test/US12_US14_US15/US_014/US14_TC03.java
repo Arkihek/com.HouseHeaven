@@ -7,55 +7,67 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AccountPage_Property;
 import pages.UserHomepage;
-import utilities.ConfigReader;
-import utilities.Driver;
-import utilities.JSUtilities;
-import utilities.ReusableMethods;
+import utilities.*;
 
-public class US14_TC03 {
+public class US14_TC03 extends TestBaseReport {
 
 
     @Test
     public void mulkEklemeDuzenleme(){
 
-        // Kullanıcı hauseheaven anasayfasına gider
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
+
         AccountPage_Property kullanici = new AccountPage_Property();
         UserHomepage userHomepage =new UserHomepage();
 
-        // Kullanici sisteme login için bilgilerini dolduruyor
+
+        extentTest = extentReports.createTest("Reported property adding and editing testing",
+                                             "Registered user should be able to add and edit property");
+
+
+        //User goes to hauseheaven homepage
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        extentTest.info("User goes to hauseheaven homepage");
+
+
+        //User fills in information for login to the system
         kullanici.signIn.click();
         kullanici.mailKutusu.sendKeys(ConfigReader.getProperty("userMail"));
         kullanici.password.sendKeys(ConfigReader.getProperty("userPass"));
         kullanici.login.click();
+        extentTest.info("The user logs into the page with the correct username and password");
 
 
-        // Kullanici mulk ılanı verebılmek ıcın kredi alıyor
+
+        //User gets credit to give property ad
         kullanici.addProperty.click();
         kullanici.buyCredits.click();
         kullanici.credits5puan.click();
+        extentTest.info("User buys credit to add property ad");
 
 
-        // kullanıcı kart bılgılerını gırıyor //
+
+        //user enters card information //
         ReusableMethods.waitFor(1);
         kullanici.cardNumber.sendKeys(ConfigReader.getProperty("cardNumber"));
         kullanici.cardName.sendKeys(ConfigReader.getProperty("cardName"));
         kullanici.cardYilGun.sendKeys(ConfigReader.getProperty("cardYilGun"));
         kullanici.cardCVC.sendKeys(ConfigReader.getProperty("cardCVC"));
         ReusableMethods.waitFor(1);
-        WebElement cookies = Driver.getDriver().findElement(By.xpath("//button[@class='js-cookie-consent-agree cookie-consent__agree']"));
-        cookies.click();
+        kullanici.cookies.click();
         JSUtilities.scrollToElement(Driver.getDriver(), kullanici.cardNumber);
         ReusableMethods.waitFor(2);
         kullanici.checkout.click();
+        extentTest.info("Enters card information and clicks checkout link");
 
-        // kullanıcı kart işlemını tamamladıktan sonra mulk ekleyebılecegı add property sayfasına gider ve gereklı alanları doldurur
+
+        //After the user completes the card transaction, she goes to the add property page where she can add the
+        // property and fills in the required fields.
         ReusableMethods.waitFor(2);
         kullanici.addProperty.click();
-        kullanici.title.sendKeys("Satlık 6+2 Villa");
-        kullanici.description.sendKeys("2 yıllık yeni yapı sahibinden satlık");
-        kullanici.content.sendKeys("Denize sıfır konumda\n 315 m2 \n büyük bir garaja sahip");
-
+        extentTest.info("After the user completes the card transaction, she clicks on the add property link");
+        kullanici.title.sendKeys("For Sale 6+2 Villa");
+        kullanici.description.sendKeys("2 years new building for sale from owner");
+        kullanici.content.sendKeys("by the sea \n 315 m2 \n has a large garage");
 
         ReusableMethods.waitFor(1);
         JSUtilities.scrollToElement(Driver.getDriver(), kullanici.images);
@@ -82,25 +94,31 @@ public class US14_TC03 {
         kullanici.categoryClicktenSonraYeniKutu.click();
         kullanici.categoryClicktenSonraYeniKutu.sendKeys("V" + Keys.ENTER);
         ReusableMethods.waitFor(1);
+        extentTest.info("The user fills in all the necessary information for the ad.");
 
 
-        // Kullanıcı gırdıgı bılgılerı kaydeder
-        WebElement saveExitUstuElement = Driver.getDriver().findElement(By.xpath("//span[text()='Publish']"));
+
+        //User saves information entered
         ReusableMethods.waitFor(2);
-    // 5555    //JSUtilities.scrollToElement(Driver.getDriver(),userHomepage.wishlist);
+        JSUtilities.scrollToElement(Driver.getDriver(),userHomepage.wishlist);
         ReusableMethods.waitFor(2);
         kullanici.saveExit.click();
-        ReusableMethods.waitFor(7);
+        extentTest.info("After the user fills in her information, she presses the save button to save.");
+        ReusableMethods.waitFor(2);
 
-        // mülkün yüklendıgını test eder
-        WebElement yuklenenMulk = Driver.getDriver().findElement(By.xpath("//div[@class='alert alert-success alert-dismissible']"));
-        Assert.assertTrue(yuklenenMulk.isDisplayed());
+        // tests that the property is loaded
+        Assert.assertTrue(kullanici.yuklenenMulk.isDisplayed());
+        extentTest.pass("Tests that the property is loaded");
 
-        // yüklenen mulku silebilmeyi test eder
-        WebElement yuklenenMulkuSil=Driver.getDriver().findElement(By.xpath("(//a[@class='btn btn-icon btn-sm btn-danger deleteDialog'])[1]"));
-        yuklenenMulkuSil.click();
-        WebElement yuklenenMulkuSilBilgiKutusu = Driver.getDriver().findElement(By.xpath("//button[@class='float-end btn btn-danger delete-crud-entry']"));
-        yuklenenMulkuSilBilgiKutusu.click();
+
+        //Tests that you can edit the uploaded property
+        kullanici.addProperty.click();
+        JSUtilities.scrollToElement(Driver.getDriver(),kullanici.title);
+        kullanici.properties.click();
+        kullanici.mulkDuzenleme.click();
+        Assert.assertTrue(kullanici.title.isDisplayed());
+        extentTest.pass("Tests that you can edit the loaded property");
+        extentTest.info("Closes the Browser");
 
     }
 }

@@ -8,12 +8,13 @@ import pages.UserHomePage_Body;
 import utilities.*;
 
 public class US03_TC002_08 extends TestBaseReport {
-    SoftAssert softAssert = new SoftAssert();
-    UserHomePage_Body userHomePageBody = new UserHomePage_Body();
-    Actions actions = new Actions(Driver.getDriver());
 
     @Test(priority = 1)
     public void TC002() {
+
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
+
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"9876 Elmwood Avenue\" visible and active");
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -47,7 +48,7 @@ public class US03_TC002_08 extends TestBaseReport {
         extentTest.info("Right slick arrow is works");
 
         userHomePageBody.addToWishList1.click();
-        softAssert.assertTrue(userHomePageBody.addToWishList1.isSelected());
+        Assert.assertTrue(userHomePageBody.wishlistAlert.isDisplayed());
         extentTest.info("Add to wish list is selected");
 
         //05_"9876 Elmwood Avenue" is climbed to the page of the details.
@@ -59,12 +60,15 @@ public class US03_TC002_08 extends TestBaseReport {
         extentTest.info("Went to the page with the details.");
         ReusableMethods.waitFor(3);
         extentTest.pass("On the home page Explore Good Places The element \"9876 Elmwood Avenue\" visible and active");
+        softAssert.assertAll();
 
         //06_Browser is closed.
     }
 
     @Test(priority = 2)
     public void TC003() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"13579 Elmwood Avenue\" visible and active");
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
@@ -95,7 +99,7 @@ public class US03_TC002_08 extends TestBaseReport {
         extentTest.info("Right slick arrow is works");
 
         userHomePageBody.addToWishList2.click();
-        softAssert.assertTrue(userHomePageBody.addToWishList2.isSelected());
+        softAssert.assertTrue(userHomePageBody.wishlistAlert.isDisplayed());
         extentTest.info("Add to wish list is selected");
 
         //04_ "13579 Elmwood Avenue" is climbed to the page of the details of the selection of the righteousness.
@@ -107,12 +111,16 @@ public class US03_TC002_08 extends TestBaseReport {
         extentTest.info("Went to the page with the details.");
         ReusableMethods.waitFor(3);
         extentTest.pass("On the home page Explore Good Places The element \"13579 Elmwood Avenue\" visible and active");
+        softAssert.assertAll();
+
 
         //05_Browser is closed.
     }
 
     @Test(priority = 3)
     public void TC004() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"2468 Pine Street\" visible and active");
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
@@ -143,7 +151,7 @@ public class US03_TC002_08 extends TestBaseReport {
         extentTest.info("Right slick arrow is works");
 
         userHomePageBody.addToWishList3.click();
-        softAssert.assertTrue(userHomePageBody.addToWishList3.isSelected());
+        softAssert.assertTrue(userHomePageBody.wishlistAlert.isDisplayed());
         extentTest.info("Add to wish list is selected");
 
         //04_ "2468 Pine Street" element is climbed to the page of the details of the details.
@@ -155,12 +163,15 @@ public class US03_TC002_08 extends TestBaseReport {
         extentTest.info("Went to the page with the details.");
         ReusableMethods.waitFor(3);
         extentTest.pass("On the home page Explore Good Places The element \"2468 Pine Street\" visible and active");
+        softAssert.assertAll();
 
         //05_Browser is closed.
     }
 
     @Test(priority = 4)
     public void TC005() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
 
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"9876 Pine Avenue\" visible and active");
@@ -193,7 +204,7 @@ public class US03_TC002_08 extends TestBaseReport {
 
         userHomePageBody.addToWishList4.click();
         ReusableMethods.waitFor(1);
-        softAssert.assertTrue(userHomePageBody.addToWishList4.isSelected());
+        softAssert.assertTrue(userHomePageBody.wishlistAlert.isDisplayed());
         extentTest.info("Add to wish list is selected");
 
         //04_ "9876 Pine Avenue" element is climbed to the page that is directed to the page.
@@ -205,12 +216,15 @@ public class US03_TC002_08 extends TestBaseReport {
         extentTest.info("Went to the page with the details.");
         ReusableMethods.waitFor(3);
         extentTest.pass("On the home page Explore Good Places The element \"9876 Pine Avenue\" visible and active");
+        softAssert.assertAll();
 
         //05_Browser is closed.
     }
 
     @Test(priority = 5)
     public void TC006() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"13579 Willow Street\" visible and active");
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
@@ -242,7 +256,7 @@ public class US03_TC002_08 extends TestBaseReport {
 
         userHomePageBody.addToWishList5.click();
         ReusableMethods.waitFor(1);
-        softAssert.assertTrue(userHomePageBody.addToWishList5.isSelected());
+        softAssert.assertTrue(userHomePageBody.wishlistAlert.isDisplayed());
         extentTest.info("Add to wish list is selected");
 
         //04_ "13579 Willow Street" element is climbed to the page that is directed to the page.
@@ -254,12 +268,15 @@ public class US03_TC002_08 extends TestBaseReport {
         extentTest.info("Went to the page with the details.");
         ReusableMethods.waitFor(3);
         extentTest.pass("On the home page Explore Good Places The element \"13579 Willow Street\" visible and active");
+        softAssert.assertAll();
 
         //05_Browser is closed.
     }
 
     @Test(priority = 6)
     public void TC007() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"2468 Willow Street\" visible and active");
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
@@ -291,7 +308,7 @@ public class US03_TC002_08 extends TestBaseReport {
 
         userHomePageBody.addToWishList6.click();
         ReusableMethods.waitFor(1);
-        softAssert.assertTrue(userHomePageBody.addToWishList6.isSelected());
+        softAssert.assertTrue(userHomePageBody.wishlistAlert.isDisplayed());
         extentTest.info("Add to wish list is selected");
 
         //04_ "2468 Willow Street" element is climbed to the page that is directed to the page.
@@ -303,12 +320,14 @@ public class US03_TC002_08 extends TestBaseReport {
         extentTest.info("Went to the page with the details.");
         ReusableMethods.waitFor(3);
         extentTest.pass("On the home page Explore Good Places The element \"2468 Willow Street\" visible and active");
-
+        softAssert.assertAll();
         //05_Browser is closed.
     }
 
     @Test(priority = 7)
     public void TC008() {
+        SoftAssert softAssert = new SoftAssert();
+        UserHomePage_Body userHomePageBody = new UserHomePage_Body();
 
         extentTest = extentReports.createTest("Hauseheaven test", "On the home page Explore Good Places The element \"Browse more properties\" visible and active");
         //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
@@ -330,7 +349,7 @@ public class US03_TC002_08 extends TestBaseReport {
         String actualUrl = Driver.getDriver().getCurrentUrl();
         softAssert.assertEquals(actualUrl,expectedUrl,"We couldn't get to the page with the details.");
         extentTest.pass("On the home page Explore Good Places The element \"Browse more properties\" visible and active");
-
+        softAssert.assertAll();
         //04_browser is closed.
 
     }

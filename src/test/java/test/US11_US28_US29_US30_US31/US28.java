@@ -3,12 +3,11 @@ package test.US11_US28_US29_US30_US31;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 import pages.AdminDashboard;
-import pages.RegisterationPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.TestBaseReport;
 
-public class US28_TC01 extends TestBaseReport {
+public class US28 extends TestBaseReport {
 
     AdminDashboard adminDashboard = new AdminDashboard();
 

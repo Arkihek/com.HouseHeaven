@@ -1,110 +1,153 @@
 package test.US12_US14_US15.US_012;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AccountPage_Property;
+import pages.AdminDashboard;
 import pages.UserHomepage;
-import utilities.ConfigReader;
-import utilities.Driver;
-import utilities.JSUtilities;
-import utilities.ReusableMethods;
+import utilities.*;
 
-public class US12_TC04 {
+import java.security.Key;
 
-    //Eklenen mülk ilanları anasayfada diğer kullanıcılar tarafından görüntülenebilir olmalıdır.
+public class US12_TC04 extends TestBaseReport {
+
 
     @Test
     public void eklenenMulkIlanTesti(){
 
 
-            // Kullanıcı hauseheaven anasayfasına gider
-            Driver.getDriver().get(ConfigReader.getProperty("url"));
-            AccountPage_Property kullanici = new AccountPage_Property();
-            UserHomepage userHomepage = new UserHomepage();
-
-            // Kullanici sisteme login için bilgilerini dolduruyor
-            kullanici.signIn.click();
-            kullanici.mailKutusu.sendKeys(ConfigReader.getProperty("userMail"));
-            kullanici.password.sendKeys(ConfigReader.getProperty("userPass"));
-            kullanici.login.click();
+        AccountPage_Property kullanici = new AccountPage_Property();
+        UserHomepage userHomepage =new UserHomepage();
+        AdminDashboard adminDashboard=new AdminDashboard();
+        Actions actions = new Actions(Driver.getDriver());
 
 
-            // Kullanici mulk ılanı verebılmek ıcın kredi alıyor
-            kullanici.addProperty.click();
-            kullanici.buyCredits.click();
-            kullanici.credits5puan.click();
+        extentTest = extentReports.createTest("Reported property adding and editing testing",
+                "Registered user should be able to add and edit property");
 
 
-            // kullanıcı kart bılgılerını gırıyor //
-            ReusableMethods.waitFor(1);
-            kullanici.cardNumber.sendKeys(ConfigReader.getProperty("cardNumber"));
-            kullanici.cardName.sendKeys(ConfigReader.getProperty("cardName"));
-            kullanici.cardYilGun.sendKeys(ConfigReader.getProperty("cardYilGun"));
-            kullanici.cardCVC.sendKeys(ConfigReader.getProperty("cardCVC"));
-            ReusableMethods.waitFor(1);
-            WebElement cookies = Driver.getDriver().findElement(By.xpath("//button[@class='js-cookie-consent-agree cookie-consent__agree']"));
-            cookies.click();
-            JSUtilities.scrollToElement(Driver.getDriver(), kullanici.cardNumber);
-            ReusableMethods.waitFor(2);
-            kullanici.checkout.click();
-
-            // kullanıcı kart işlemını tamamladıktan sonra mulk ekleyebılecegı add property sayfasına gider ve gereklı alanları doldurur
-            ReusableMethods.waitFor(2);
-            kullanici.addProperty.click();
-            kullanici.title.sendKeys("Satlık 6+2 Villa");
-            kullanici.description.sendKeys("2 yıllık yeni yapı sahibinden satlık");
-            kullanici.content.sendKeys("Denize sıfır konumda\n 315 m2 \n büyük bir garaja sahip");
-            ReusableMethods.waitFor(1);
+        //User goes to hauseheaven homepage
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        extentTest.info("User goes to hauseheaven homepage");
 
 
-            // siteye foto yüklemeli //
-            JSUtilities.scrollToElement(Driver.getDriver(),kullanici.content);
-            ReusableMethods.waitFor(1);
-            WebElement imagesElement = Driver.getDriver().findElement(By.xpath("//div[@id='multiple-upload']"));
-            ReusableMethods.waitFor(2);
-            String dinamikDosyaYolu = System.getProperty("user.home") + "\\Desktop\\Villa2.webp\"";
-            ReusableMethods.waitFor(5);
-            imagesElement.sendKeys(dinamikDosyaYolu);
-            ReusableMethods.waitFor(5);
+        //User fills in information for login to the system
+        kullanici.signIn.click();
+        kullanici.mailKutusu.sendKeys(ConfigReader.getProperty("userMail"));
+        kullanici.password.sendKeys(ConfigReader.getProperty("userPass"));
+        kullanici.login.click();
+        extentTest.info("The user logs into the page with the correct username and password");
 
 
 
-
-            ReusableMethods.waitFor(1);
-            JSUtilities.scrollToElement(Driver.getDriver(), kullanici.images);
-            ReusableMethods.waitFor(1);
-            kullanici.city.click();
-            kullanici.cityClicktenSonraYeniKutu.sendKeys(Keys.ENTER);
-            kullanici.propertyLocation.sendKeys("Newark");
-            kullanici.latitude.sendKeys("2.17403");
-            kullanici.longitude.sendKeys("2.1740338");
-            kullanici.numberBedrooms.sendKeys("2");
-            kullanici.numberBathrooms.sendKeys("2");
-            kullanici.numberFloors.sendKeys("2");
-            kullanici.square.sendKeys("315");
-            kullanici.price.sendKeys("150000");
-            ReusableMethods.waitFor(1);
-            JSUtilities.scrollToElement(Driver.getDriver(), kullanici.typeForSale);
-            ReusableMethods.waitFor(1);
-            kullanici.wifi.click();
-            kullanici.wineCellar.click();
-            JSUtilities.scrollToElement(Driver.getDriver(), kullanici.title);
-            ReusableMethods.waitFor(1);
-            kullanici.category.click();
-            ReusableMethods.waitFor(1);
-            kullanici.categoryClicktenSonraYeniKutu.click();
-            kullanici.categoryClicktenSonraYeniKutu.sendKeys("V" + Keys.ENTER);
-            ReusableMethods.waitFor(1);
+        //User gets credit to give property ad
+        kullanici.addProperty.click();
+        kullanici.buyCredits.click();
+        kullanici.credits5puan.click();
+        extentTest.info("User buys credit to add property ad");
 
 
-            // 2 farklı save ıle kaydetmeyı unutma
-            JSUtilities.scrollToElement(Driver.getDriver(),kullanici.saveExit);
-            //ReusableMethods.waitFor(1);
-            //kullanici.saveExit.click();
-            //ReusableMethods.waitFor(15);
+
+        //user enters card information //
+        ReusableMethods.waitFor(1);
+        kullanici.cardNumber.sendKeys(ConfigReader.getProperty("cardNumber"));
+        kullanici.cardName.sendKeys(ConfigReader.getProperty("cardName"));
+        kullanici.cardYilGun.sendKeys(ConfigReader.getProperty("cardYilGun"));
+        kullanici.cardCVC.sendKeys(ConfigReader.getProperty("cardCVC"));
+        ReusableMethods.waitFor(1);
+        kullanici.cookies.click();
+        JSUtilities.scrollToElement(Driver.getDriver(), kullanici.cardNumber);
+        ReusableMethods.waitFor(2);
+        kullanici.checkout.click();
+        extentTest.info("Enters card information and clicks checkout link");
+
+
+        //After the user completes the card transaction, she goes to the add property page where she can add the
+        // property and fills in the required fields.
+        ReusableMethods.waitFor(2);
+        kullanici.addProperty.click();
+        extentTest.info("After the user completes the card transaction, she clicks on the add property link");
+        kullanici.title.sendKeys("For Sale Villa Admin2");
+        kullanici.description.sendKeys("2 years new building for sale from owner");
+        kullanici.content.sendKeys("by the sea \n 315 m2 \n has a large garage");
+
+        ReusableMethods.waitFor(1);
+        JSUtilities.scrollToElement(Driver.getDriver(), kullanici.images);
+        ReusableMethods.waitFor(1);
+        kullanici.city.click();
+        kullanici.cityClicktenSonraYeniKutu.sendKeys(Keys.ENTER);
+        kullanici.propertyLocation.sendKeys("Newark");
+        kullanici.latitude.sendKeys("2.17403");
+        kullanici.longitude.sendKeys("2.1740338");
+        kullanici.numberBedrooms.sendKeys("2");
+        kullanici.numberBathrooms.sendKeys("2");
+        kullanici.numberFloors.sendKeys("2");
+        kullanici.square.sendKeys("315");
+        kullanici.price.sendKeys("150000");
+        ReusableMethods.waitFor(1);
+        JSUtilities.scrollToElement(Driver.getDriver(), kullanici.typeForSale);
+        ReusableMethods.waitFor(1);
+        kullanici.wifi.click();
+        kullanici.wineCellar.click();
+        JSUtilities.scrollToElement(Driver.getDriver(), kullanici.title);
+        ReusableMethods.waitFor(1);
+        kullanici.category.click();
+        ReusableMethods.waitFor(1);
+        kullanici.categoryClicktenSonraYeniKutu.click();
+        kullanici.categoryClicktenSonraYeniKutu.sendKeys("V" + Keys.ENTER);
+        ReusableMethods.waitFor(1);
+        extentTest.info("The user fills in all the necessary information for the ad.");
+
+
+        //User saves information entered
+        ReusableMethods.waitFor(2);
+        JSUtilities.scrollToElement(Driver.getDriver(),userHomepage.wishlist);
+        ReusableMethods.waitFor(2);
+        kullanici.saveExit.click();
+        extentTest.info("After the user fills in her information, she presses the save button to save.");
+        ReusableMethods.waitFor(2);
+
+        // tests that the property is loaded
+        Assert.assertTrue(kullanici.yuklenenMulk.isDisplayed());
+        extentTest.pass("Tests that the property is loaded");
+
+
+        //Login with admin username and password
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        adminDashboard.adminEMail.sendKeys(ConfigReader.getProperty("adminUser1"));
+        adminDashboard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
+        adminDashboard.adminSignIn.click();
+        extentTest.info("Go to admin page and login with correct username and password");
+        ReusableMethods.waitFor(1);
+        adminDashboard.realEstate.click();
+        ReusableMethods.waitFor(1);
+        adminDashboard.realEstateProperties.click();
+        adminDashboard.yukklenenIlanIDAdminEdit.click();
+        ReusableMethods.waitFor(1);
+        adminDashboard.moderationStatus.click();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ENTER).perform();
+        adminDashboard.adminModernStatusUstuSaveExit.click();
+        extentTest.info("Converts the posting from pending to approwed in realEstate and saves it");
+        Assert.assertTrue(adminDashboard.pendingAprowed.isDisplayed());
+        extentTest.pass("pending ad converted to approwed");
+
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        userHomepage.listing.click();
+        String ilkUrunTitle=kullanici.listingIlkUrun.getText();
+        extentTest.info("The user goes to the url and tests that it is loaded");
+        String yuklenenIlanTitle="For Sale Villa Admin2";
+        Assert.assertEquals(ilkUrunTitle,yuklenenIlanTitle);
+        extentTest.pass("Seen by other users on the listing page");
+        ReusableMethods.waitFor(1);
+
+            }
 
         }
-    }
+
 

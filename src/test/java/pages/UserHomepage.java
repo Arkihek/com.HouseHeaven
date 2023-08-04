@@ -7,11 +7,11 @@ import utilities.Driver;
 
 public class UserHomepage {
 
-    public UserHomepage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public UserHomepage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
-// HEADER
+    // HEADER
     // Home Link locate on header -- Header kismindaki home linki
     @FindBy(xpath = "(//*[@href='https://qa.hauseheaven.com/'])[3]")
     public WebElement home;
@@ -75,6 +75,11 @@ public class UserHomepage {
     @FindBy(xpath = "//h1[text()='Find accessible homes to rent']")
     public WebElement findAccessibleHomes;
 
+    @FindBy(xpath = "//a[@class='text-white']")
+    public WebElement wishlist;
+  
+     @FindBy(xpath = "(//a[@href='https://qa.hauseheaven.com/properties?layout=sidebar'])[1]")
+    public WebElement ListingButton;
 
 
 
@@ -86,6 +91,10 @@ public class UserHomepage {
 
 
 
+
+
+
+ 
 
 
 
