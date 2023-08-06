@@ -63,6 +63,15 @@ public class UserHomepage {
     @FindBy(xpath = "//button[normalize-space()='Login']")
     public WebElement loginGiris;
 
+    //Subscribe(Newsletters) Locateleri
+    @FindBy(xpath = "//input[@type='email']")
+    public WebElement subscribeTextbox;
+    @FindBy(xpath = "//button[@class='btn bg-dark text-white']")
+    public WebElement subscribeButon;
+    @FindBy(xpath = "//div[@id='alert-container']")
+    public WebElement subscribeAlert;
+
+
     // Kayıtlı Kullanici HEADER
     // Home Link locate on header -- Header kismindaki home linki
 
@@ -80,6 +89,7 @@ public class UserHomepage {
   
      @FindBy(xpath = "(//a[@href='https://qa.hauseheaven.com/properties?layout=sidebar'])[1]")
     public WebElement ListingButton;
+
 
 
 

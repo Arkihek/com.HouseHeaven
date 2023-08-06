@@ -13,7 +13,7 @@ public class US24_TC002 extends TestBaseReport {
     @Test
     public void TC002 (){
 
-        extentTest = extentReports.createTest("Kullanici girisi sonrasiBlog sayfasi acilmasi testi",
+        extentTest = extentReports.createTest("Kullanici girisi sonrasi Blog sayfasi acilmasi testi",
                 "Blog sayfasi acilmali");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         extentTest.info("Kullanici anasayfaya gider");

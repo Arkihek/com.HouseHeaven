@@ -12,7 +12,8 @@ public class US09_TC003 extends TestBaseReport {
     @Test (priority = 1)
     public void BirinciBlogSayfasi () {
 
-        extentTest = extentReports.createTest("Birinci blog sayfasi ayrintilari testi","Birinci blog sayfasinin ayrintilari gorunur olmali");
+        extentTest = extentReports.createTest("Birinci blog sayfasi ayrintilari testi",
+                "Birinci blog sayfasinin ayrintilari gorunur olmali");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         extentTest.info("Kullanici anasayfaya gider");
         UserHomePage_Blog userHomePageBlog = new UserHomePage_Blog();

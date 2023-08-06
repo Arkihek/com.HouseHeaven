@@ -11,6 +11,8 @@ import utilities.Driver;
 import utilities.JSUtilities;
 import utilities.TestBaseReport;
 
+import java.util.List;
+
 public class US24_TC004 extends TestBaseReport {
 
     @Test(priority = 1)
@@ -36,54 +38,41 @@ public class US24_TC004 extends TestBaseReport {
         //Categories bolumu testleri
         softAssert.assertTrue(userHomePageBlog.categories.isDisplayed(),"Categories yazisi gorunmuyor");
         extentTest.pass("Categories yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isDisplayed(),"www yazisi gorunmuyor");
-        extentTest.pass("www yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isEnabled(),"www sekmesi aktif degil");
-        extentTest.pass("www sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isDisplayed(),"Pump Desing yazisi gorunmuyor");
-        extentTest.pass("Pump yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isEnabled(),"Pump sekmesi aktif degil");
-        extentTest.pass("Pump sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isDisplayed(),"Pool Designnn yazisi gorunmuyor");
-        extentTest.pass("Pool Designnn yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isEnabled(),"Pool Designnn sekmesi aktif degil");
-        extentTest.pass("Pool Designnn sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isDisplayed(),"Garden Desing yazisi gorunmuyor");
-        extentTest.pass("Garden Desing yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isEnabled(),"Garden Desing sekmesi aktif degil");
-        extentTest.pass("Garden Desing sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isDisplayed(),"House Design yazisi gorunmuyor");
-        extentTest.pass("House Design yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isEnabled(),"House Design sekmesi aktif degil");
-        extentTest.pass("House Design sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isDisplayed(),"Latest news yazisi gorunmuyor");
-        extentTest.pass("Latest news yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isEnabled(),"Latest news sekmesi aktif degil");
-        extentTest.pass("Latest news sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isDisplayed(),"Building materials yazisi gorunmuyor");
-        extentTest.pass("Building materials yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isEnabled(),"Building materials sekmesi aktif degil");
-        extentTest.pass("Building materials sekmesinin aktifligini test eder");
+        List<WebElement> categoriesListesi = Driver.getDriver().findElements(By.xpath("//a[@class='text-dark']"));
+        for (int i = 1; i < categoriesListesi.size(); i++) {
+            softAssert.assertTrue(categoriesListesi.get(i).isDisplayed(),"Categories alaninda gorunmeyen oge var");
+            extentTest.pass("Categories alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(categoriesListesi.get(i).isEnabled(),"Categories alaninda aktif olmayan oge var");
+            extentTest.pass("Categories alanindaki ogelerin aktifligini test eder");
+            System.out.println(categoriesListesi.get(i).getText());
+        }
+
         //Featured Properties bolumu testleri
         softAssert.assertTrue(userHomePageBlog.featuredProperties.isDisplayed());
         extentTest.pass("Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Birici Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Ikinci Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ucuncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Ucuncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.dorduncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Dorduncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.besinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Besinci Featured Properties yazisinin gorunurlulugunu test eder");
+        List<WebElement> featuredPropertiesListesi = Driver.getDriver().findElements(By.xpath("//div[@class='sides_list_property_detail']"));
+        for (int i = 1; i < featuredPropertiesListesi.size(); i++) {
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isDisplayed(),"Featured Properties alaninda gorunmeyen oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isEnabled(),"Featured Properties alaninda aktif olmayan oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin aktifligini test eder");
+            System.out.println(featuredPropertiesListesi.get(i).getText());
+        }
+
         //Recent(Related) Posts bolumu testleri
         softAssert.assertTrue(userHomePageBlog.relatedPosts.isDisplayed());
         extentTest.pass("Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birincirelatedPosts.isDisplayed());
-        extentTest.pass("Birinci Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikincirelatedPosts.isDisplayed());
-        extentTest.pass("Ikinci Related Posts yazisinin gorunurlulugunu test eder");
+        List<WebElement> relatedPostsListesi = Driver.getDriver().findElements(By.xpath("//div[@class='blog-wrap-grid']"));
+        for (int i = 1; i < relatedPostsListesi.size(); i++) {
+            softAssert.assertTrue(relatedPostsListesi.get(i).isDisplayed(),"Related Posts alaninda gorunmeyen oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(relatedPostsListesi.get(i).isEnabled(),"Related Posts alaninda aktif olmayan oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin aktifligini test eder");
+            System.out.println(relatedPostsListesi.get(i).getText());
+        }
+        // Tag bolumu testi
+        softAssert.assertTrue(userHomePageBlog.tag.isDisplayed(),"Tag alani gorunmuyor");
+        extentTest.pass("Tag alaninin gorunurlulugunu test eder");
         softAssert.assertAll();
         Driver.closeDriver();
         extentTest.info("Sayfayi kapatir");
@@ -111,54 +100,41 @@ public class US24_TC004 extends TestBaseReport {
         //Categories bolumu testleri
         softAssert.assertTrue(userHomePageBlog.categories.isDisplayed(),"Categories yazisi gorunmuyor");
         extentTest.pass("Categories yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isDisplayed(),"www yazisi gorunmuyor");
-        extentTest.pass("www yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isEnabled(),"www sekmesi aktif degil");
-        extentTest.pass("www sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isDisplayed(),"Pump Desing yazisi gorunmuyor");
-        extentTest.pass("Pump yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isEnabled(),"Pump sekmesi aktif degil");
-        extentTest.pass("Pump sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isDisplayed(),"Pool Designnn yazisi gorunmuyor");
-        extentTest.pass("Pool Designnn yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isEnabled(),"Pool Designnn sekmesi aktif degil");
-        extentTest.pass("Pool Designnn sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isDisplayed(),"Garden Desing yazisi gorunmuyor");
-        extentTest.pass("Garden Desing yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isEnabled(),"Garden Desing sekmesi aktif degil");
-        extentTest.pass("Garden Desing sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isDisplayed(),"House Design yazisi gorunmuyor");
-        extentTest.pass("House Design yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isEnabled(),"House Design sekmesi aktif degil");
-        extentTest.pass("House Design sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isDisplayed(),"Latest news yazisi gorunmuyor");
-        extentTest.pass("Latest news yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isEnabled(),"Latest news sekmesi aktif degil");
-        extentTest.pass("Latest news sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isDisplayed(),"Building materials yazisi gorunmuyor");
-        extentTest.pass("Building materials yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isEnabled(),"Building materials sekmesi aktif degil");
-        extentTest.pass("Building materials sekmesinin aktifligini test eder");
+        List<WebElement> categoriesListesi = Driver.getDriver().findElements(By.xpath("//a[@class='text-dark']"));
+        for (int i = 1; i < categoriesListesi.size(); i++) {
+            softAssert.assertTrue(categoriesListesi.get(i).isDisplayed(),"Categories alaninda gorunmeyen oge var");
+            extentTest.pass("Categories alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(categoriesListesi.get(i).isEnabled(),"Categories alaninda aktif olmayan oge var");
+            extentTest.pass("Categories alanindaki ogelerin aktifligini test eder");
+            System.out.println(categoriesListesi.get(i).getText());
+        }
+
         //Featured Properties bolumu testleri
         softAssert.assertTrue(userHomePageBlog.featuredProperties.isDisplayed());
         extentTest.pass("Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Birici Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Ikinci Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ucuncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Ucuncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.dorduncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Dorduncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.besinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Besinci Featured Properties yazisinin gorunurlulugunu test eder");
+        List<WebElement> featuredPropertiesListesi = Driver.getDriver().findElements(By.xpath("//div[@class='sides_list_property_detail']"));
+        for (int i = 1; i < featuredPropertiesListesi.size(); i++) {
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isDisplayed(),"Featured Properties alaninda gorunmeyen oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isEnabled(),"Featured Properties alaninda aktif olmayan oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin aktifligini test eder");
+            System.out.println(featuredPropertiesListesi.get(i).getText());
+        }
+
         //Recent(Related) Posts bolumu testleri
         softAssert.assertTrue(userHomePageBlog.relatedPosts.isDisplayed());
         extentTest.pass("Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birincirelatedPosts.isDisplayed());
-        extentTest.pass("Birinci Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikincirelatedPosts.isDisplayed());
-        extentTest.pass("Ikinci Related Posts yazisinin gorunurlulugunu test eder");
+        List<WebElement> relatedPostsListesi = Driver.getDriver().findElements(By.xpath("//div[@class='blog-wrap-grid']"));
+        for (int i = 1; i < relatedPostsListesi.size(); i++) {
+            softAssert.assertTrue(relatedPostsListesi.get(i).isDisplayed(),"Related Posts alaninda gorunmeyen oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(relatedPostsListesi.get(i).isEnabled(),"Related Posts alaninda aktif olmayan oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin aktifligini test eder");
+            System.out.println(relatedPostsListesi.get(i).getText());
+        }
+        // Tag bolumu testi
+        softAssert.assertTrue(userHomePageBlog.tag.isDisplayed(),"Tag alani gorunmuyor");
+        extentTest.pass("Tag alaninin gorunurlulugunu test eder");
         softAssert.assertAll();
         Driver.closeDriver();
         extentTest.info("Sayfayi kapatir");
@@ -186,54 +162,41 @@ public class US24_TC004 extends TestBaseReport {
         //Categories bolumu testleri
         softAssert.assertTrue(userHomePageBlog.categories.isDisplayed(),"Categories yazisi gorunmuyor");
         extentTest.pass("Categories yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isDisplayed(),"www yazisi gorunmuyor");
-        extentTest.pass("www yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isEnabled(),"www sekmesi aktif degil");
-        extentTest.pass("www sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isDisplayed(),"Pump Desing yazisi gorunmuyor");
-        extentTest.pass("Pump yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isEnabled(),"Pump sekmesi aktif degil");
-        extentTest.pass("Pump sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isDisplayed(),"Pool Designnn yazisi gorunmuyor");
-        extentTest.pass("Pool Designnn yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isEnabled(),"Pool Designnn sekmesi aktif degil");
-        extentTest.pass("Pool Designnn sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isDisplayed(),"Garden Desing yazisi gorunmuyor");
-        extentTest.pass("Garden Desing yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isEnabled(),"Garden Desing sekmesi aktif degil");
-        extentTest.pass("Garden Desing sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isDisplayed(),"House Design yazisi gorunmuyor");
-        extentTest.pass("House Design yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isEnabled(),"House Design sekmesi aktif degil");
-        extentTest.pass("House Design sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isDisplayed(),"Latest news yazisi gorunmuyor");
-        extentTest.pass("Latest news yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isEnabled(),"Latest news sekmesi aktif degil");
-        extentTest.pass("Latest news sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isDisplayed(),"Building materials yazisi gorunmuyor");
-        extentTest.pass("Building materials yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isEnabled(),"Building materials sekmesi aktif degil");
-        extentTest.pass("Building materials sekmesinin aktifligini test eder");
+        List<WebElement> categoriesListesi = Driver.getDriver().findElements(By.xpath("//a[@class='text-dark']"));
+        for (int i = 1; i < categoriesListesi.size(); i++) {
+            softAssert.assertTrue(categoriesListesi.get(i).isDisplayed(),"Categories alaninda gorunmeyen oge var");
+            extentTest.pass("Categories alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(categoriesListesi.get(i).isEnabled(),"Categories alaninda aktif olmayan oge var");
+            extentTest.pass("Categories alanindaki ogelerin aktifligini test eder");
+            System.out.println(categoriesListesi.get(i).getText());
+        }
+
         //Featured Properties bolumu testleri
         softAssert.assertTrue(userHomePageBlog.featuredProperties.isDisplayed());
         extentTest.pass("Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Birici Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Ikinci Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ucuncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Ucuncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.dorduncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Dorduncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.besinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Besinci Featured Properties yazisinin gorunurlulugunu test eder");
+        List<WebElement> featuredPropertiesListesi = Driver.getDriver().findElements(By.xpath("//div[@class='sides_list_property_detail']"));
+        for (int i = 1; i < featuredPropertiesListesi.size(); i++) {
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isDisplayed(),"Featured Properties alaninda gorunmeyen oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isEnabled(),"Featured Properties alaninda aktif olmayan oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin aktifligini test eder");
+            System.out.println(featuredPropertiesListesi.get(i).getText());
+        }
+
         //Recent(Related) Posts bolumu testleri
         softAssert.assertTrue(userHomePageBlog.relatedPosts.isDisplayed());
         extentTest.pass("Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birincirelatedPosts.isDisplayed());
-        extentTest.pass("Birinci Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikincirelatedPosts.isDisplayed());
-        extentTest.pass("Ikinci Related Posts yazisinin gorunurlulugunu test eder");
+        List<WebElement> relatedPostsListesi = Driver.getDriver().findElements(By.xpath("//div[@class='blog-wrap-grid']"));
+        for (int i = 1; i < relatedPostsListesi.size(); i++) {
+            softAssert.assertTrue(relatedPostsListesi.get(i).isDisplayed(),"Related Posts alaninda gorunmeyen oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(relatedPostsListesi.get(i).isEnabled(),"Related Posts alaninda aktif olmayan oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin aktifligini test eder");
+            System.out.println(relatedPostsListesi.get(i).getText());
+        }
+        // Tag bolumu testi
+        softAssert.assertTrue(userHomePageBlog.tag.isDisplayed(),"Tag alani gorunmuyor");
+        extentTest.pass("Tag alaninin gorunurlulugunu test eder");
         softAssert.assertAll();
         Driver.closeDriver();
         extentTest.info("Sayfayi kapatir");
@@ -261,54 +224,41 @@ public class US24_TC004 extends TestBaseReport {
         //Categories bolumu testleri
         softAssert.assertTrue(userHomePageBlog.categories.isDisplayed(),"Categories yazisi gorunmuyor");
         extentTest.pass("Categories yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isDisplayed(),"www yazisi gorunmuyor");
-        extentTest.pass("www yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isEnabled(),"www sekmesi aktif degil");
-        extentTest.pass("www sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isDisplayed(),"Pump Desing yazisi gorunmuyor");
-        extentTest.pass("Pump yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isEnabled(),"Pump sekmesi aktif degil");
-        extentTest.pass("Pump sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isDisplayed(),"Pool Designnn yazisi gorunmuyor");
-        extentTest.pass("Pool Designnn yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isEnabled(),"Pool Designnn sekmesi aktif degil");
-        extentTest.pass("Pool Designnn sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isDisplayed(),"Garden Desing yazisi gorunmuyor");
-        extentTest.pass("Garden Desing yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isEnabled(),"Garden Desing sekmesi aktif degil");
-        extentTest.pass("Garden Desing sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isDisplayed(),"House Design yazisi gorunmuyor");
-        extentTest.pass("House Design yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isEnabled(),"House Design sekmesi aktif degil");
-        extentTest.pass("House Design sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isDisplayed(),"Latest news yazisi gorunmuyor");
-        extentTest.pass("Latest news yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isEnabled(),"Latest news sekmesi aktif degil");
-        extentTest.pass("Latest news sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isDisplayed(),"Building materials yazisi gorunmuyor");
-        extentTest.pass("Building materials yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isEnabled(),"Building materials sekmesi aktif degil");
-        extentTest.pass("Building materials sekmesinin aktifligini test eder");
+        List<WebElement> categoriesListesi = Driver.getDriver().findElements(By.xpath("//a[@class='text-dark']"));
+        for (int i = 1; i < categoriesListesi.size(); i++) {
+            softAssert.assertTrue(categoriesListesi.get(i).isDisplayed(),"Categories alaninda gorunmeyen oge var");
+            extentTest.pass("Categories alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(categoriesListesi.get(i).isEnabled(),"Categories alaninda aktif olmayan oge var");
+            extentTest.pass("Categories alanindaki ogelerin aktifligini test eder");
+            System.out.println(categoriesListesi.get(i).getText());
+        }
+
         //Featured Properties bolumu testleri
         softAssert.assertTrue(userHomePageBlog.featuredProperties.isDisplayed());
         extentTest.pass("Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Birici Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Ikinci Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ucuncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Ucuncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.dorduncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Dorduncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.besinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Besinci Featured Properties yazisinin gorunurlulugunu test eder");
+        List<WebElement> featuredPropertiesListesi = Driver.getDriver().findElements(By.xpath("//div[@class='sides_list_property_detail']"));
+        for (int i = 1; i < featuredPropertiesListesi.size(); i++) {
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isDisplayed(),"Featured Properties alaninda gorunmeyen oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isEnabled(),"Featured Properties alaninda aktif olmayan oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin aktifligini test eder");
+            System.out.println(featuredPropertiesListesi.get(i).getText());
+        }
+
         //Recent(Related) Posts bolumu testleri
         softAssert.assertTrue(userHomePageBlog.relatedPosts.isDisplayed());
         extentTest.pass("Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birincirelatedPosts.isDisplayed());
-        extentTest.pass("Birinci Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikincirelatedPosts.isDisplayed());
-        extentTest.pass("Ikinci Related Posts yazisinin gorunurlulugunu test eder");
+        List<WebElement> relatedPostsListesi = Driver.getDriver().findElements(By.xpath("//div[@class='blog-wrap-grid']"));
+        for (int i = 1; i < relatedPostsListesi.size(); i++) {
+            softAssert.assertTrue(relatedPostsListesi.get(i).isDisplayed(),"Related Posts alaninda gorunmeyen oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(relatedPostsListesi.get(i).isEnabled(),"Related Posts alaninda aktif olmayan oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin aktifligini test eder");
+            System.out.println(relatedPostsListesi.get(i).getText());
+        }
+        // Tag bolumu testi
+        softAssert.assertTrue(userHomePageBlog.tag.isDisplayed(),"Tag alani gorunmuyor");
+        extentTest.pass("Tag alaninin gorunurlulugunu test eder");
         softAssert.assertAll();
         Driver.closeDriver();
         extentTest.info("Sayfayi kapatir");
@@ -336,54 +286,41 @@ public class US24_TC004 extends TestBaseReport {
         //Categories bolumu testleri
         softAssert.assertTrue(userHomePageBlog.categories.isDisplayed(),"Categories yazisi gorunmuyor");
         extentTest.pass("Categories yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isDisplayed(),"www yazisi gorunmuyor");
-        extentTest.pass("www yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isEnabled(),"www sekmesi aktif degil");
-        extentTest.pass("www sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isDisplayed(),"Pump Desing yazisi gorunmuyor");
-        extentTest.pass("Pump yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isEnabled(),"Pump sekmesi aktif degil");
-        extentTest.pass("Pump sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isDisplayed(),"Pool Designnn yazisi gorunmuyor");
-        extentTest.pass("Pool Designnn yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isEnabled(),"Pool Designnn sekmesi aktif degil");
-        extentTest.pass("Pool Designnn sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isDisplayed(),"Garden Desing yazisi gorunmuyor");
-        extentTest.pass("Garden Desing yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isEnabled(),"Garden Desing sekmesi aktif degil");
-        extentTest.pass("Garden Desing sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isDisplayed(),"House Design yazisi gorunmuyor");
-        extentTest.pass("House Design yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isEnabled(),"House Design sekmesi aktif degil");
-        extentTest.pass("House Design sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isDisplayed(),"Latest news yazisi gorunmuyor");
-        extentTest.pass("Latest news yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isEnabled(),"Latest news sekmesi aktif degil");
-        extentTest.pass("Latest news sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isDisplayed(),"Building materials yazisi gorunmuyor");
-        extentTest.pass("Building materials yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isEnabled(),"Building materials sekmesi aktif degil");
-        extentTest.pass("Building materials sekmesinin aktifligini test eder");
+        List<WebElement> categoriesListesi = Driver.getDriver().findElements(By.xpath("//a[@class='text-dark']"));
+        for (int i = 1; i < categoriesListesi.size(); i++) {
+            softAssert.assertTrue(categoriesListesi.get(i).isDisplayed(),"Categories alaninda gorunmeyen oge var");
+            extentTest.pass("Categories alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(categoriesListesi.get(i).isEnabled(),"Categories alaninda aktif olmayan oge var");
+            extentTest.pass("Categories alanindaki ogelerin aktifligini test eder");
+            System.out.println(categoriesListesi.get(i).getText());
+        }
+
         //Featured Properties bolumu testleri
         softAssert.assertTrue(userHomePageBlog.featuredProperties.isDisplayed());
         extentTest.pass("Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Birici Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Ikinci Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ucuncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Ucuncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.dorduncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Dorduncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.besinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Besinci Featured Properties yazisinin gorunurlulugunu test eder");
+        List<WebElement> featuredPropertiesListesi = Driver.getDriver().findElements(By.xpath("//div[@class='sides_list_property_detail']"));
+        for (int i = 1; i < featuredPropertiesListesi.size(); i++) {
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isDisplayed(),"Featured Properties alaninda gorunmeyen oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isEnabled(),"Featured Properties alaninda aktif olmayan oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin aktifligini test eder");
+            System.out.println(featuredPropertiesListesi.get(i).getText());
+        }
+
         //Recent(Related) Posts bolumu testleri
         softAssert.assertTrue(userHomePageBlog.relatedPosts.isDisplayed());
         extentTest.pass("Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birincirelatedPosts.isDisplayed());
-        extentTest.pass("Birinci Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikincirelatedPosts.isDisplayed());
-        extentTest.pass("Ikinci Related Posts yazisinin gorunurlulugunu test eder");
+        List<WebElement> relatedPostsListesi = Driver.getDriver().findElements(By.xpath("//div[@class='blog-wrap-grid']"));
+        for (int i = 1; i < relatedPostsListesi.size(); i++) {
+            softAssert.assertTrue(relatedPostsListesi.get(i).isDisplayed(),"Related Posts alaninda gorunmeyen oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(relatedPostsListesi.get(i).isEnabled(),"Related Posts alaninda aktif olmayan oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin aktifligini test eder");
+            System.out.println(relatedPostsListesi.get(i).getText());
+        }
+        // Tag bolumu testi
+        softAssert.assertTrue(userHomePageBlog.tag.isDisplayed(),"Tag alani gorunmuyor");
+        extentTest.pass("Tag alaninin gorunurlulugunu test eder");
         softAssert.assertAll();
         Driver.closeDriver();
         extentTest.info("Sayfayi kapatir");
@@ -411,54 +348,41 @@ public class US24_TC004 extends TestBaseReport {
         //Categories bolumu testleri
         softAssert.assertTrue(userHomePageBlog.categories.isDisplayed(),"Categories yazisi gorunmuyor");
         extentTest.pass("Categories yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isDisplayed(),"www yazisi gorunmuyor");
-        extentTest.pass("www yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isEnabled(),"www sekmesi aktif degil");
-        extentTest.pass("www sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isDisplayed(),"Pump Desing yazisi gorunmuyor");
-        extentTest.pass("Pump yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isEnabled(),"Pump sekmesi aktif degil");
-        extentTest.pass("Pump sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isDisplayed(),"Pool Designnn yazisi gorunmuyor");
-        extentTest.pass("Pool Designnn yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isEnabled(),"Pool Designnn sekmesi aktif degil");
-        extentTest.pass("Pool Designnn sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isDisplayed(),"Garden Desing yazisi gorunmuyor");
-        extentTest.pass("Garden Desing yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isEnabled(),"Garden Desing sekmesi aktif degil");
-        extentTest.pass("Garden Desing sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isDisplayed(),"House Design yazisi gorunmuyor");
-        extentTest.pass("House Design yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isEnabled(),"House Design sekmesi aktif degil");
-        extentTest.pass("House Design sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isDisplayed(),"Latest news yazisi gorunmuyor");
-        extentTest.pass("Latest news yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isEnabled(),"Latest news sekmesi aktif degil");
-        extentTest.pass("Latest news sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isDisplayed(),"Building materials yazisi gorunmuyor");
-        extentTest.pass("Building materials yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isEnabled(),"Building materials sekmesi aktif degil");
-        extentTest.pass("Building materials sekmesinin aktifligini test eder");
+        List<WebElement> categoriesListesi = Driver.getDriver().findElements(By.xpath("//a[@class='text-dark']"));
+        for (int i = 1; i < categoriesListesi.size(); i++) {
+            softAssert.assertTrue(categoriesListesi.get(i).isDisplayed(),"Categories alaninda gorunmeyen oge var");
+            extentTest.pass("Categories alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(categoriesListesi.get(i).isEnabled(),"Categories alaninda aktif olmayan oge var");
+            extentTest.pass("Categories alanindaki ogelerin aktifligini test eder");
+            System.out.println(categoriesListesi.get(i).getText());
+        }
+
         //Featured Properties bolumu testleri
         softAssert.assertTrue(userHomePageBlog.featuredProperties.isDisplayed());
         extentTest.pass("Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Birici Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Ikinci Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ucuncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Ucuncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.dorduncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Dorduncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.besinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Besinci Featured Properties yazisinin gorunurlulugunu test eder");
+        List<WebElement> featuredPropertiesListesi = Driver.getDriver().findElements(By.xpath("//div[@class='sides_list_property_detail']"));
+        for (int i = 1; i < featuredPropertiesListesi.size(); i++) {
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isDisplayed(),"Featured Properties alaninda gorunmeyen oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isEnabled(),"Featured Properties alaninda aktif olmayan oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin aktifligini test eder");
+            System.out.println(featuredPropertiesListesi.get(i).getText());
+        }
+
         //Recent(Related) Posts bolumu testleri
         softAssert.assertTrue(userHomePageBlog.relatedPosts.isDisplayed());
         extentTest.pass("Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birincirelatedPosts.isDisplayed());
-        extentTest.pass("Birinci Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikincirelatedPosts.isDisplayed());
-        extentTest.pass("Ikinci Related Posts yazisinin gorunurlulugunu test eder");
+        List<WebElement> relatedPostsListesi = Driver.getDriver().findElements(By.xpath("//div[@class='blog-wrap-grid']"));
+        for (int i = 1; i < relatedPostsListesi.size(); i++) {
+            softAssert.assertTrue(relatedPostsListesi.get(i).isDisplayed(),"Related Posts alaninda gorunmeyen oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(relatedPostsListesi.get(i).isEnabled(),"Related Posts alaninda aktif olmayan oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin aktifligini test eder");
+            System.out.println(relatedPostsListesi.get(i).getText());
+        }
+        // Tag bolumu testi
+        softAssert.assertTrue(userHomePageBlog.tag.isDisplayed(),"Tag alani gorunmuyor");
+        extentTest.pass("Tag alaninin gorunurlulugunu test eder");
         softAssert.assertAll();
         Driver.closeDriver();
         extentTest.info("Sayfayi kapatir");
@@ -486,54 +410,41 @@ public class US24_TC004 extends TestBaseReport {
         //Categories bolumu testleri
         softAssert.assertTrue(userHomePageBlog.categories.isDisplayed(),"Categories yazisi gorunmuyor");
         extentTest.pass("Categories yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isDisplayed(),"www yazisi gorunmuyor");
-        extentTest.pass("www yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isEnabled(),"www sekmesi aktif degil");
-        extentTest.pass("www sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isDisplayed(),"Pump Desing yazisi gorunmuyor");
-        extentTest.pass("Pump yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isEnabled(),"Pump sekmesi aktif degil");
-        extentTest.pass("Pump sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isDisplayed(),"Pool Designnn yazisi gorunmuyor");
-        extentTest.pass("Pool Designnn yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isEnabled(),"Pool Designnn sekmesi aktif degil");
-        extentTest.pass("Pool Designnn sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isDisplayed(),"Garden Desing yazisi gorunmuyor");
-        extentTest.pass("Garden Desing yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isEnabled(),"Garden Desing sekmesi aktif degil");
-        extentTest.pass("Garden Desing sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isDisplayed(),"House Design yazisi gorunmuyor");
-        extentTest.pass("House Design yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isEnabled(),"House Design sekmesi aktif degil");
-        extentTest.pass("House Design sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isDisplayed(),"Latest news yazisi gorunmuyor");
-        extentTest.pass("Latest news yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isEnabled(),"Latest news sekmesi aktif degil");
-        extentTest.pass("Latest news sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isDisplayed(),"Building materials yazisi gorunmuyor");
-        extentTest.pass("Building materials yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isEnabled(),"Building materials sekmesi aktif degil");
-        extentTest.pass("Building materials sekmesinin aktifligini test eder");
+        List<WebElement> categoriesListesi = Driver.getDriver().findElements(By.xpath("//a[@class='text-dark']"));
+        for (int i = 1; i < categoriesListesi.size(); i++) {
+            softAssert.assertTrue(categoriesListesi.get(i).isDisplayed(),"Categories alaninda gorunmeyen oge var");
+            extentTest.pass("Categories alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(categoriesListesi.get(i).isEnabled(),"Categories alaninda aktif olmayan oge var");
+            extentTest.pass("Categories alanindaki ogelerin aktifligini test eder");
+            System.out.println(categoriesListesi.get(i).getText());
+        }
+
         //Featured Properties bolumu testleri
         softAssert.assertTrue(userHomePageBlog.featuredProperties.isDisplayed());
         extentTest.pass("Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Birici Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Ikinci Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ucuncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Ucuncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.dorduncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Dorduncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.besinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Besinci Featured Properties yazisinin gorunurlulugunu test eder");
+        List<WebElement> featuredPropertiesListesi = Driver.getDriver().findElements(By.xpath("//div[@class='sides_list_property_detail']"));
+        for (int i = 1; i < featuredPropertiesListesi.size(); i++) {
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isDisplayed(),"Featured Properties alaninda gorunmeyen oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isEnabled(),"Featured Properties alaninda aktif olmayan oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin aktifligini test eder");
+            System.out.println(featuredPropertiesListesi.get(i).getText());
+        }
+
         //Recent(Related) Posts bolumu testleri
         softAssert.assertTrue(userHomePageBlog.relatedPosts.isDisplayed());
         extentTest.pass("Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birincirelatedPosts.isDisplayed());
-        extentTest.pass("Birinci Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikincirelatedPosts.isDisplayed());
-        extentTest.pass("Ikinci Related Posts yazisinin gorunurlulugunu test eder");
+        List<WebElement> relatedPostsListesi = Driver.getDriver().findElements(By.xpath("//div[@class='blog-wrap-grid']"));
+        for (int i = 1; i < relatedPostsListesi.size(); i++) {
+            softAssert.assertTrue(relatedPostsListesi.get(i).isDisplayed(),"Related Posts alaninda gorunmeyen oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(relatedPostsListesi.get(i).isEnabled(),"Related Posts alaninda aktif olmayan oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin aktifligini test eder");
+            System.out.println(relatedPostsListesi.get(i).getText());
+        }
+        // Tag bolumu testi
+        softAssert.assertTrue(userHomePageBlog.tag.isDisplayed(),"Tag alani gorunmuyor");
+        extentTest.pass("Tag alaninin gorunurlulugunu test eder");
         softAssert.assertAll();
         Driver.closeDriver();
         extentTest.info("Sayfayi kapatir");
@@ -561,54 +472,41 @@ public class US24_TC004 extends TestBaseReport {
         //Categories bolumu testleri
         softAssert.assertTrue(userHomePageBlog.categories.isDisplayed(),"Categories yazisi gorunmuyor");
         extentTest.pass("Categories yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isDisplayed(),"www yazisi gorunmuyor");
-        extentTest.pass("www yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isEnabled(),"www sekmesi aktif degil");
-        extentTest.pass("www sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isDisplayed(),"Pump Desing yazisi gorunmuyor");
-        extentTest.pass("Pump yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isEnabled(),"Pump sekmesi aktif degil");
-        extentTest.pass("Pump sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isDisplayed(),"Pool Designnn yazisi gorunmuyor");
-        extentTest.pass("Pool Designnn yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isEnabled(),"Pool Designnn sekmesi aktif degil");
-        extentTest.pass("Pool Designnn sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isDisplayed(),"Garden Desing yazisi gorunmuyor");
-        extentTest.pass("Garden Desing yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isEnabled(),"Garden Desing sekmesi aktif degil");
-        extentTest.pass("Garden Desing sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isDisplayed(),"House Design yazisi gorunmuyor");
-        extentTest.pass("House Design yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isEnabled(),"House Design sekmesi aktif degil");
-        extentTest.pass("House Design sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isDisplayed(),"Latest news yazisi gorunmuyor");
-        extentTest.pass("Latest news yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isEnabled(),"Latest news sekmesi aktif degil");
-        extentTest.pass("Latest news sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isDisplayed(),"Building materials yazisi gorunmuyor");
-        extentTest.pass("Building materials yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isEnabled(),"Building materials sekmesi aktif degil");
-        extentTest.pass("Building materials sekmesinin aktifligini test eder");
+        List<WebElement> categoriesListesi = Driver.getDriver().findElements(By.xpath("//a[@class='text-dark']"));
+        for (int i = 1; i < categoriesListesi.size(); i++) {
+            softAssert.assertTrue(categoriesListesi.get(i).isDisplayed(),"Categories alaninda gorunmeyen oge var");
+            extentTest.pass("Categories alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(categoriesListesi.get(i).isEnabled(),"Categories alaninda aktif olmayan oge var");
+            extentTest.pass("Categories alanindaki ogelerin aktifligini test eder");
+            System.out.println(categoriesListesi.get(i).getText());
+        }
+
         //Featured Properties bolumu testleri
         softAssert.assertTrue(userHomePageBlog.featuredProperties.isDisplayed());
         extentTest.pass("Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Birici Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Ikinci Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ucuncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Ucuncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.dorduncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Dorduncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.besinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Besinci Featured Properties yazisinin gorunurlulugunu test eder");
+        List<WebElement> featuredPropertiesListesi = Driver.getDriver().findElements(By.xpath("//div[@class='sides_list_property_detail']"));
+        for (int i = 1; i < featuredPropertiesListesi.size(); i++) {
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isDisplayed(),"Featured Properties alaninda gorunmeyen oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isEnabled(),"Featured Properties alaninda aktif olmayan oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin aktifligini test eder");
+            System.out.println(featuredPropertiesListesi.get(i).getText());
+        }
+
         //Recent(Related) Posts bolumu testleri
         softAssert.assertTrue(userHomePageBlog.relatedPosts.isDisplayed());
         extentTest.pass("Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birincirelatedPosts.isDisplayed());
-        extentTest.pass("Birinci Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikincirelatedPosts.isDisplayed());
-        extentTest.pass("Ikinci Related Posts yazisinin gorunurlulugunu test eder");
+        List<WebElement> relatedPostsListesi = Driver.getDriver().findElements(By.xpath("//div[@class='blog-wrap-grid']"));
+        for (int i = 1; i < relatedPostsListesi.size(); i++) {
+            softAssert.assertTrue(relatedPostsListesi.get(i).isDisplayed(),"Related Posts alaninda gorunmeyen oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(relatedPostsListesi.get(i).isEnabled(),"Related Posts alaninda aktif olmayan oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin aktifligini test eder");
+            System.out.println(relatedPostsListesi.get(i).getText());
+        }
+        // Tag bolumu testi
+        softAssert.assertTrue(userHomePageBlog.tag.isDisplayed(),"Tag alani gorunmuyor");
+        extentTest.pass("Tag alaninin gorunurlulugunu test eder");
         softAssert.assertAll();
         Driver.closeDriver();
         extentTest.info("Sayfayi kapatir");
@@ -636,54 +534,41 @@ public class US24_TC004 extends TestBaseReport {
         //Categories bolumu testleri
         softAssert.assertTrue(userHomePageBlog.categories.isDisplayed(),"Categories yazisi gorunmuyor");
         extentTest.pass("Categories yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isDisplayed(),"www yazisi gorunmuyor");
-        extentTest.pass("www yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isEnabled(),"www sekmesi aktif degil");
-        extentTest.pass("www sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isDisplayed(),"Pump Desing yazisi gorunmuyor");
-        extentTest.pass("Pump yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isEnabled(),"Pump sekmesi aktif degil");
-        extentTest.pass("Pump sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isDisplayed(),"Pool Designnn yazisi gorunmuyor");
-        extentTest.pass("Pool Designnn yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isEnabled(),"Pool Designnn sekmesi aktif degil");
-        extentTest.pass("Pool Designnn sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isDisplayed(),"Garden Desing yazisi gorunmuyor");
-        extentTest.pass("Garden Desing yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isEnabled(),"Garden Desing sekmesi aktif degil");
-        extentTest.pass("Garden Desing sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isDisplayed(),"House Design yazisi gorunmuyor");
-        extentTest.pass("House Design yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isEnabled(),"House Design sekmesi aktif degil");
-        extentTest.pass("House Design sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isDisplayed(),"Latest news yazisi gorunmuyor");
-        extentTest.pass("Latest news yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isEnabled(),"Latest news sekmesi aktif degil");
-        extentTest.pass("Latest news sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isDisplayed(),"Building materials yazisi gorunmuyor");
-        extentTest.pass("Building materials yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isEnabled(),"Building materials sekmesi aktif degil");
-        extentTest.pass("Building materials sekmesinin aktifligini test eder");
+        List<WebElement> categoriesListesi = Driver.getDriver().findElements(By.xpath("//a[@class='text-dark']"));
+        for (int i = 1; i < categoriesListesi.size(); i++) {
+            softAssert.assertTrue(categoriesListesi.get(i).isDisplayed(),"Categories alaninda gorunmeyen oge var");
+            extentTest.pass("Categories alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(categoriesListesi.get(i).isEnabled(),"Categories alaninda aktif olmayan oge var");
+            extentTest.pass("Categories alanindaki ogelerin aktifligini test eder");
+            System.out.println(categoriesListesi.get(i).getText());
+        }
+
         //Featured Properties bolumu testleri
         softAssert.assertTrue(userHomePageBlog.featuredProperties.isDisplayed());
         extentTest.pass("Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Birici Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Ikinci Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ucuncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Ucuncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.dorduncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Dorduncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.besinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Besinci Featured Properties yazisinin gorunurlulugunu test eder");
+        List<WebElement> featuredPropertiesListesi = Driver.getDriver().findElements(By.xpath("//div[@class='sides_list_property_detail']"));
+        for (int i = 1; i < featuredPropertiesListesi.size(); i++) {
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isDisplayed(),"Featured Properties alaninda gorunmeyen oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isEnabled(),"Featured Properties alaninda aktif olmayan oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin aktifligini test eder");
+            System.out.println(featuredPropertiesListesi.get(i).getText());
+        }
+
         //Recent(Related) Posts bolumu testleri
         softAssert.assertTrue(userHomePageBlog.relatedPosts.isDisplayed());
         extentTest.pass("Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birincirelatedPosts.isDisplayed());
-        extentTest.pass("Birinci Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikincirelatedPosts.isDisplayed());
-        extentTest.pass("Ikinci Related Posts yazisinin gorunurlulugunu test eder");
+        List<WebElement> relatedPostsListesi = Driver.getDriver().findElements(By.xpath("//div[@class='blog-wrap-grid']"));
+        for (int i = 1; i < relatedPostsListesi.size(); i++) {
+            softAssert.assertTrue(relatedPostsListesi.get(i).isDisplayed(),"Related Posts alaninda gorunmeyen oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(relatedPostsListesi.get(i).isEnabled(),"Related Posts alaninda aktif olmayan oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin aktifligini test eder");
+            System.out.println(relatedPostsListesi.get(i).getText());
+        }
+        // Tag bolumu testi
+        softAssert.assertTrue(userHomePageBlog.tag.isDisplayed(),"Tag alani gorunmuyor");
+        extentTest.pass("Tag alaninin gorunurlulugunu test eder");
         softAssert.assertAll();
         Driver.closeDriver();
         extentTest.info("Sayfayi kapatir");
@@ -711,54 +596,41 @@ public class US24_TC004 extends TestBaseReport {
         //Categories bolumu testleri
         softAssert.assertTrue(userHomePageBlog.categories.isDisplayed(),"Categories yazisi gorunmuyor");
         extentTest.pass("Categories yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isDisplayed(),"www yazisi gorunmuyor");
-        extentTest.pass("www yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isEnabled(),"www sekmesi aktif degil");
-        extentTest.pass("www sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isDisplayed(),"Pump Desing yazisi gorunmuyor");
-        extentTest.pass("Pump yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isEnabled(),"Pump sekmesi aktif degil");
-        extentTest.pass("Pump sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isDisplayed(),"Pool Designnn yazisi gorunmuyor");
-        extentTest.pass("Pool Designnn yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isEnabled(),"Pool Designnn sekmesi aktif degil");
-        extentTest.pass("Pool Designnn sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isDisplayed(),"Garden Desing yazisi gorunmuyor");
-        extentTest.pass("Garden Desing yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isEnabled(),"Garden Desing sekmesi aktif degil");
-        extentTest.pass("Garden Desing sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isDisplayed(),"House Design yazisi gorunmuyor");
-        extentTest.pass("House Design yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isEnabled(),"House Design sekmesi aktif degil");
-        extentTest.pass("House Design sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isDisplayed(),"Latest news yazisi gorunmuyor");
-        extentTest.pass("Latest news yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isEnabled(),"Latest news sekmesi aktif degil");
-        extentTest.pass("Latest news sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isDisplayed(),"Building materials yazisi gorunmuyor");
-        extentTest.pass("Building materials yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isEnabled(),"Building materials sekmesi aktif degil");
-        extentTest.pass("Building materials sekmesinin aktifligini test eder");
+        List<WebElement> categoriesListesi = Driver.getDriver().findElements(By.xpath("//a[@class='text-dark']"));
+        for (int i = 1; i < categoriesListesi.size(); i++) {
+            softAssert.assertTrue(categoriesListesi.get(i).isDisplayed(),"Categories alaninda gorunmeyen oge var");
+            extentTest.pass("Categories alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(categoriesListesi.get(i).isEnabled(),"Categories alaninda aktif olmayan oge var");
+            extentTest.pass("Categories alanindaki ogelerin aktifligini test eder");
+            System.out.println(categoriesListesi.get(i).getText());
+        }
+
         //Featured Properties bolumu testleri
         softAssert.assertTrue(userHomePageBlog.featuredProperties.isDisplayed());
         extentTest.pass("Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Birici Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Ikinci Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ucuncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Ucuncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.dorduncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Dorduncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.besinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Besinci Featured Properties yazisinin gorunurlulugunu test eder");
+        List<WebElement> featuredPropertiesListesi = Driver.getDriver().findElements(By.xpath("//div[@class='sides_list_property_detail']"));
+        for (int i = 1; i < featuredPropertiesListesi.size(); i++) {
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isDisplayed(),"Featured Properties alaninda gorunmeyen oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isEnabled(),"Featured Properties alaninda aktif olmayan oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin aktifligini test eder");
+            System.out.println(featuredPropertiesListesi.get(i).getText());
+        }
+
         //Recent(Related) Posts bolumu testleri
         softAssert.assertTrue(userHomePageBlog.relatedPosts.isDisplayed());
         extentTest.pass("Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birincirelatedPosts.isDisplayed());
-        extentTest.pass("Birinci Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikincirelatedPosts.isDisplayed());
-        extentTest.pass("Ikinci Related Posts yazisinin gorunurlulugunu test eder");
+        List<WebElement> relatedPostsListesi = Driver.getDriver().findElements(By.xpath("//div[@class='blog-wrap-grid']"));
+        for (int i = 1; i < relatedPostsListesi.size(); i++) {
+            softAssert.assertTrue(relatedPostsListesi.get(i).isDisplayed(),"Related Posts alaninda gorunmeyen oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(relatedPostsListesi.get(i).isEnabled(),"Related Posts alaninda aktif olmayan oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin aktifligini test eder");
+            System.out.println(relatedPostsListesi.get(i).getText());
+        }
+        // Tag bolumu testi
+        softAssert.assertTrue(userHomePageBlog.tag.isDisplayed(),"Tag alani gorunmuyor");
+        extentTest.pass("Tag alaninin gorunurlulugunu test eder");
         softAssert.assertAll();
         Driver.closeDriver();
         extentTest.info("Sayfayi kapatir");
@@ -786,54 +658,41 @@ public class US24_TC004 extends TestBaseReport {
         //Categories bolumu testleri
         softAssert.assertTrue(userHomePageBlog.categories.isDisplayed(),"Categories yazisi gorunmuyor");
         extentTest.pass("Categories yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isDisplayed(),"www yazisi gorunmuyor");
-        extentTest.pass("www yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isEnabled(),"www sekmesi aktif degil");
-        extentTest.pass("www sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isDisplayed(),"Pump Desing yazisi gorunmuyor");
-        extentTest.pass("Pump yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isEnabled(),"Pump sekmesi aktif degil");
-        extentTest.pass("Pump sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isDisplayed(),"Pool Designnn yazisi gorunmuyor");
-        extentTest.pass("Pool Designnn yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isEnabled(),"Pool Designnn sekmesi aktif degil");
-        extentTest.pass("Pool Designnn sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isDisplayed(),"Garden Desing yazisi gorunmuyor");
-        extentTest.pass("Garden Desing yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isEnabled(),"Garden Desing sekmesi aktif degil");
-        extentTest.pass("Garden Desing sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isDisplayed(),"House Design yazisi gorunmuyor");
-        extentTest.pass("House Design yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isEnabled(),"House Design sekmesi aktif degil");
-        extentTest.pass("House Design sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isDisplayed(),"Latest news yazisi gorunmuyor");
-        extentTest.pass("Latest news yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isEnabled(),"Latest news sekmesi aktif degil");
-        extentTest.pass("Latest news sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isDisplayed(),"Building materials yazisi gorunmuyor");
-        extentTest.pass("Building materials yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isEnabled(),"Building materials sekmesi aktif degil");
-        extentTest.pass("Building materials sekmesinin aktifligini test eder");
+        List<WebElement> categoriesListesi = Driver.getDriver().findElements(By.xpath("//a[@class='text-dark']"));
+        for (int i = 1; i < categoriesListesi.size(); i++) {
+            softAssert.assertTrue(categoriesListesi.get(i).isDisplayed(),"Categories alaninda gorunmeyen oge var");
+            extentTest.pass("Categories alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(categoriesListesi.get(i).isEnabled(),"Categories alaninda aktif olmayan oge var");
+            extentTest.pass("Categories alanindaki ogelerin aktifligini test eder");
+            System.out.println(categoriesListesi.get(i).getText());
+        }
+
         //Featured Properties bolumu testleri
         softAssert.assertTrue(userHomePageBlog.featuredProperties.isDisplayed());
         extentTest.pass("Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Birici Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Ikinci Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ucuncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Ucuncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.dorduncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Dorduncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.besinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Besinci Featured Properties yazisinin gorunurlulugunu test eder");
+        List<WebElement> featuredPropertiesListesi = Driver.getDriver().findElements(By.xpath("//div[@class='sides_list_property_detail']"));
+        for (int i = 1; i < featuredPropertiesListesi.size(); i++) {
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isDisplayed(),"Featured Properties alaninda gorunmeyen oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isEnabled(),"Featured Properties alaninda aktif olmayan oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin aktifligini test eder");
+            System.out.println(featuredPropertiesListesi.get(i).getText());
+        }
+
         //Recent(Related) Posts bolumu testleri
         softAssert.assertTrue(userHomePageBlog.relatedPosts.isDisplayed());
         extentTest.pass("Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birincirelatedPosts.isDisplayed());
-        extentTest.pass("Birinci Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikincirelatedPosts.isDisplayed());
-        extentTest.pass("Ikinci Related Posts yazisinin gorunurlulugunu test eder");
+        List<WebElement> relatedPostsListesi = Driver.getDriver().findElements(By.xpath("//div[@class='blog-wrap-grid']"));
+        for (int i = 1; i < relatedPostsListesi.size(); i++) {
+            softAssert.assertTrue(relatedPostsListesi.get(i).isDisplayed(),"Related Posts alaninda gorunmeyen oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(relatedPostsListesi.get(i).isEnabled(),"Related Posts alaninda aktif olmayan oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin aktifligini test eder");
+            System.out.println(relatedPostsListesi.get(i).getText());
+        }
+        // Tag bolumu testi
+        softAssert.assertTrue(userHomePageBlog.tag.isDisplayed(),"Tag alani gorunmuyor");
+        extentTest.pass("Tag alaninin gorunurlulugunu test eder");
         softAssert.assertAll();
         Driver.closeDriver();
         extentTest.info("Sayfayi kapatir");
@@ -861,54 +720,41 @@ public class US24_TC004 extends TestBaseReport {
         //Categories bolumu testleri
         softAssert.assertTrue(userHomePageBlog.categories.isDisplayed(),"Categories yazisi gorunmuyor");
         extentTest.pass("Categories yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isDisplayed(),"www yazisi gorunmuyor");
-        extentTest.pass("www yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.www.isEnabled(),"www sekmesi aktif degil");
-        extentTest.pass("www sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isDisplayed(),"Pump Desing yazisi gorunmuyor");
-        extentTest.pass("Pump yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.pump.isEnabled(),"Pump sekmesi aktif degil");
-        extentTest.pass("Pump sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isDisplayed(),"Pool Designnn yazisi gorunmuyor");
-        extentTest.pass("Pool Designnn yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.poolDesign.isEnabled(),"Pool Designnn sekmesi aktif degil");
-        extentTest.pass("Pool Designnn sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isDisplayed(),"Garden Desing yazisi gorunmuyor");
-        extentTest.pass("Garden Desing yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.gardenDesing.isEnabled(),"Garden Desing sekmesi aktif degil");
-        extentTest.pass("Garden Desing sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isDisplayed(),"House Design yazisi gorunmuyor");
-        extentTest.pass("House Design yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.houseDesign.isEnabled(),"House Design sekmesi aktif degil");
-        extentTest.pass("House Design sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isDisplayed(),"Latest news yazisi gorunmuyor");
-        extentTest.pass("Latest news yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.latestNews.isEnabled(),"Latest news sekmesi aktif degil");
-        extentTest.pass("Latest news sekmesinin aktifligini test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isDisplayed(),"Building materials yazisi gorunmuyor");
-        extentTest.pass("Building materials yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.buildingMaterials.isEnabled(),"Building materials sekmesi aktif degil");
-        extentTest.pass("Building materials sekmesinin aktifligini test eder");
+        List<WebElement> categoriesListesi = Driver.getDriver().findElements(By.xpath("//a[@class='text-dark']"));
+        for (int i = 1; i < categoriesListesi.size(); i++) {
+            softAssert.assertTrue(categoriesListesi.get(i).isDisplayed(),"Categories alaninda gorunmeyen oge var");
+            extentTest.pass("Categories alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(categoriesListesi.get(i).isEnabled(),"Categories alaninda aktif olmayan oge var");
+            extentTest.pass("Categories alanindaki ogelerin aktifligini test eder");
+            System.out.println(categoriesListesi.get(i).getText());
+        }
+
         //Featured Properties bolumu testleri
         softAssert.assertTrue(userHomePageBlog.featuredProperties.isDisplayed());
         extentTest.pass("Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Birici Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Ikinci Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ucuncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Ucuncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.dorduncuFeaturedProperties.isDisplayed());
-        extentTest.pass("Dorduncu Featured Properties yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.besinciFeaturedProperties.isDisplayed());
-        extentTest.pass("Besinci Featured Properties yazisinin gorunurlulugunu test eder");
+        List<WebElement> featuredPropertiesListesi = Driver.getDriver().findElements(By.xpath("//div[@class='sides_list_property_detail']"));
+        for (int i = 1; i < featuredPropertiesListesi.size(); i++) {
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isDisplayed(),"Featured Properties alaninda gorunmeyen oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(featuredPropertiesListesi.get(i).isEnabled(),"Featured Properties alaninda aktif olmayan oge var");
+            extentTest.pass("Featured Properties alanindaki ogelerin aktifligini test eder");
+            System.out.println(featuredPropertiesListesi.get(i).getText());
+        }
+
         //Recent(Related) Posts bolumu testleri
         softAssert.assertTrue(userHomePageBlog.relatedPosts.isDisplayed());
         extentTest.pass("Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.birincirelatedPosts.isDisplayed());
-        extentTest.pass("Birinci Related Posts yazisinin gorunurlulugunu test eder");
-        softAssert.assertTrue(userHomePageBlog.ikincirelatedPosts.isDisplayed());
-        extentTest.pass("Ikinci Related Posts yazisinin gorunurlulugunu test eder");
+        List<WebElement> relatedPostsListesi = Driver.getDriver().findElements(By.xpath("//div[@class='blog-wrap-grid']"));
+        for (int i = 1; i < relatedPostsListesi.size(); i++) {
+            softAssert.assertTrue(relatedPostsListesi.get(i).isDisplayed(),"Related Posts alaninda gorunmeyen oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin gorunurlulugunu test eder");
+            softAssert.assertTrue(relatedPostsListesi.get(i).isEnabled(),"Related Posts alaninda aktif olmayan oge var");
+            extentTest.pass("Related Posts alanindaki ogelerin aktifligini test eder");
+            System.out.println(relatedPostsListesi.get(i).getText());
+        }
+        // Tag bolumu testi
+        softAssert.assertTrue(userHomePageBlog.tag.isDisplayed(),"Tag alani gorunmuyor");
+        extentTest.pass("Tag alaninin gorunurlulugunu test eder");
         softAssert.assertAll();
         Driver.closeDriver();
         extentTest.info("Sayfayi kapatir");
