@@ -16,13 +16,14 @@ public class US25_TC02 extends TestBaseReport {
 
     @Test
     public void test02() throws InterruptedException {
-        SoftAssert softAssert = new SoftAssert();
+
         extentTest = extentReports.createTest("Sending message test for registered user",
                 "Registered user should be able send a message through the contact page");
 
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         extentTest.info("Kullanici hauseheaven anasayfaya gider");
+        SoftAssert softAssert = new SoftAssert();
         AccountPage_Property kullanici = new AccountPage_Property();
 
         // Kullanici sisteme login için bilgilerini dolduruyor
@@ -63,7 +64,6 @@ public class US25_TC02 extends TestBaseReport {
 
         WebElement successMessagePopup = Driver.getDriver().findElement(By.id("alert-container"));
         System.out.println(successMessagePopup.getText());
-
         softAssert.assertTrue(successMessagePopup.isDisplayed());
         Thread.sleep(2000);
 

@@ -17,44 +17,42 @@ public class US10_TC03 extends TestBaseReport {
     public void test01() throws InterruptedException {
 
         extentTest = extentReports.createTest("The contact page accessiblity and address equality test",
-                " User should be able to verify that can access the contact page and addresses should match");
+                " Visitor should be able to verify that can access the contact page and addresses should match");
+
         Driver.getDriver().get(ConfigReader.getProperty("url"));
+        SoftAssert softAssert = new SoftAssert();
         WebElement contactButonu = Driver.getDriver().findElement(By.linkText("Contact"));
         contactButonu.click();
-        WebElement address1 = Driver.getDriver().findElement(By.xpath("//*[text()=' 4655 Wild Indigo St Houston Tx 77027-7080 Usa']"));
+        WebElement address1 = Driver.getDriver().findElement(By.xpath("(//div[@class='cn-info-content'])[1]"));
+        String addressText  = address1.getText();
 
 
 
-        System.out.println(address1.getText().substring(0,19));
         JSUtilities.scrollToBottom(Driver.getDriver());
         Thread.sleep(3000);
         JSUtilities.scrollToTop(Driver.getDriver());
         Thread.sleep(3000);
-
-
+        System.out.println(addressText);
 
 
         Driver.getDriver().switchTo().frame(Driver.getDriver().findElement(By.tagName("iframe")));
 
 
-
-        // (By.xpath("//*[starts-with(@id,'lst')]"));
         WebElement ifaddress2 =Driver.getDriver()
-                .findElement(By.xpath("//div[@class='address']"));
-       // JSUtilities.scrollToElement(Driver.getDriver(),ifaddress2);
-       // System.out.println(ifaddress2.getText());
-        System.out.println(ifaddress2.getText().substring(0,19));
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(ifaddress2.equals(address1));
+                .findElement(By.xpath("//div[@class='place-name']"));
+        JSUtilities.scrollToElement(Driver.getDriver(),ifaddress2);
+        String ifaddressText = ifaddress2.getText();
+        System.out.println(ifaddressText);
+
+        softAssert.assertTrue(ifaddress2.isDisplayed());
         Driver.getDriver().switchTo().defaultContent();
-        //JSUtilities.scrollToTop(Driver.getDriver());
+        JSUtilities.scrollToTop(Driver.getDriver());
         Thread.sleep(3000);
+        softAssert.assertTrue(address1.isDisplayed());
+        softAssert.assertTrue(addressText.contains(ifaddressText));
+        softAssert.assertAll();
 
-
-       // softAssert.assertAll();
-
-       // extentTest.pass("\n" +
-        //                "");
-
+        extentTest.pass("\n" +
+               "Visitor can access the contact page and verifies that addresses match");
     }
 }

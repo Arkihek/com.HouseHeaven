@@ -18,8 +18,9 @@ public class US10_TC01 extends TestBaseReport {
         extentTest = extentReports.createTest("The contact page accessible test",
                 " Visiter should be able to verify that can access the contact page");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        WebElement contactButonu = Driver.getDriver().findElement(By.linkText("Contact"));
         SoftAssert softAssert = new SoftAssert();
+        WebElement contactButonu = Driver.getDriver().findElement(By.linkText("Contact"));
+
         softAssert.assertTrue(contactButonu.isDisplayed());
         softAssert.assertTrue(contactButonu.isEnabled());
         contactButonu.click();

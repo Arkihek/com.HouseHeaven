@@ -23,6 +23,7 @@ public class US25_TC01 extends TestBaseReport {
                 "Registered user should be able to login contact informations should be visible and addresses should match ");
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
+        SoftAssert softAssert = new SoftAssert();
         extentTest.info("Kullanici hauseheaven anasayfaya gider");
         AccountPage_Property kullanici = new AccountPage_Property();
 
@@ -42,7 +43,7 @@ public class US25_TC01 extends TestBaseReport {
         WebElement contactButonu = Driver.getDriver().findElement(By.linkText("Contact"));
         contactButonu.click();
         WebElement address1 = Driver.getDriver().findElement(By.xpath("//div[@class='cn-info-content']"));
-        SoftAssert softAssert = new SoftAssert();
+
         softAssert.assertTrue(address1.isDisplayed());
         WebElement emailInformationBody = Driver.getDriver().findElement(By.xpath("//h4[text()='Email']"));
         softAssert.assertTrue(emailInformationBody.isDisplayed());

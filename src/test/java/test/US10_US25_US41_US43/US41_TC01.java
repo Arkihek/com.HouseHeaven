@@ -24,8 +24,9 @@ public class US41_TC01 extends TestBaseReport {
 
 
 
-        SoftAssert softAssert = new SoftAssert();
+
         Driver.getDriver().get("https://qa.hauseheaven.com/");
+        SoftAssert softAssert = new SoftAssert();
         WebElement signUpButton = Driver.getDriver().findElement(By.xpath("//a[@class='btn btn-call-to-act']"));
         JSUtilities.scrollToBottom(Driver.getDriver());
         Thread.sleep(2000);
@@ -58,11 +59,8 @@ public class US41_TC01 extends TestBaseReport {
         Thread.sleep(2000);
         softAssert.assertAll();
 
-        Driver.closeDriver();
-
-
-        // extentTest.pass("\n" +
-         //       "Visitor should be able to create an account");
+         extentTest.pass("\n" +
+                "Visitor can create a new account");
 
 
 

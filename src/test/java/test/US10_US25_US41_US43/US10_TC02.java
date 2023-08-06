@@ -15,11 +15,11 @@ public class US10_TC02 extends TestBaseReport {
 
     @Test
     public void test02() throws InterruptedException {
-        SoftAssert softAssert = new SoftAssert();
+
         extentTest = extentReports.createTest("The contact page accessiblity test",
                 " Visitor should be able to send message");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-
+        SoftAssert softAssert = new SoftAssert();
 
         WebElement contactButonu = Driver.getDriver().findElement(By.linkText("Contact"));
         contactButonu.click();
