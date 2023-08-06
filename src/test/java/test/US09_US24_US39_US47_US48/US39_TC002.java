@@ -21,7 +21,7 @@ public class US39_TC002 extends TestBaseReport {
         adminDashboard.adminPassword.sendKeys(ConfigReader.getProperty("adminPass"));
         JSUtilities.clickWithJS(Driver.getDriver(), adminDashboard.adminSignIn);
         extentTest.info("Kullanici email adresi ve sifre ile giris yapar.");
-        softAssert.assertTrue(adminDashboard.adminTest.isDisplayed(),"admin dashboard sayfasina giris yapilamadi");
+        softAssert.assertTrue(adminDashboard.adminDasboardButton.isDisplayed(),"admin dashboard sayfasina giris yapilamadi");
         extentTest.pass("Kullanicinin admin dashboarda giris yapildigini test eder");
         softAssert.assertTrue(adminDashboard.newsletterButon.isDisplayed(),"Newsletters butonu gorunmuyor");
         extentTest.pass("Kullanici Newsletters butonunun gorunululugunu test eder");

@@ -87,8 +87,8 @@ public class AdminDashboard {
 
     @FindBy(xpath = "//*[@id='cms-plugins-blog']")
     public WebElement blogBasligindakiler;
-    @FindBy(xpath = "(//*[@class='nav-link nav-toggle'])[4]")
-    public WebElement realEstate;
+
+
 
     @FindBy(xpath = "//*[@id='cms-plugins-real-estate']")
     public WebElement realEstateBasligindakiler;
