@@ -143,4 +143,18 @@ public class ListingPage {
     public WebElement pageDown;
 
 
+    public List<WebElement> propertyWriteReview1Star;
+    @FindBy(xpath = "//a[@data-rating-value='2']")
+    public List<WebElement> propertyWriteReview2Star;
+    @FindBy(xpath = "//a[@data-rating-value='3']")
+    public List<WebElement> propertyWriteReview3Star;
+    @FindBy(xpath = "//a[@data-rating-value='4']")
+    public List<WebElement> propertyWriteReview4Star;
+    @FindBy(xpath = "//a[@data-rating-value='5']")
+    public List<WebElement> propertyWriteReview5Star;
+
+    @FindBy(xpath = "//h4[@class='high user_commnet_avg_rate']")
+    public WebElement propertyWriteReviewAverageRaitingElement;
+
+
 }
