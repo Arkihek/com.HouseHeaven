@@ -13,9 +13,12 @@ public class UserHomePage_Blog {
     }
 
     //Blog sayfasi
+
     @FindBy (xpath = "//a[@href='https://qa.hauseheaven.com/blog']")
     public WebElement blog;
+
     //Tum blog sayfalarinin linklerinin locate'leri
+
     @FindBy (xpath = "(//a[@class='bl-continue'])[1]")
     public WebElement birinciBlogSayfa;
     @FindBy (xpath = "(//a[@class='bl-continue'])[2]")
@@ -52,39 +55,12 @@ public class UserHomePage_Blog {
     //US09_TC004 locate'leri
     @FindBy(xpath = "//*[text()='Categories']")
     public WebElement categories;
-    @FindBy(xpath = "(//a[@class='text-dark'])[1]")
-    public WebElement www;
-    @FindBy(xpath = "(//a[@class='text-dark'])[2]")
-    public WebElement pump;
-    @FindBy(xpath = "(//a[@class='text-dark'])[3]")
-    public WebElement poolDesign;
-    @FindBy(xpath = "(//a[@class='text-dark'])[4]")
-    public WebElement gardenDesing;
-    @FindBy(xpath = "(//a[@class='text-dark'])[5]")
-    public WebElement houseDesign;
-    @FindBy(xpath = "(//a[@class='text-dark'])[6]")
-    public WebElement latestNews;
-    @FindBy(xpath = "(//a[@class='text-dark'])[7]")
-    public WebElement buildingMaterials;
     @FindBy(xpath = "//*[text()='Featured properties']")
     public WebElement featuredProperties;
-    @FindBy(xpath = "(//div[@class='sides_list_property_detail'])[1]")
-    public WebElement birinciFeaturedProperties;
-    @FindBy(xpath = "(//div[@class='sides_list_property_detail'])[2]")
-    public WebElement ikinciFeaturedProperties;
-    @FindBy(xpath = "(//div[@class='sides_list_property_detail'])[3]")
-    public WebElement ucuncuFeaturedProperties;
-    @FindBy(xpath = "(//div[@class='sides_list_property_detail'])[4]")
-    public WebElement dorduncuFeaturedProperties;
-    @FindBy(xpath = "(//div[@class='sides_list_property_detail'])[5]")
-    public WebElement besinciFeaturedProperties;
     @FindBy(xpath = "//*[text()='Related posts:']")
     public WebElement relatedPosts;
-    @FindBy(xpath = "(//div[@class='blog-wrap-grid'])[1]")
-    public WebElement birincirelatedPosts;
-    @FindBy(xpath = "(//div[@class='blog-wrap-grid'])[1]")
-    public WebElement ikincirelatedPosts;
-
+    @FindBy(xpath = "//*[@class='post-tags']")
+    public WebElement tag;
 
     //US09_TC005 locate'leri
     @FindBy(xpath = "//a[@title='Share on Facebook']")
@@ -93,8 +69,5 @@ public class UserHomePage_Blog {
     public WebElement linkedinButonu;
     @FindBy(xpath = "//a[@title='Share on Twitter']")
     public WebElement twitterButonu;
-
-
-
 
 }
