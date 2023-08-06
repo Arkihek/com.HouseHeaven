@@ -15,10 +15,9 @@ import utilities.*;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.List;
 
-public class US51 extends TestBaseReport {
+public class US51_TC001_TC10 extends TestBaseReport {
     SoftAssert softAssert = new SoftAssert();
     UserHomePage_Body userHomePageBody = new UserHomePage_Body();
     Actions actions = new Actions(Driver.getDriver());
@@ -210,124 +209,199 @@ public class US51 extends TestBaseReport {
 
     }
 
-
     @Test
-    public void test22() {
+    public void test05() {
 
-        //Admin logs to the system with its user name and password.
-        //The user logins to "https://qa.hauseheaven.com/admin/login" page.
-        Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
-        //Admin logs to the system with its user name and password.
-        adminDashboard.textBoxAdminUserNameOnLogInPage.sendKeys(ConfigReader.getProperty("admin01"));
-        adminDashboard.textBoxAdminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
-        adminDashboard.adminLogInButton.click();
-        //It is successfully directed to Dashboard.
-        Assert.assertTrue(adminDashboard.adminDasboardButton.isDisplayed());
-        //It accesses the "Media" page via menu or l
-        // Links on the page.
+        //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
+        extentTest = extentReports.createTest("Hauseheaven test", "Image should be uploaded from the media page with the create folder button");
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        ReusableMethods.waitFor(3);
+
+        //02_As an administrator, log in with the correct username and password from the signin button
+        adminDashboard.adminEMail.sendKeys("admin21" + Keys.TAB);
+        adminDashboard.adminPassword.sendKeys("951847" + Keys.TAB);
+        adminDashboard.adminRemember.click();
+        adminDashboard.adminSignIn.click();
+        adminDashboard.adminGirisKontrol.isDisplayed();
+        extentTest.info("Admin login successful");
+
         adminDashboard.mediaButton.click();
-        //It successfully accesses the "Media" page.
-        Assert.assertTrue(adminDashboard.mediaButton.isEnabled());
-        ReusableMethods.wait(1);
-        // team5 directory select
-        //actions.doubleClick(adminDashboard.team5File).perform();
-        //Make the "File" path dynamic.
-        String filesPath = System.getProperty("user.dir") + "src/test/java/test/US03_US17_US18_US46_US51/houseV.jpg";
-        //Assert.assertTrue(Files.exists(Paths.get("files/hause.jpg")));
-        Assert.assertTrue(Files.exists(Paths.get(filesPath)));
+        ReusableMethods.waitFor(2);
 
-        WebElement uploadProcess = Driver.getDriver().findElement(By.xpath("//*[@type='file']"));
-        //String js = "arguments[0].style.visibility = 'visible';";
-        //jsExecutor.executeScript(js, uploadProcess);
-        ReusableMethods.wait(1);
-        // File Uploading
-        uploadProcess.sendKeys(filesPath);
-        ReusableMethods.wait(1);
-        // "File uploaded" message locate
-        WebElement fileUploadedMessage = Driver.getDriver().findElement(By.xpath("//span[text()='hause.jpg']"));
-        // Verify the File uploaded
-        Assert.assertTrue(fileUploadedMessage.isDisplayed());
-        // page refresh
-        Driver.getDriver().navigate().refresh();
-        // Click Download for internet upload
-        WebElement buttonDownload = Driver.getDriver().findElement(By.xpath("//*[@class='btn btn-success js-download-action']"));
-        buttonDownload.click();
-        //file path on internet and Enter
-        WebElement textareaDownload = Driver.getDriver().findElement(By.xpath("//*[@name='urls']"));
-        textareaDownload.click();
-        actions.sendKeys(textareaDownload, "https://qa.hauseheaven.com/storage/team1.png").sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
-        ReusableMethods.wait(1);
-        // Verify the File uploaded
-        Assert.assertTrue(adminDashboard.labelBlogPostDeleteConfirm.isDisplayed());
-
-
-
+        //03_Confirm that a new folder can be created with the create folder button on the Media page
         ReusableMethods.wait(2);
-        //Click the "Create New Folder" button.
         adminDashboard.createFolderButton.click();
         ReusableMethods.wait(1);
-        //The folder entered the name and completes the creation process.
         WebElement folderNameInputTextbox = Driver.getDriver().findElement(By.xpath("//input[@placeholder='Folder name']"));
-        actions.sendKeys(folderNameInputTextbox, "Erasable").sendKeys(Keys.ENTER).perform();
+        actions.sendKeys(folderNameInputTextbox, "Team5").sendKeys(Keys.ENTER).perform();
         ReusableMethods.wait(1);
-        //Verify new Folder succesfully
+
         Assert.assertTrue(adminDashboard.labelBlogPostDeleteConfirm.isDisplayed());
-        // page refresh
-        Driver.getDriver().navigate().refresh();
-        // Select Filter menu
+        extentTest.pass("Creating a folder from the media page");
+
+        //04_browser is closed.
+
+    }
+
+    @Test
+    public void test06() {
+
+        //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
+        extentTest = extentReports.createTest("Hauseheaven test", "The filter button on the media page should be changed to image");
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        ReusableMethods.waitFor(3);
+
+        //02_As an administrator, log in with the correct username and password from the signin button
+        adminDashboard.adminEMail.sendKeys("admin21" + Keys.TAB);
+        adminDashboard.adminPassword.sendKeys("951847" + Keys.TAB);
+        adminDashboard.adminRemember.click();
+        adminDashboard.adminSignIn.click();
+        adminDashboard.adminGirisKontrol.isDisplayed();
+        extentTest.info("Admin login successful");
+
+        adminDashboard.mediaButton.click();
+        ReusableMethods.waitFor(2);
+        //03_Click image from the filter button on the media page
         adminDashboard.filterButton.click();
-        //Selects one of the filtration options.(images)
         adminDashboard.filterImageButton.click();
         ReusableMethods.wait(1);
-        // images List
+
+        //04_Confirms that the filter button returns to the image
+        softAssert.assertTrue(adminDashboard.filterImageButton.isDisplayed());
+
         List<WebElement> imagesList = Driver.getDriver().findElements(By.xpath("(//li[@data-context='file']/div/div/img)"));
         List<WebElement> videosList = Driver.getDriver().findElements(By.xpath("//*[@class='far fa-file-video']"));
         List<WebElement> dokumentsList = Driver.getDriver().findElements(By.xpath("//*[@class='far fa-file-alt']"));
-        System.out.println("==============================");
-        System.out.println("== Image === Video === Dokument ==");
-        System.out.print("    " + imagesList.size());
-        System.out.print("         " + videosList.size());
-        System.out.print("           " + dokumentsList.size() + "\n");
-        Assert.assertTrue(imagesList.size() > 0);
-        Assert.assertFalse(videosList.size() > 0);
-        Assert.assertFalse(dokumentsList.size() > 0);
-        // Select Filter menu
+
+        softAssert.assertTrue(imagesList.size() > 0);
+        softAssert.assertFalse(videosList.size() > 0);
+        softAssert.assertFalse(dokumentsList.size() > 0);
+
+        //05_Browser is closed.
+
+    }
+
+    @Test
+    public void test07() {
+
+        //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
+        extentTest = extentReports.createTest("Hauseheaven test", "The filter button on the media page should be changed to video");
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        ReusableMethods.waitFor(3);
+
+        //02_As an administrator, log in with the correct username and password from the signin button
+        adminDashboard.adminEMail.sendKeys("admin21" + Keys.TAB);
+        adminDashboard.adminPassword.sendKeys("951847" + Keys.TAB);
+        adminDashboard.adminRemember.click();
+        adminDashboard.adminSignIn.click();
+        adminDashboard.adminGirisKontrol.isDisplayed();
+        extentTest.info("Admin login successful");
+
+        adminDashboard.mediaButton.click();
+        ReusableMethods.waitFor(2);
+
+        //03_Click the video from the filter button on the media page
         adminDashboard.filterButton.click();
-        //Selects one of the filtration options.(videos)
         adminDashboard.filterVideoButton.click();
         ReusableMethods.wait(1);
-        List<WebElement> imagesList2 = Driver.getDriver().findElements(By.xpath("(//li[@data-context='file']/div/div/img)"));
-        List<WebElement> videosList2 = Driver.getDriver().findElements(By.xpath("//*[@class='far fa-file-video']"));
-        List<WebElement> dokumentsList2 = Driver.getDriver().findElements(By.xpath("//*[@class='far fa-file-alt']"));
-        System.out.print("    " + imagesList2.size());
-        System.out.print("         " + videosList2.size());
-        System.out.print("           " + dokumentsList2.size() + "\n");
-        Assert.assertFalse(imagesList2.size() > 0);
-        Assert.assertTrue(videosList2.size() > 0);
-        Assert.assertFalse(dokumentsList2.size() > 0);
-        // Select Filter menu
+
+        //04_Confirms that the filter button turns to video
+        softAssert.assertTrue(adminDashboard.filterVideoButton.isDisplayed());
+        List<WebElement> imagesList = Driver.getDriver().findElements(By.xpath("(//li[@data-context='file']/div/div/img)"));
+        List<WebElement> videosList = Driver.getDriver().findElements(By.xpath("//*[@class='far fa-file-video']"));
+        List<WebElement> dokumentsList = Driver.getDriver().findElements(By.xpath("//*[@class='far fa-file-alt']"));
+
+        Assert.assertFalse(imagesList.size() > 0);
+        Assert.assertTrue(videosList.size() > 0);
+        Assert.assertFalse(dokumentsList.size() > 0);
+
+        //05_Browser is closed.
+
+    }
+
+    @Test
+    public void test08() {
+
+        //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
+        extentTest = extentReports.createTest("Hauseheaven test", "The filter button on the media page should be changed to document");
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        ReusableMethods.waitFor(3);
+
+        //02_As an administrator, log in with the correct username and password from the signin button
+        adminDashboard.adminEMail.sendKeys("admin21" + Keys.TAB);
+        adminDashboard.adminPassword.sendKeys("951847" + Keys.TAB);
+        adminDashboard.adminRemember.click();
+        adminDashboard.adminSignIn.click();
+        adminDashboard.adminGirisKontrol.isDisplayed();
+        extentTest.info("Admin login successful");
+
+        adminDashboard.mediaButton.click();
+        ReusableMethods.waitFor(2);
+
+        //03_Click on the video from the document button on the media page
         adminDashboard.filterButton.click();
-        //Selects one of the filtration options.(docs)
         adminDashboard.filterDocumentButton.click();
-        List<WebElement> imagesList3 = Driver.getDriver().findElements(By.xpath("(//li[@data-context='file']/div/div/img)"));
-        List<WebElement> videosList3 = Driver.getDriver().findElements(By.xpath("//*[@class='far fa-file-video']"));
-        List<WebElement> dokumentsList3 = Driver.getDriver().findElements(By.xpath("//*[@class='far fa-file-alt']"));
-        System.out.print("    " + imagesList3.size());
-        System.out.print("         " + videosList3.size());
-        System.out.print("           " + dokumentsList3.size() + "\n==============================");
-        Assert.assertFalse(imagesList3.size() > 0);
-        Assert.assertFalse(videosList3.size() > 0);
-        Assert.assertTrue(dokumentsList3.size() > 0);
-        //Files matching the selected filter are displayed successfully.
-        Driver.getDriver().navigate().refresh();
-        //He selects one of the options to change the displayed section.
+        ReusableMethods.wait(1);
+
+        //04_Filter confirms that the button turns to document
+        softAssert.assertTrue(adminDashboard.filterDocumentButton.isDisplayed());
+        List<WebElement> imagesList = Driver.getDriver().findElements(By.xpath("(//li[@data-context='file']/div/div/img)"));
+        List<WebElement> videosList = Driver.getDriver().findElements(By.xpath("//*[@class='far fa-file-video']"));
+        List<WebElement> dokumentsList = Driver.getDriver().findElements(By.xpath("//*[@class='far fa-file-alt']"));
+
+        Assert.assertFalse(imagesList.size() > 0);
+        Assert.assertTrue(videosList.size() > 0);
+        Assert.assertFalse(dokumentsList.size() > 0);
+
+        //05_Browser is closed.
+
+    }
+
+    @Test
+    public void test09() {
+
+        //01_Browser is open and the visitor goes to the homepage https://qa.hauseheaven.com.
+        extentTest = extentReports.createTest("Hauseheaven test", "From the media page, the view in button should be switched to all media - thrash - recent - favourites");
+        Driver.getDriver().get(ConfigReader.getProperty("urlAdmin"));
+        ReusableMethods.waitFor(3);
+
+        //02_As an administrator, log in with the correct username and password from the signin button
+        adminDashboard.adminEMail.sendKeys("admin21" + Keys.TAB);
+        adminDashboard.adminPassword.sendKeys("951847" + Keys.TAB);
+        adminDashboard.adminRemember.click();
+        adminDashboard.adminSignIn.click();
+        adminDashboard.adminGirisKontrol.isDisplayed();
+        extentTest.info("Admin login successful");
+
+        adminDashboard.mediaButton.click();
+        ReusableMethods.waitFor(2);
+
+        //03_Confirm that the Wiew in button on the media page is all media
+        softAssert.assertTrue(adminDashboard.wiewInButton.isDisplayed());
+
+        //04_On the Media page, click thrash from the View in button and verify
         adminDashboard.wiewInButton.click();
         ReusableMethods.wait(1);
         adminDashboard.wiewInTrashButton.click();
         ReusableMethods.wait(1);
-        //The displayed section is successfully modified and the corresponding files are displayed.
-        Assert.assertTrue(adminDashboard.wiewInTrashButton.isDisplayed());
-        Driver.closeDriver();
+        softAssert.assertTrue(adminDashboard.wiewInTrashButton.isDisplayed());
+
+        //05_Media page, click recent from the View in button and confirm
+        adminDashboard.wiewInButton.click();
+        ReusableMethods.wait(1);
+        adminDashboard.wiewInRecentButton.click();
+        ReusableMethods.wait(1);
+        softAssert.assertTrue(adminDashboard.wiewInRecentButton.isDisplayed());
+
+        //06_Click favourites from the View in button on the Media page and confirm
+        adminDashboard.wiewInButton.click();
+        ReusableMethods.wait(1);
+        adminDashboard.wiewInFavoriteButton.click();
+        ReusableMethods.wait(1);
+        softAssert.assertTrue(adminDashboard.wiewInFavoriteButton.isDisplayed());
+
+        //07_Browser is closed.
+
     }
 
 }
