@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
 import utilities.Driver;
 
 public class AccountPage_Property {
@@ -64,6 +65,24 @@ public class AccountPage_Property {
     public WebElement save;
     @FindBy(xpath = "//span[@id='select2-category_id-container']")
     public WebElement category;
+    @FindBy(xpath = "//input[@class='select2-search__field']")
+    public WebElement categoryClicktenSonraYeniKutu;
+    @FindBy(xpath = "//a[@class='dz-remove']")
+    public WebElement removeFile;
+    @FindBy(xpath = "(//a[@class='prt-link-detail'])[1]")
+    public WebElement listingIlkUrun;
+    @FindBy(xpath = "//h3[@class='prt-price-fix']")
+    public WebElement yuklenenMulkFiyat;
+    @FindBy(xpath = "//*[@id=\"clOne\"]/div/ul/li[3]/text()")
+    public WebElement yuklenenMullkSquare;
+    @FindBy(xpath = "//*[@id=\"clOne\"]/div/ul/li[2]/text()")
+    public WebElement yuklenenMulkBathrooms;
+    @FindBy(xpath = "(//div[@class='block-body'])[2]")
+    public WebElement yuklenenMulkDescription;
+    @FindBy(xpath = "(//i[@class='fa fa-edit'])[1]")
+    public WebElement yuklenenMulkEdit;
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    public WebElement yuklenenMulkEditSaveKontol;
 
     // Add Property bölümü (Feature kısmı)
     @FindBy(xpath = "(//input[@value='1'])[3]")
@@ -181,7 +200,7 @@ public class AccountPage_Property {
 
 
     // Sayfaya loginden sonraki AccountPage bölümü
-    @FindBy(xpath = "//a[@title='Profile']")
+    @FindBy(xpath = "//*[@class='ti-dashboard']")
     public WebElement dashboard;
     @FindBy(xpath = "//a[@title='Settings']")
     public WebElement settings;
@@ -196,9 +215,32 @@ public class AccountPage_Property {
     @FindBy(xpath = "//a[@title='Logout']")
     public WebElement logout;
 
+    //dashboard
+    @FindBy(xpath = "//h4[text() = 'Your Current Credits: ']")
+    public WebElement yourCurentCredits;
+    //settings
+    @FindBy(xpath = "//button[@class='btn btn-primary fw6']")
+    public WebElement Save;
+    @FindBy(xpath = "//div[@class = 'alert alert-success alert-dismissible']")
+    public WebElement successful;
+    @FindBy(xpath = "//h4[text()='Account Information']")
+    public WebElement accountInformation;
+
     //buycredits
     @FindBy(xpath = "(//button[@class='btn btn-primary mt-2'])[2]")
     public WebElement credits5puan;
+    @FindBy(xpath = "(//button[@class='btn btn-primary mt-2'])[3]")
+    public WebElement credits6puan;
+    @FindBy(xpath = "(//button[@class='btn btn-primary mt-2'])[4]")
+    public WebElement credits7puan;
+    @FindBy(xpath = "(//button[@class='btn btn-primary mt-2'])[5]")
+    public WebElement credits8puan;
+    //security
+    @FindBy(xpath = "//button[text()='Update password']")
+    public WebElement updatePassword;
+    @FindBy(xpath = "//span[@data-dismiss='alert']")
+    public WebElement Successfull;
+
 
     // Kredi Kartı Locet'leri
     @FindBy(xpath = "//input[@id='stripe-number']")
@@ -228,8 +270,34 @@ public class AccountPage_Property {
     public WebElement sendMessageIletisim;
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     public WebElement sendMessageIletisimOnay;
-    @FindBy(xpath = "(//div [@class='click slick-initialized slick-slider'])[1]")
+
+    // Mulk islemleri yükleme silme düzenleme vb.
+    @FindBy(xpath = "(//div [@class='click slick-initialized slick-slider'])[2]")
     public WebElement mulkIlani;
+    @FindBy(xpath = "(//a[@rel='nofollow'])[1]")
+    public WebElement girisYaptiginaDairBilgi;
+    @FindBy(xpath = "//span[@data-action='create']")
+    public WebElement createaccounproperty;
+    @FindBy(xpath = "//span[@class='dt-length-records']")
+    public WebElement ilanSayiBilgi;
+    @FindBy(xpath = "//button[@class='js-cookie-consent-agree cookie-consent__agree']")
+    public WebElement cookies;
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    public WebElement yuklenenMulk;
+    @FindBy(xpath = "(//i[@class='fa fa-edit'])[1]")
+    public WebElement mulkDuzenleme;
+    @FindBy(xpath = "(//a[@class='btn btn-icon btn-sm btn-danger deleteDialog'])[1]")
+    public WebElement yuklenenMulkuSil;
+    @FindBy(xpath = "//button[@class='float-end btn btn-danger delete-crud-entry']")
+    public WebElement yuklenenMulkuSilBilgiKutusu;
+    @FindBy(xpath = "//span[text()='Publish']")
+    public WebElement saveExitUstuElement;
+    @FindBy(xpath = "//span[text()='The name field is required.']")
+    public WebElement titleGirilmdigindeVerilenHata;
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    public WebElement contentGirilmedigindeVerilenHata;
+    @FindBy(xpath = "//td[@class='column-key-id sorting_1 dtr-control']")
+    public WebElement yuklenenMulkID;
 
 
 }
