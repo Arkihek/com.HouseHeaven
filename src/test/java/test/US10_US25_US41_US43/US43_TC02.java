@@ -27,8 +27,9 @@ public class US43_TC02 extends TestBaseReport {
       // BUG BUG BUG!!!----> Delete butonu gorunmuyor eklenen oge delete edilemiyor
         extentTest = extentReports.createTest("Checking contacts by Admin Test", "Admin should be able to check the contacts");
 
-        SoftAssert softAssert = new SoftAssert();
+
         Driver.getDriver().get("https://qa.hauseheaven.com/admin/login");
+        SoftAssert softAssert = new SoftAssert();
         Driver.getDriver().findElement(By.xpath("//input[@name='username']")).sendKeys("admin21");
         Driver.getDriver().findElement(By.xpath("//input[@name='password']")).sendKeys("951847");
         Driver.getDriver().findElement(By.xpath("//span[@class='signin']")).click();
@@ -45,16 +46,10 @@ public class US43_TC02 extends TestBaseReport {
         contactNumbers.click();
         Thread.sleep(3000);
 
-
-
-
-        // softAssert.assertTrue(contactNumbers.isDisplayed());
-
         List<WebElement> contactsInformations = Driver.getDriver().findElements(By.xpath("//span[@class='badge badge-success menu-item-count unread-contacts']"));
         for (WebElement eachinformation : contactsInformations) {
             softAssert.assertTrue(eachinformation.isDisplayed(), "Contact information is not displayed");
-
-
+            
             WebElement editButton = Driver.getDriver().findElement(By.xpath("//td[@class=' text-center']"));
             editButton.click();
 
@@ -69,13 +64,6 @@ public class US43_TC02 extends TestBaseReport {
             JSUtilities.clickWithJS(Driver.getDriver(),saveExit);
            Thread.sleep(3000);
 
-
-
-            //WebElement saveOnly = Driver.getDriver().findElement(By.xpath("//button[@class='btn btn-success'][1]"));
-            // saveOnly.click();
-
-           // WebElement contactNumberss = Driver.getDriver().findElement(By.xpath("//span[@class='badge badge-success menu-item-count unread-contacts']"));
-           // contactNumberss.click();
 
             WebElement contactSayisi2 = Driver.getDriver().findElement(By.xpath("//span[@class='dt-length-records']"));
             softAssert.assertTrue(contactSayisi2.isDisplayed(),"contact numbers are not displayed");

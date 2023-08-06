@@ -20,9 +20,9 @@ public class US43_TC01 extends TestBaseReport {
         extentTest = extentReports.createTest("New contact test", " Visitor should be able to add new contact");
 
         Driver.getDriver().get("https://qa.hauseheaven.com/");
-
-        WebElement contackButton =Driver.getDriver().findElement(By.xpath("//*[@id=\"navigation\"]/div[2]/ul[1]/li[6]/a"));
         SoftAssert softAssert = new SoftAssert();
+        WebElement contackButton =Driver.getDriver().findElement(By.xpath("//*[@id=\"navigation\"]/div[2]/ul[1]/li[6]/a"));
+
         softAssert.assertTrue(contackButton.isDisplayed());
         softAssert.assertTrue(contackButton.isEnabled());
         contackButton.click();

@@ -23,10 +23,11 @@ public class US41_TC02 extends TestBaseReport {
 
 
 
-        SoftAssert softAssert = new SoftAssert();
+
 
         extentTest = extentReports.createTest("Admin accounts control Test", " Admin should be able to check and delete the registered accounts");
         Driver.getDriver().get("https://qa.hauseheaven.com/admin/login");
+        SoftAssert softAssert = new SoftAssert();
         Driver.getDriver().findElement(By.xpath("//input[@name='username']")).sendKeys("admin21");
         Driver.getDriver().findElement(By.xpath("//input[@name='password']")).sendKeys("951847");
         Driver.getDriver().findElement(By.xpath("//span[@class='signin']")).click();
