@@ -15,14 +15,15 @@ import java.util.List;
 public class US05 extends TestBaseReport {
     Actions action = new Actions(Driver.getDriver());
 
-    // "As a visitor, you can see the list link at the top of the home page.
-    //and when clicked it should verify that it is reachable"
+
     @Test
     public void TC01() {
         Actions actions = new Actions(Driver.getDriver());
         SoftAssert softAssert = new SoftAssert();
         ListingPage listingPage = new ListingPage();
 
+        // "As a visitor, you can see the list link at the top of the home page.
+        //and when clicked it should verify that it is reachable"
         extentTest = extentReports.createTest("Hauseheaven test", "On Home Page page ");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         softAssert.assertTrue(listingPage.listLink.isDisplayed(), "Listing link cannot be displayed");
@@ -39,7 +40,6 @@ public class US05 extends TestBaseReport {
         listingPage.listAramaSonucElementi.isDisplayed();
 
         //Details of the displayed advertisements should be accessible.
-
         ReusableMethods.waitFor(3);
         List<WebElement> ilanDetaylari = Driver.getDriver().findElements(By.xpath(ConfigReader.getProperty("ilanDetay")));
         for (WebElement eachilan : ilanDetaylari) {
@@ -50,18 +50,17 @@ public class US05 extends TestBaseReport {
         }
         Driver.closeDriver();
     }
-    //"You should be able to get results by searching the page.
 
-    //The results should be able to be verified in details."
 
     @Test
     public void TC02() {
        action = new Actions(Driver.getDriver());
         SoftAssert softAssert = new SoftAssert();
         ListingPage listingPage = new ListingPage();
+        //"You should be able to get results by searching the page.
+        //The results should be able to be verified in details."
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        // softAssert.assertTrue(listingPage.listLink.isDisplayed(), "Listing link cannot be displayed");
         ReusableMethods.waitFor(3);
         listingPage.listLink.click();
         listingPage.listSayfacookies.click();

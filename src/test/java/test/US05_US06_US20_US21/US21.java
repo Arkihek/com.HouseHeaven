@@ -18,6 +18,7 @@ public class US21 extends TestBaseReport {
     public void TC01() {
         extentTest = extentReports.createTest("posting test");
         ListingPage listingPage = new ListingPage();
+
         // Details of properties on the listing page should be able to reach
         SoftAssert softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -45,11 +46,17 @@ public class US21 extends TestBaseReport {
 
     @Test
     public void TC02() {
+        //Browser opens, go to URL
         ListingPage listingPage = new ListingPage();
         SoftAssert softAssert = new SoftAssert();
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         UserHomepage userHomepage = new UserHomepage();
+
+        //Click on the "Sign In" button at the top of the homepage
         userHomepage.signupButonu.click();
+
+        //Valid "username" and "password" on the login page
+        //Enter the values and click the "Login" button.
         userHomepage.usernamegiris.sendKeys(ConfigReader.getProperty("userMail"));
         userHomepage.passwordGiris.sendKeys(ConfigReader.getProperty("userPass"));
         JSUtilities.scrollToElement(Driver.getDriver(), userHomepage.usernamegiris);
@@ -90,15 +97,31 @@ public class US21 extends TestBaseReport {
         JSUtilities.scrollToElement(Driver.getDriver(), listingPage.scrollTime);
         ReusableMethods.waitFor(3);
         listingPage.houseclick.click();
-        JSUtilities.scrollToElement(Driver.getDriver(), listingPage.messageTextBox);
 
+       //Service can be given 3 points, Value for Money 4 points, Location 2 points, Cleanlinnes 5 points, and
+        // Verify that the average Rating' is calculated
+        listingPage.propertyWriteReview3Star.get(0).sendKeys(Keys.ENTER);
+        listingPage.propertyWriteReview4Star.get(1).sendKeys(Keys.ENTER);
+        listingPage.propertyWriteReview2Star.get(2).sendKeys(Keys.ENTER);
+        listingPage.propertyWriteReview5Star.get(3).sendKeys(Keys.ENTER);
+        String expectedAverageRaiting="3.50";
+        String actualAveragaRaiting=listingPage.propertyWriteReviewAverageRaitingElement.getText();
+        Assert.assertEquals(actualAveragaRaiting,expectedAverageRaiting);
+
+        //Verify that the "Messages" box is visible
+        JSUtilities.scrollToElement(Driver.getDriver(), listingPage.messageTextBox);
         ReusableMethods.waitFor(2);
+        //Verifies that text can be written in the Messages box
         listingPage.messageTextBox.sendKeys("Your message was created successfully");
         ReusableMethods.waitFor(2);
-        //JSUtilities.scrollToElement(Driver.getDriver(),listingPage.messageTextBox);
+
+        //Verifies that the "Submit Review" button is visible
+        listingPage.submitReviev.isDisplayed();
         ReusableMethods.waitFor(2);
+        //Click the "Submit Review" button
         listingPage.submitReviev.click();
         ReusableMethods.waitFor(2);
+        //It is verified that a comment has been added to the advertisement page.
         softAssert.assertTrue(listingPage.messageAlert.isDisplayed());
        // extentTest.info("your message has been sent successfully");
 

@@ -43,6 +43,7 @@ public class US20  extends TestBaseReport {
 
         //The number of existing properties should be displayed on the list
         listingPage.aramaSonucDetay.isDisplayed();
+
         // page and the details of the displayed advertisements should be accessible.
         List<WebElement> ilanDetaylari=Driver.getDriver().findElements(By.xpath(ConfigReader.getProperty("ilanDetay")));
         for (WebElement eachilan:ilanDetaylari) {
@@ -69,14 +70,13 @@ public class US20  extends TestBaseReport {
         listingPage.listLink.click();
         listingPage.listSayfacookies.click();
         ReusableMethods.waitFor(3);
+
         //"You should be able to get results by searching the page.
-
         //The results should be able to be verified in details."
-        listingPage.searchlocationbox.sendKeys("Newark");
 
+        listingPage.searchlocationbox.sendKeys("Newark");
         ReusableMethods.waitFor(3);
         JSUtilities.scrollToElement(Driver.getDriver(),listingPage.dropdownMax);
-
 
         actions.click(Driver.getDriver().findElement(By.xpath("(//span[@role='presentation'])[2]")));
         actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
@@ -97,11 +97,9 @@ public class US20  extends TestBaseReport {
         actions.click(Driver.getDriver().findElement(By.xpath("(//span[@role='presentation'])[7]"))).perform();
         ReusableMethods.waitFor(2);
         listingPage.findNewHomeButton.sendKeys(Keys.ENTER);
-        //actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-
         ReusableMethods.waitFor(3);
-      //  listingPage.findNewHomeButton.sendKeys(Keys.ENTER);
         softAssert.assertTrue(listingPage.aramaSonucSayisi.isDisplayed());
+
         // The number of received results should be displayed.
         System.out.println(listingPage.aramaSonucSayisi);
         softAssert.assertTrue(listingPage.foundOfResault.isDisplayed(),"The searched result was not found");
