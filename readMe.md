@@ -8,7 +8,7 @@
 
 3. Projede yapilacak her adim ingilizce yapilmalidir calsimalar turkce yapilsa dahil push yapilmadan once ingilizceye cevirilmelidir (google translate ile cevirilebilir)
 
-   <br/>
+      <br/>
    
 ### Git
 ***
@@ -16,7 +16,7 @@
     * `git branch <isim>`
       
 2. branch degisikligi yaparken terminalde:
-    * git checkout <isim> 
+    * `git checkout <isim>`
     * veya 
     * git checkout main seklinde gecis yapilir
    
